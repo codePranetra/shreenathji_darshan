@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'ups' => [
+        'client_id' => env('UPS_CLIENT_ID'),
+        'client_secret' => env('UPS_CLIENT_SECRET'),
+        'base_url' => env('UPS_BASE_URL', 'https://wwwcie.ups.com'),
+    ],
+
 ];
