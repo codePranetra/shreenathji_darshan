@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Booking;
+use App\Models\Package;
 
 class BookingController extends Controller
 {
@@ -18,7 +19,21 @@ class BookingController extends Controller
             'date'       => 'required|date',
             'guests'     => 'required|integer|min:1',
             'package_id' => 'required|integer',
+            'is_varified'=> 'sometimes|boolean',
         ]);
+
+        // Retrieve the package to get its price
+        $package = Package::find($validated['package_id']);
+        
+        if (!$package) {
+            return response()->json([
+                'status'  => false,
+                'message' => 'Package not found'
+            ], 404);
+        }
+
+        // Calculate amount: package price * number of guests
+        $amount = $package->price * $validated['guests'];
 
         // Map frontend field names to DB column names
         $bookingData = [
@@ -28,7 +43,8 @@ class BookingController extends Controller
             'date'          => $validated['date'],
             'members'       => $validated['guests'],
             'package_id'    => $validated['package_id'],
-            'amount'        => 0, // Should be calculated based on package
+            'is_varified'  => $validated['is_varified'] ?? false,
+            'amount'        => $amount, // Calculated amount
             'darshan_id'    => 1, // Default darshan_id
         ];
 
@@ -105,10 +121,25 @@ class BookingController extends Controller
             'date'       => 'sometimes|date',
             'guests'     => 'sometimes|integer|min:1',
             'package_id' => 'sometimes|integer',
+            'is_varified'=> 'sometimes|boolean',
           
             'amount'     => 'sometimes|numeric|min:0',
             'darshan_id' => 'sometimes|integer',
         ]);
+
+        // If package_id or guests are being updated, recalculate amount
+        $amount = $booking->amount; // Default to current amount
+        if (isset($validated['package_id']) || isset($validated['guests'])) {
+            $packageId = $validated['package_id'] ?? $booking->package_id;
+            $guests = $validated['guests'] ?? $booking->members;
+            
+            $package = Package::find($packageId);
+            if ($package) {
+                $amount = $package->price * $guests;
+            }
+        } else if (isset($validated['amount'])) {
+            $amount = $validated['amount'];
+        }
 
         // Map frontend → DB fields if present
         $updateData = [];
@@ -118,8 +149,9 @@ class BookingController extends Controller
         if (isset($validated['date']))       $updateData['date']          = $validated['date'];
         if (isset($validated['guests']))     $updateData['members']       = $validated['guests'];
         if (isset($validated['package_id'])) $updateData['package_id']    = $validated['package_id'];
+        if (isset($validated['is_varified'])) $updateData['is_varified']  = $validated['is_varified'];
          
-        if (isset($validated['amount']))     $updateData['amount']        = $validated['amount'];
+        $updateData['amount'] = $amount;
         if (isset($validated['darshan_id'])) $updateData['darshan_id']    = $validated['darshan_id'];
 
         $booking->update($updateData);

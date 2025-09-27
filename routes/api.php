@@ -27,7 +27,7 @@ Route::get('/role/{id}', [RoleController::class, 'getById']);
 
 // ================= BOOKING ROUTES (PUBLIC) ================= //
 Route::post('/booking', [BookingController::class, 'store']);     // Create booking
-  // Get single booking
+Route::get('/booking/{id}', [BookingController::class, 'show']);   // Get single booking
 
 // User
 Route::get('/user', [UserController::class, 'index']);
@@ -89,6 +89,5 @@ Route::middleware('auth:api')->group(function () {
     // ================= BOOKING ROUTES (PROTECTED) ================= //
     Route::put('/booking/{id}', [BookingController::class, 'update']);    // Update booking
     Route::get('/booking', [BookingController::class, 'index']);     // Get all bookings
-    Route::get('/booking/{id}', [BookingController::class, 'show']);
     Route::delete('/booking/{id}', [BookingController::class, 'destroy']); // Delete booking (optional)
 });

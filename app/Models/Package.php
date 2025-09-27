@@ -10,11 +10,15 @@ class Package extends Model
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'name',
         'price',
-        'description' => 'array',
+        'description',
         'is_active',
         'is_deleted'
+    ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
+        'description' => 'array'
     ];
 }

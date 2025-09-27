@@ -18,6 +18,7 @@ class Booking extends Model
         'amount',
         'darshan_id',
         'package_id',
+        'is_varified',
         'is_active',
         'is_deleted'
     ];
