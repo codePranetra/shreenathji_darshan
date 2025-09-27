@@ -1,7 +1,7 @@
 <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="{{ asset('images/WhatsApp Image 2025-09-23 at 8.24.15 AM.jpeg') }}" alt="Shreenath Ji Logo" class="nav-logo-img centered-image">
+                <img src="<?php echo e(asset('images/WhatsApp Image 2025-09-23 at 8.24.15 AM.jpeg')); ?>" alt="Shreenath Ji Logo" class="nav-logo-img centered-image">
                 <span>shreeji ke Darshan</span>
             </div>
             <ul class="nav-menu">
@@ -18,4 +18,4 @@
                 <span></span>
             </div>
         </div>
-    </nav>
+    </nav><?php /**PATH D:\shreenathji_darshan\resources\views/layouts/nav.blade.php ENDPATH**/ ?>

@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('meta-tags')
+<?php $__env->startSection('meta-tags'); ?>
     <!-- Meta Tags for SEO -->
     <meta name="description" content="Welcome to the Home Page of My Laravel Application.">
     <meta name="keywords" content="home, Laravel, Blade template, web development">
@@ -8,21 +6,18 @@
     <meta property="og:title" content="Home Page - Laravel App">
     <meta property="og:description" content="Welcome to the Home Page of My Laravel Application.">
     <meta property="og:image" content="URL_to_an_image.jpg">
-    <meta property="og:url" content="{{ url()->current() }}">
-    {{-- <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Home Page - Laravel App">
-    <meta name="twitter:description" content="Welcome to the Home Page of My Laravel Application.">
-    <meta name="twitter:image" content="URL_to_an_image.jpg"> --}}
-@endsection
+    <meta property="og:url" content="<?php echo e(url()->current()); ?>">
+    
+<?php $__env->stopSection(); ?>
 
-@section('css')
+<?php $__env->startSection('css'); ?>
     <!-- Custom CSS (if needed for this page) -->
     <style>
        
     </style>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
        <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
@@ -383,9 +378,9 @@
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
+<?php $__env->startSection('js'); ?>
     <script>
         // Function to convert 24-hour time to 12-hour format with AM/PM
         function convertTo12HourFormat(time24) {
@@ -755,4 +750,6 @@
             }
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\shreenathji_darshan\resources\views/index.blade.php ENDPATH**/ ?>

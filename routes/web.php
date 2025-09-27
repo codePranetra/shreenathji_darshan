@@ -14,9 +14,9 @@ use App\Http\Controllers\FrontpageController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/test', [FrontpageController::class, 'index']);
+Route::get('/', [FrontpageController::class, 'index']);
 
