@@ -13,7 +13,7 @@ class DarshanTimingController extends Controller
 {
         public function index(Request $request){
             try {
-                $darshanTimings = DarshanTiming::where('is_active', 1)->where('is_deleted', 0)->orderBy('id', 'desc')->get();
+                $darshanTimings = DarshanTiming::where('is_active', 1)->where('is_deleted', 0)->orderBy('updated_at', 'asc')->get();
 
                 $response = array();
                 $response['data'] = $darshanTimings;

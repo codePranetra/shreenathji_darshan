@@ -13,7 +13,7 @@ class PackageController extends Controller
 {
         public function index(Request $request){
             try {
-                $packages = Package::where('is_active', 1)->where('is_deleted', 0)->orderBy('id', 'desc')->get();
+                $packages = Package::where('is_active', 1)->where('is_deleted', 0)->orderBy('updated_at', 'asc')->get();
                 // 
                 $response = array();
                 $response['data'] = $packages;

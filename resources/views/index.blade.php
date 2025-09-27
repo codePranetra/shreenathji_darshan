@@ -322,17 +322,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="10" fill="none" stroke="#1B3C5D" stroke-width="2"/>
-                            <path d="M 12 6 L 12 12 L 16 12" stroke="#FFD700" stroke-width="2" fill="none"/>
-                        </svg>
-                        <div>
-                            <h3>Darshan Timings</h3>
-                            <p>Morning: 6:00 AM - 12:00 PM</p>
-                            <p>Evening: 4:00 PM - 8:00 PM</p>
-                        </div>
-                    </div>
+            
                 </div>
                 <div class="contact-form">
                     <h3>Send us a Message</h3>
