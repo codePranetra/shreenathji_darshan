@@ -19,7 +19,7 @@ class BookingController extends Controller
             'date'       => 'required|date',
             'guests'     => 'required|integer|min:1',
             'package_id' => 'required|integer',
-            'is_varified'=> 'sometimes|boolean',
+            'is_verified'=> 'sometimes|boolean',
         ]);
 
         // Retrieve the package to get its price
@@ -43,7 +43,7 @@ class BookingController extends Controller
             'date'          => $validated['date'],
             'members'       => $validated['guests'],
             'package_id'    => $validated['package_id'],
-            'is_varified'  => $validated['is_varified'] ?? false,
+            'is_verified'  => $validated['is_verified'] ?? false,
             'amount'        => $amount, // Calculated amount
             'darshan_id'    => 1, // Default darshan_id
         ];
@@ -121,7 +121,7 @@ class BookingController extends Controller
             'date'       => 'sometimes|date',
             'guests'     => 'sometimes|integer|min:1',
             'package_id' => 'sometimes|integer',
-            'is_varified'=> 'sometimes|boolean',
+            'is_verified'=> 'sometimes|boolean',
           
             'amount'     => 'sometimes|numeric|min:0',
             'darshan_id' => 'sometimes|integer',
@@ -149,7 +149,7 @@ class BookingController extends Controller
         if (isset($validated['date']))       $updateData['date']          = $validated['date'];
         if (isset($validated['guests']))     $updateData['members']       = $validated['guests'];
         if (isset($validated['package_id'])) $updateData['package_id']    = $validated['package_id'];
-        if (isset($validated['is_varified'])) $updateData['is_varified']  = $validated['is_varified'];
+        if (isset($validated['is_verified'])) $updateData['is_verified']  = $validated['is_verified'];
          
         $updateData['amount'] = $amount;
         if (isset($validated['darshan_id'])) $updateData['darshan_id']    = $validated['darshan_id'];
