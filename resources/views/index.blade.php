@@ -305,7 +305,7 @@
                         <div>
                             <h3>WhatsApp</h3>
                             <p>+91 93766 95545</p>
-                            <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank">
+                            <a href="https://wa.me/919376695545" class="whatsapp-btn" target="_blank">
                                 <svg class="whatsapp-icon" width="16" height="16" viewBox="0 0 16 16">
                                     <path d="M 8 2 C 4.1 2 1 5.1 1 9 C 1 10.9 1.8 12.6 3.1 13.9 L 1 15 L 2.1 13.9 C 3.4 15.2 5.1 16 7 16 C 10.9 16 14 12.9 14 9 C 14 5.1 10.9 2 8 2 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
                                     <path d="M 6 7 L 10 7 M 6 9 L 8 9" stroke="currentColor" stroke-width="1.5" fill="none"/>
