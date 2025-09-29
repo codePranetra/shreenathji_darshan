@@ -403,7 +403,7 @@
             <div class="modal-body text-center">
                 <p>Scan the QR code below to make your advance payment:</p>
                 <img id="qrCodeImage" src="" alt="QR Code for Payment" style="max-width: 300px; height: auto; margin: 20px auto; display: block;">
-                <p>After scanning, you will be redirected to the payment gateway.</p>
+                
                 <button class="submit-btn" onclick="closeQrCodeModal()">Close</button>
             </div>
         </div>
