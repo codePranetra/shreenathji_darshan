@@ -216,15 +216,24 @@
                         </label>
                         <input type="number" id="guests" name="guests" min="1" max="10" value="1">
                     </div>
-                    <button type="submit" class="submit-btn">
-                        <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
-                            <path
-                                d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z"
-                                fill="none" stroke="currentColor" stroke-width="2" />
-                            <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none" />
-                        </svg>
-                        Proceed to Payment
-                    </button>
+                    <div class="form-group booking-buttons">
+                        <button type="submit" class="submit-btn">
+                            <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
+                                <path
+                                    d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z"
+                                    fill="none" stroke="currentColor" stroke-width="2" />
+                                <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none" />
+                            </svg>
+                            Submit Booking
+                        </button>
+                        <button type="button" class="advance-payment-btn" id="advancePaymentButton">
+                            <svg class="payment-icon" width="20" height="20" viewBox="0 0 20 20">
+                                <path d="M 2 6 L 18 6 L 18 14 L 2 14 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M 6 10 L 8 8 L 11 11 L 14 9" stroke="currentColor" stroke-width="2" fill="none"/>
+                            </svg>
+                            Advance Payment
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -383,6 +392,22 @@
             </div>
         </div>
     </div>
+
+    <!-- QR Code Modal -->
+    <div id="qrCodeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Scan QR Code for Payment</h2>
+                <span class="close" onclick="closeQrCodeModal()">&times;</span>
+            </div>
+            <div class="modal-body text-center">
+                <p>Scan the QR code below to make your advance payment:</p>
+                <img id="qrCodeImage" src="" alt="QR Code for Payment" style="max-width: 300px; height: auto; margin: 20px auto; display: block;">
+                <p>After scanning, you will be redirected to the payment gateway.</p>
+                <button class="submit-btn" onclick="closeQrCodeModal()">Close</button>
+            </div>
+        </div>
+    </div>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('js'); ?>
@@ -481,7 +506,7 @@
                         packageCard.innerHTML = `
                             <div class="package-header">
                                 <h3>${packageItem.name}</h3>
-                                <div class="price">₹${parseFloat(packageItem.price).toFixed(0)}</div>
+                                <div class="package-price">₹${parseFloat(packageItem.price).toFixed(0)} <small>per person</small></div>
                             </div>
                             <div class="package-content">
                                 ${formatDescriptionAsBulletPoints(packageItem.description)}
@@ -739,6 +764,50 @@
             document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
         }
         
+        // Function to handle scanner button click
+        function handleScannerClick() {
+            // Show a message indicating scanner functionality
+            alert('QR Code scanner would open here in a mobile application. This is a demonstration of the UI element.');
+            
+            // In a real implementation, you might use:
+            // 1. Browser's MediaDevices API for camera access
+            // 2. A library like jsQR for QR code scanning
+            // 3. Or redirect to a mobile app that can handle QR scanning
+        }
+        
+        // Function to handle advance payment button click
+        function handleAdvancePaymentClick() {
+            // Get the QR code modal
+            const qrModal = document.getElementById('qrCodeModal');
+            const qrImage = document.getElementById('qrCodeImage');
+            
+            // Set the QR code image source (using the scanner booking image)
+            qrImage.src = 'images/scanner booking.jpeg';
+            
+            // Show the modal
+            qrModal.style.display = 'block';
+        }
+        
+        // Function to close the QR code modal
+        function closeQrCodeModal() {
+            const qrModal = document.getElementById('qrCodeModal');
+            qrModal.style.display = 'none';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const successModal = document.getElementById('successModal');
+            const qrModal = document.getElementById('qrCodeModal');
+            
+            if (event.target === successModal) {
+                successModal.style.display = 'none';
+            }
+            
+            if (event.target === qrModal) {
+                qrModal.style.display = 'none';
+            }
+        }
+        
         // Fetch all data when page loads
         document.addEventListener('DOMContentLoaded', function() {
             updateTimingsHeading();
@@ -752,6 +821,12 @@
             const bookingForm = document.getElementById('bookingForm');
             if (bookingForm) {
                 bookingForm.addEventListener('submit', submitBookingForm);
+            }
+            
+            // Add event listener to the advance payment button
+            const advancePaymentButton = document.getElementById('advancePaymentButton');
+            if (advancePaymentButton) {
+                advancePaymentButton.addEventListener('click', handleAdvancePaymentClick);
             }
         });
     </script>
