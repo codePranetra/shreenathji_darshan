@@ -186,11 +186,7 @@
                         </label>
                         <select id="time" name="time" required>
                             <option value="">Select Time</option>
-                            <option value="06:00">6:00 AM - Morning Aarti</option>
-                            <option value="09:00">9:00 AM - Regular Darshan</option>
-                            <option value="12:00">12:00 PM - Rajbhog</option>
-                            <option value="16:00">4:00 PM - Evening Darshan</option>
-                            <option value="19:00">7:00 PM - Shayan Aarti</option>
+                            <!-- Time options will be populated dynamically from API -->
                         </select>
                     </div>
                     <div class="form-group">
@@ -652,6 +648,39 @@
             }
         }
         
+        // Function to fetch darshan timings for the Preferred Time select field
+        async function fetchPreferredTimeOptions() {
+            try {
+                const response = await fetch('/api/darshantiming');
+                const result = await response.json();
+                
+                // Get the time select element
+                const timeSelect = document.getElementById('time');
+                
+                // Clear existing options except the first one
+                timeSelect.innerHTML = '<option value="">Select Time</option>';
+                
+                // Check if we have timings data
+                if (result && result.data && result.data.length > 0) {
+                    // Add timings to the select dropdown
+                    result.data.forEach(timing => {
+                        // Extract just the time part (HH:MM) from the datetime string
+                        const timePart24 = timing.time.split(' ')[1].substring(0, 5);
+                        
+                        // Convert to 12-hour format
+                        const timePart12 = convertTo12HourFormat(timePart24);
+                        
+                        const option = document.createElement('option');
+                        option.value = timePart24;
+                        option.textContent = `${timePart12} - ${timing.title}`;
+                        timeSelect.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching preferred time options:', error);
+            }
+        }
+        
         // Function to handle form submission
         async function submitBookingForm(event) {
             event.preventDefault();
@@ -821,6 +850,7 @@
             fetchPackagesForBooking();
             fetchDarshanTimings();
             fetchHeroTimings();
+            fetchPreferredTimeOptions();
             
             // Add event listener to the booking form
             const bookingForm = document.getElementById('bookingForm');
