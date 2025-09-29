@@ -317,7 +317,22 @@
                             </a>
                         </div>
                     </div>
-            
+                    <div class="contact-item">
+                        <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M 2 6 L 12 12 L 22 6 M 2 6 L 2 18 C 2 19.1 2.9 20 4 20 L 20 20 C 21.1 20 22 19.1 22 18 L 22 6 M 2 6 L 14 6 M 2 6 L 12 12 M 22 6 L 12 12" fill="none" stroke="#1B3C5D" stroke-width="2"/>
+                            <circle cx="12" cy="9" r="3" fill="none" stroke="#007bff" stroke-width="2"/>
+                        </svg>
+                        <div>
+                            <h3>Email</h3>
+                            <p>Shreejikdarshan@gmail.com</p>
+                            <a href="mailto:Shreejikdarshan@gmail.com" class="email-btn" target="_blank">
+                                <svg class="email-icon" width="16" height="16" viewBox="0 0 16 16">
+                                    <path d="M 2 4 L 8 8 L 14 4 M 2 4 L 2 12 C 2 13.1 2.9 14 4 14 L 12 14 C 13.1 14 14 13.1 14 12 L 14 4 M 2 4 L 14 4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                Send Email
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="contact-form">
                     <h3>Send us a Message</h3>

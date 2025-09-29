@@ -982,7 +982,11 @@ body {
 /* Timings Section */
 .timings {
     padding: 80px 0;
-    background: var(--ivory-white);
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/timing background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-dark);
 }
 
 .timings h2 {
@@ -1013,10 +1017,10 @@ body {
 }
 
 .timing-slot {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     padding: 20px;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 20px rgba(27, 60, 93, 0.3);
     border: 2px solid var(--gold);
     text-align: center;
     transition: var(--transition);
@@ -1036,7 +1040,7 @@ body {
 }
 
 .timing-slot .description {
-    color: var(--text-light);
+    color: var(--text-dark);
     font-size: 0.9rem;
 }
 
@@ -1244,7 +1248,8 @@ body {
 }
 
 .whatsapp-btn,
-.map-btn {
+.map-btn,
+.email-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -1258,8 +1263,19 @@ body {
 }
 
 .whatsapp-btn:hover,
-.map-btn:hover {
+.map-btn:hover,
+.email-btn:hover {
     background: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+/* Specific styling for email button */
+.email-btn {
+    background:var(--peacock-blue);
+}
+
+.email-btn:hover {
+    background:  var(--dark-blue);
     transform: translateY(-2px);
 }
 
