@@ -21,6 +21,7 @@ return new class extends Migration
         $table->decimal('amount', 10, 2);
         $table->unsignedBigInteger('darshan_id');
         $table->unsignedBigInteger('package_id');
+        $table->boolean('is_verified')->default(0);
         $table->boolean('is_active')->default(1);
         $table->boolean('is_deleted')->default(0);
         $table->timestamps();
