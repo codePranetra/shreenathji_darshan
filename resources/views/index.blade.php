@@ -295,7 +295,7 @@
                         </svg>
                         <div>
                             <h3>WhatsApp</h3>
-                            <p>+91 98765 43210</p>
+                            <p>+91 93766 95545</p>
                             <a href="https://wa.me/919876543210" class="whatsapp-btn" target="_blank">
                                 <svg class="whatsapp-icon" width="16" height="16" viewBox="0 0 16 16">
                                     <path d="M 8 2 C 4.1 2 1 5.1 1 9 C 1 10.9 1.8 12.6 3.1 13.9 L 1 15 L 2.1 13.9 C 3.4 15.2 5.1 16 7 16 C 10.9 16 14 12.9 14 9 C 14 5.1 10.9 2 8 2 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -478,7 +478,7 @@
                             </div>
                             <div class="package-buttons">
                                 <button class="book-btn" onclick="selectPackage(${packageItem.id})">Book Now</button>
-                                <a href="tel:+919876543210" class="call-btn">
+                                <a href="tel:+9193766 95545" class="call-btn">
                                     <svg class="call-icon" width="16" height="16" viewBox="0 0 16 16">
                                         <path d="M 3 6 C 3 2 6 1 9 2 C 12 3 14 5 13 8 C 12 11 10 12 7 11 C 4 10 2 8 3 6 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
                                         <path d="M 8 4 L 8 7 L 11 7" stroke="currentColor" stroke-width="1.5" fill="none"/>
