@@ -157,7 +157,7 @@
                             </svg>
                             Mobile Number *
                         </label>
-                        <input type="tel" id="mobile" name="mobile" required>
+                        <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10,15}" title="Please enter a valid mobile number (10-15 digits)" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                     </div>
                     <div class="form-group">
                         <label for="date">
@@ -215,7 +215,7 @@
                             </svg>
                             Number of Guests
                         </label>
-                        <input type="number" id="guests" name="guests" min="1" max="10" value="1">
+                        <input type="number" id="guests" name="guests" min="1" max="50" value="1">
                     </div>
                     <div class="form-group booking-buttons">
                         <button type="submit" class="submit-btn">
@@ -295,7 +295,7 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <svg class="contact-icon" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M 12 2 C 6.5 2 2 6.5 2 12 C 2 17.5 6.5 22 12 22 C 17.5 22 22 17.5 22 12 C 22 6.5 17.5 2 12 2 Z" fill="none" stroke="#1B3C5D" stroke-width="2"/>
+                            <path d="M 12 2 C 4.1 2 1 5.1 1 9 C 1 10.9 1.8 12.6 3.1 13.9 L 1 15 L 2.1 13.9 C 3.4 15.2 5.1 16 7 16 C 10.9 16 14 12.9 14 9 C 14 5.1 10.9 2 8 2 Z" fill="none" stroke="#1B3C5D" stroke-width="2"/>
                             <path d="M 8 12 L 11 15 L 16 10" stroke="#FFD700" stroke-width="2" fill="none"/>
                         </svg>
                         <div>
@@ -716,8 +716,8 @@
                 const result = await response.json();
                 
                 if (response.ok) {
-                    // Show success message
-                    showSuccessMessage('Booking submitted successfully!');
+                    // Show success popup
+                    showBookingSuccessPopup();
                     // Reset form
                     event.target.reset();
                 } else {
@@ -742,9 +742,41 @@
             }
         }
         
-        // Function to show success message
-        function showSuccessMessage(message) {
-            showMessage(message, 'success');
+        // Function to show booking success popup
+        function showBookingSuccessPopup() {
+            // Get the success modal
+            const successModal = document.getElementById('successModal');
+            
+            // Update the message in the modal
+            const modalBody = successModal.querySelector('.modal-body');
+            if (modalBody) {
+                modalBody.innerHTML = `
+                    <div class="success-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60">
+                            <circle cx="30" cy="30" r="25" fill="none" stroke="#4CAF50" stroke-width="3"/>
+                            <path d="M 20 30 L 27 37 L 40 24" stroke="#4CAF50" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <p>Booking submitted successfully!</p>
+                    <p>We will send you a confirmation message on WhatsApp shortly.</p>
+                    <button class="whatsapp-btn" onclick="sendWhatsAppMessage()">
+                        <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
+                            <path d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        Send WhatsApp Confirmation
+                    </button>
+                `;
+            }
+            
+            // Show the modal
+            successModal.style.display = 'block';
+        }
+        
+        // Function to close the success modal
+        function closeSuccessModal() {
+            const successModal = document.getElementById('successModal');
+            successModal.style.display = 'none';
         }
         
         // Function to show error message
@@ -816,7 +848,7 @@
             const qrImage = document.getElementById('qrCodeImage');
             
             // Set the QR code image source (using the scanner booking image)
-            qrImage.src = 'images/scanner booking.jpeg';
+            qrImage.src = '/images/shreenath ji Scanner.jpeg';
             
             // Show the modal
             qrModal.style.display = 'block';
