@@ -132,7 +132,7 @@
     </div>
 
     <!-- Booking Form Section -->
-    <section id="booking" class="booking">
+    <!-- <section id="booking" class="booking">
         <div class="container">
             <h2>Book Your Darshan</h2>
             <div class="booking-form-container">
@@ -187,7 +187,7 @@
                         <select id="time" name="time" required>
                             <option value="">Select Time</option>
                             <!-- Time options will be populated dynamically from API -->
-                        </select>
+                        <!-- </select>
                     </div>
                     <div class="form-group">
                         <label for="package">
@@ -200,9 +200,9 @@
                             Selected Package *
                         </label>
                         <select id="package" name="package" required>
-                            <option value="">Select a Package</option>
+                            <option value="">Select a Package</option> -->
                             <!-- Package options will be populated dynamically -->
-                        </select>
+                        <!-- </select>
                     </div>
                     <div class="form-group">
                         <label for="guests">
@@ -237,8 +237,8 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </section>
+        </div> -->
+    <!-- </section>  -->
 
     <!-- About Section -->
     <section id="about" class="about">
