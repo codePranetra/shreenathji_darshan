@@ -52,3 +52,4 @@ package-lock.json
 composer.lock
 /public/storage
 /vendor
+secrets/
