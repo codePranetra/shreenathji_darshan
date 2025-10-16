@@ -2,17 +2,17 @@
 
 @section('meta-tags')
     <!-- Meta Tags for SEO -->
-    <meta name="description" content="Welcome to the Home Page of My Laravel Application.">
-    <meta name="keywords" content="home, Laravel, Blade template, web development">
-    <meta name="author" content="Your Name">
-    <meta property="og:title" content="Home Page - Laravel App">
-    <meta property="og:description" content="Welcome to the Home Page of My Laravel Application.">
-    <meta property="og:image" content="URL_to_an_image.jpg">
+    <meta name="description" content="Book your Shreenath Ji Darshan online. Get Today Nathdwara Darshan Timing and all details about Shree Nathji Temple.">
+    <meta name="keywords" content="Today Nathdwara Darshan Timing, Nathdwara, Shree Nathji Darshan, Shree Nathji Temple, Shreeji Mandir, Shiv Murti Nathdwara, Shree Nathji, Shree Nathji Aarti, Shree Nathji Mandir, Shreeji Temple, Shree Nathdwara, Shreeji Darshan, Shree Nathdwara Temple, Shree Nathji Darshan Timing">
+    <meta name="author" content="Shreenath Ji Darshan Booking">
+    <meta property="og:title" content="Shreenath Ji Darshan Booking - Nathdwara Temple">
+    <meta property="og:description" content="Book your Shreenath Ji Darshan online. Get Today Nathdwara Darshan Timing and all details about Shree Nathji Temple.">
+    {{-- <meta property="og:image" content="URL_to_an_image.jpg"> --}}
     <meta property="og:url" content="{{ url()->current() }}">
-    {{-- <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Home Page - Laravel App">
-    <meta name="twitter:description" content="Welcome to the Home Page of My Laravel Application.">
-    <meta name="twitter:image" content="URL_to_an_image.jpg"> --}}
+    <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shreenath Ji Darshan Booking - Nathdwara Temple">
+    <meta name="twitter:description" content="Book your Shreenath Ji Darshan online. Get Today Nathdwara Darshan Timing and all details about Shree Nathji Temple.">
+    {{-- <meta name="twitter:image" content="URL_to_an_image.jpg"> --}}
 @endsection
 
 @section('css')
@@ -51,14 +51,14 @@
                         <span id="heroTimingsDate">आज के दर्शन समय</span>
                     </div>
                     <ul class="hero-timings-list" id="heroTimingsList">
-                        <li><span class="t-time">06:00 AM</span><span class="t-label">मंगला दर्शन</span></li>
+                        {{-- <li><span class="t-time">06:00 AM</span><span class="t-label">मंगला दर्शन</span></li>
                         <li><span class="t-time">07:30 AM</span><span class="t-label">श्रृंगार दर्शन</span></li>
                         <li><span class="t-time">09:15 AM</span><span class="t-label">ग्वाल दर्शन</span></li>
                         <li><span class="t-time">11:15 AM</span><span class="t-label">राजभोग दर्शन</span></li>
                         <li><span class="t-time">03:45 PM</span><span class="t-label">उत्थापन दर्शन</span></li>
                         <li><span class="t-time">04:45 PM</span><span class="t-label">भोग दर्शन</span></li>
                         <li><span class="t-time">05:15 PM</span><span class="t-label">आरती</span></li>
-                        <li><span class="t-time">-</span><span class="t-label">शयन दर्शन नहीं खुलेंगे</span></li>
+                        <li><span class="t-time">-</span><span class="t-label">शयन दर्शन नहीं खुलेंगे</span></li> --}}
                     </ul>
                     <a href="#timings" class="hero-timings-link">Full schedule</a>
                 </div>
@@ -132,7 +132,7 @@
     </div>
 
     <!-- Booking Form Section -->
-    <!-- <section id="booking" class="booking">
+     <section id="booking" class="booking">
         <div class="container">
             <h2>Book Your Darshan</h2>
             <div class="booking-form-container">
@@ -187,7 +187,7 @@
                         <select id="time" name="time" required>
                             <option value="">Select Time</option>
                             <!-- Time options will be populated dynamically from API -->
-                        <!-- </select>
+                         </select>
                     </div>
                     <div class="form-group">
                         <label for="package">
@@ -200,9 +200,9 @@
                             Selected Package *
                         </label>
                         <select id="package" name="package" required>
-                            <option value="">Select a Package</option> -->
-                            <!-- Package options will be populated dynamically -->
-                        <!-- </select>
+                            <option value="">Select a Package</option>
+                             Package options will be populated dynamically 
+                         </select>
                     </div>
                     <div class="form-group">
                         <label for="guests">
@@ -237,7 +237,7 @@
                     </div>
                 </form>
             </div>
-        </div> -->
+        </div> 
     <!-- </section>  -->
 
     <!-- About Section -->
@@ -371,7 +371,7 @@
     <div id="successModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Booking Confirmed!</h2>
+                <h2 style="color: #FFFFFF">Booking Confirmed!</h2>
                 <span class="close" onclick="closeSuccessModal()">&times;</span>
             </div>
             <div class="modal-body">
@@ -383,13 +383,13 @@
                 </div>
                 <p>Your darshan booking has been successfully confirmed!</p>
                 <p>We will send you a confirmation message on WhatsApp shortly.</p>
-                <button class="whatsapp-btn" onclick="sendWhatsAppMessage()">
+                {{-- <button class="whatsapp-btn" onclick="sendWhatsAppMessage()">
                     <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
                         <path d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z" fill="none" stroke="currentColor" stroke-width="2"/>
                         <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none"/>
                     </svg>
                     Send WhatsApp Confirmation
-                </button>
+                </button> --}}
             </div>
         </div>
     </div>
@@ -507,7 +507,9 @@
                         packageCard.innerHTML = `
                             <div class="package-header">
                                 <h3>${packageItem.name}</h3>
-                                <div class="package-price">₹${parseFloat(packageItem.price).toFixed(0)} <small>per person</small></div>
+                                <div class="package-price">
+                                    ${packageItem.price > 0 ? `₹${parseFloat(packageItem.price).toFixed(0)} <small>per person</small>` : ''}                                    
+                                </div>
                             </div>
                             <div class="package-content">
                                 ${formatDescriptionAsBulletPoints(packageItem.description)}
@@ -572,15 +574,28 @@
                     // Display all timings
                     result.data.forEach(timing => {
                         // Extract just the time part (HH:MM) from the datetime string
-                        const timePart24 = timing.time.split(' ')[1].substring(0, 5);
-                        
-                        // Convert to 12-hour format
-                        const timePart12 = convertTo12HourFormat(timePart24);
+
+
+                        const start_time = timing.start_time
+                        ? new Date(`1970-01-01T${timing.start_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
+                        const end_time = timing.end_time
+                        ? new Date(`1970-01-01T${timing.end_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
                         
                         const timingSlot = document.createElement('div');
                         timingSlot.className = 'timing-slot';
                         timingSlot.innerHTML = `
-                            <span class="time">${timePart12}</span>
+                            <span class="time">${start_time} - ${end_time}</span>
                             <span class="description">${timing.title}</span>
                         `;
                         timingSlotsContainer.appendChild(timingSlot);
@@ -624,14 +639,25 @@
                     // Display all timings
                     result.data.forEach(timing => {
                         // Extract just the time part (HH:MM) from the datetime string
-                        const timePart24 = timing.time.split(' ')[1].substring(0, 5);
-                        
-                        // Convert to 12-hour format
-                        const timePart12 = convertTo12HourFormat(timePart24);
+                         const start_time = timing.start_time
+                        ? new Date(`1970-01-01T${timing.start_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
+                        const end_time = timing.end_time
+                        ? new Date(`1970-01-01T${timing.end_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
                         
                         const timingItem = document.createElement('li');
                         timingItem.innerHTML = `
-                            <span class="t-time">${timePart12}</span>
+                            <span class="t-time">${start_time} - ${end_time}</span>
                             <span class="t-label">${timing.title}</span>
                         `;
                         heroTimingsList.appendChild(timingItem);
@@ -664,15 +690,26 @@
                 if (result && result.data && result.data.length > 0) {
                     // Add timings to the select dropdown
                     result.data.forEach(timing => {
-                        // Extract just the time part (HH:MM) from the datetime string
-                        const timePart24 = timing.time.split(' ')[1].substring(0, 5);
-                        
-                        // Convert to 12-hour format
-                        const timePart12 = convertTo12HourFormat(timePart24);
-                        
+
+                        const start_time = timing.start_time
+                        ? new Date(`1970-01-01T${timing.start_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
+                        const end_time = timing.end_time
+                        ? new Date(`1970-01-01T${timing.end_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
                         const option = document.createElement('option');
-                        option.value = timePart24;
-                        option.textContent = `${timePart12} - ${timing.title}`;
+                        option.value = `${start_time} - ${end_time}`;
+                        option.textContent = `${start_time} - ${end_time} - ${timing.title}`;
                         timeSelect.appendChild(option);
                     });
                 }
@@ -759,13 +796,6 @@
                     </div>
                     <p>Booking submitted successfully!</p>
                     <p>We will send you a confirmation message on WhatsApp shortly.</p>
-                    <button class="whatsapp-btn" onclick="sendWhatsAppMessage()">
-                        <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
-                            <path d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                            <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                        Send WhatsApp Confirmation
-                    </button>
                 `;
             }
             

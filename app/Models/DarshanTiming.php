@@ -9,7 +9,8 @@ class DarshanTiming extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'time',
+        'start_time',
+        'end_time',
         'title',
         'type',
         'is_active',

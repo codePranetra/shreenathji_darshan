@@ -65,6 +65,7 @@ Route::middleware('auth:api')->group(function () {
     // User (create/update/delete)
     Route::post('/user', [UserController::class, 'store']);
     Route::post('/user/{id}', [UserController::class, 'update']);
+    Route::post('/user/device-token/{id}', [UserController::class, 'addDeviceToken']);
     Route::delete('/user/{id}', [UserController::class, 'destroy']);
 
     // Features (create/update/delete)

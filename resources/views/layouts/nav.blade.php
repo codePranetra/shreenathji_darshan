@@ -8,7 +8,7 @@
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#packages" class="nav-link">Packages</a></li>
                 <li><a href="#timings" class="nav-link">Timings</a></li>
-                <!-- <li><a href="#booking" class="nav-link">Book Now</a></li> -->
+                 <li><a href="#booking" class="nav-link">Book Now</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>

@@ -6,9 +6,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Booking;
 use App\Models\Package;
+use App\Services\FirebaseService;
 
 class BookingController extends Controller
 {
+    protected $firebaseService;
+
+    public function __construct(FirebaseService $firebaseService)
+    {
+        $this->firebaseService = $firebaseService;
+    }
+
+    public function sendNotification($deviceToken, $title, $body)
+    {
+        try {
+            $result = $this->firebaseService->sendNotification($deviceToken, $title, $body);
+            return response()->json(['success' => 'Notification sent successfully.']);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+
     // ✅ Create booking
     public function store(Request $request)
     {
@@ -50,6 +68,13 @@ class BookingController extends Controller
 
         $booking = Booking::create($bookingData);
 
+        $tokens = auth()->user()->device_tokens ?? [];
+        foreach ($tokens as $token) {
+            $this->sendNotification($token, 'Booking Confirmed', 'New booking has been successfully created.');
+        }
+        // Send notification to the user (for demo, using request device_token)
+        // $this->sendNotification($request->device_token, 'Booking Confirmed', 'New booking has been successfully created.');
+        
         return response()->json([
             'status'  => true,
             'message' => 'Booking created successfully!',

@@ -13,7 +13,7 @@ class DarshanTimingController extends Controller
 {
         public function index(Request $request){
             try {
-                $darshanTimings = DarshanTiming::where('is_active', 1)->where('is_deleted', 0)->orderBy('updated_at', 'asc')->get();
+                $darshanTimings = DarshanTiming::where('is_active', 1)->where('is_deleted', 0)->orderBy('id', 'desc')->get();
 
                 $response = array();
                 $response['data'] = $darshanTimings;
@@ -34,12 +34,15 @@ class DarshanTimingController extends Controller
         public function store(Request $request){
             try {
                 $request->validate([
-                    'time' => 'required|date',
+                    'start_time' => 'required|date_format:H:i',
+                    'end_time' => 'required|date_format:H:i',
                     'title' => 'required|string',
                     'type' => 'required|in:morning,afternoon,evening',
                 ], [
-                    'time.required' => 'Time is required',
-                    'time.date' => 'Time must be a valid date',
+                    'start_time.required' => 'Start time is required',
+                    'start_time.date_format' => 'Start time must be a valid time',
+                    'end_time.required' => 'End time is required',
+                    'end_time.date_format' => 'End time must be a valid time',
                     'title.required' => 'Title is required',
                     'title.string' => 'Title must be a string',
                     'type.required' => 'Type is required',
@@ -47,7 +50,8 @@ class DarshanTimingController extends Controller
                 ]);
 
                 $darshanTiming = DarshanTiming::create([
-                    'time' => $request->time,
+                    'start_time' => $request->start_time,
+                    'end_time' => $request->end_time,
                     'title' => $request->title,
                     'type' => $request->type,
                 ]);
@@ -88,13 +92,16 @@ class DarshanTimingController extends Controller
                 $validator = Validator::make(
                     $request->all(),
                     [
-                        'time' => 'required|date',
+                        'start_time' => 'required|date_format:H:i',
+                        'end_time' => 'required|date_format:H:i',
                         'title' => 'required|string',
                         'type' => 'required|in:morning,afternoon,evening',
                     ],
                     [
-                        'time.required' => 'Time is required',
-                        'time.date' => 'Time must be a valid date',
+                        'start_time.required' => 'Start time is required',
+                        'start_time.date_format' => 'Start time must be a valid time',
+                        'end_time.required' => 'End time is required',
+                        'end_time.date_format' => 'End time must be a valid time',
                         'title.required' => 'Title is required',
                         'title.string' => 'Title must be a string',
                         'type.required' => 'Type is required',
@@ -116,7 +123,8 @@ class DarshanTimingController extends Controller
                     $response['code'] = 404;
                     return response()->json($response, 404);
                 }
-                $darshanTiming->time = $request->time;
+                $darshanTiming->start_time = $request->start_time;
+                $darshanTiming->end_time = $request->end_time;
                 $darshanTiming->title = $request->title;
                 $darshanTiming->type = $request->type;
                 $darshanTiming->save();
