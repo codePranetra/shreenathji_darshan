@@ -132,7 +132,7 @@
     </div>
 
     <!-- Booking Form Section -->
-     <section id="booking" class="booking">
+     {{-- <section id="booking" class="booking">
         <div class="container">
             <h2>Book Your Darshan</h2>
             <div class="booking-form-container">
@@ -237,7 +237,7 @@
                     </div>
                 </form>
             </div>
-        </div> 
+        </div>  --}}
     <!-- </section>  -->
 
     <!-- About Section -->
