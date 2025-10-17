@@ -92,8 +92,8 @@ class DarshanTimingController extends Controller
                 $validator = Validator::make(
                     $request->all(),
                     [
-                        'start_time' => 'required|date_format:H:i',
-                        'end_time' => 'required|date_format:H:i',
+                        'start_time' => 'required|date_format:H:i:s',
+                        'end_time' => 'required|date_format:H:i:s',
                         'title' => 'required|string',
                         'type' => 'required|in:morning,afternoon,evening',
                     ],
