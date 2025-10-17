@@ -34,8 +34,8 @@ class DarshanTimingController extends Controller
         public function store(Request $request){
             try {
                 $request->validate([
-                    'start_time' => 'required|date_format:H:i',
-                    'end_time' => 'required|date_format:H:i',
+                    'start_time' => 'required|date_format:H:i:s',
+                    'end_time' => 'required|date_format:H:i:s',
                     'title' => 'required|string',
                     'type' => 'required|in:morning,afternoon,evening',
                 ], [
