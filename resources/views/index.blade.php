@@ -425,11 +425,16 @@
         // Function to format current date as DD/MM/YYYY
         function getCurrentDateFormatted() {
             const now = new Date();
+            // If time is 9 PM or later, move to next day
+            if (now.getHours() >= 21) {
+                now.setDate(now.getDate() + 1);
+            }
             const day = String(now.getDate()).padStart(2, '0');
             const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
             const year = now.getFullYear();
             return `${day}/${month}/${year}`;
         }
+
         
         // Function to update the timings heading with current date
         function updateTimingsHeading() {
