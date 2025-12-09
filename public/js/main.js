@@ -190,7 +190,7 @@ Package: ${lastBooking.package}
 Guests: ${lastBooking.guests}
 
 Jai Shree Krishna! 🙏`;
-        const whatsappUrl = `https://wa.me/919376695545?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/919782695545?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     }
 }

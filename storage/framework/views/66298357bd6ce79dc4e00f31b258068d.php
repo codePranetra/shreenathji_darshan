@@ -1,12 +1,15 @@
 <?php $__env->startSection('meta-tags'); ?>
     <!-- Meta Tags for SEO -->
-    <meta name="description" content="Welcome to the Home Page of My Laravel Application.">
-    <meta name="keywords" content="home, Laravel, Blade template, web development">
-    <meta name="author" content="Your Name">
-    <meta property="og:title" content="Home Page - Laravel App">
-    <meta property="og:description" content="Welcome to the Home Page of My Laravel Application.">
-    <meta property="og:image" content="URL_to_an_image.jpg">
+    <meta name="description" content="Book your Shreenath Ji Darshan online. Get Today Nathdwara Darshan Timing and all details about Shree Nathji Temple.">
+    <meta name="keywords" content="Today Nathdwara Darshan Timing, Nathdwara, Shree Nathji Darshan, Shree Nathji Temple, Shreeji Mandir, Shiv Murti Nathdwara, Shree Nathji, Shree Nathji Aarti, Shree Nathji Mandir, Shreeji Temple, Shree Nathdwara, Shreeji Darshan, Shree Nathdwara Temple, Shree Nathji Darshan Timing">
+    <meta name="author" content="Shreenath Ji Darshan Booking">
+    <meta property="og:title" content="Shreenath Ji Darshan Booking - Nathdwara Temple">
+    <meta property="og:description" content="Book your Shreenath Ji Darshan online. Get Today Nathdwara Darshan Timing and all details about Shree Nathji Temple.">
+    
     <meta property="og:url" content="<?php echo e(url()->current()); ?>">
+    <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shreenath Ji Darshan Booking - Nathdwara Temple">
+    <meta name="twitter:description" content="Book your Shreenath Ji Darshan online. Get Today Nathdwara Darshan Timing and all details about Shree Nathji Temple.">
     
 <?php $__env->stopSection(); ?>
 
@@ -46,14 +49,7 @@
                         <span id="heroTimingsDate">आज के दर्शन समय</span>
                     </div>
                     <ul class="hero-timings-list" id="heroTimingsList">
-                        <li><span class="t-time">06:00 AM</span><span class="t-label">मंगला दर्शन</span></li>
-                        <li><span class="t-time">07:30 AM</span><span class="t-label">श्रृंगार दर्शन</span></li>
-                        <li><span class="t-time">09:15 AM</span><span class="t-label">ग्वाल दर्शन</span></li>
-                        <li><span class="t-time">11:15 AM</span><span class="t-label">राजभोग दर्शन</span></li>
-                        <li><span class="t-time">03:45 PM</span><span class="t-label">उत्थापन दर्शन</span></li>
-                        <li><span class="t-time">04:45 PM</span><span class="t-label">भोग दर्शन</span></li>
-                        <li><span class="t-time">05:15 PM</span><span class="t-label">आरती</span></li>
-                        <li><span class="t-time">-</span><span class="t-label">शयन दर्शन नहीं खुलेंगे</span></li>
+                        
                     </ul>
                     <a href="#timings" class="hero-timings-link">Full schedule</a>
                 </div>
@@ -127,112 +123,7 @@
     </div>
 
     <!-- Booking Form Section -->
-    <!-- <section id="booking" class="booking">
-        <div class="container">
-            <h2>Book Your Darshan</h2>
-            <div class="booking-form-container">
-                <form id="bookingForm" class="booking-form">
-                    <div class="form-group">
-                        <label for="name">
-                            <svg class="form-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <circle cx="10" cy="6" r="3" fill="none" stroke="#1B3C5D" stroke-width="2" />
-                                <path d="M 3 18 C 3 14 6 11 10 11 C 14 11 17 14 17 18" fill="none" stroke="#1B3C5D"
-                                    stroke-width="2" />
-                            </svg>
-                            Full Name *
-                        </label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mobile">
-                            <svg class="form-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <rect x="4" y="2" width="12" height="16" rx="2" fill="none" stroke="#1B3C5D"
-                                    stroke-width="2" />
-                                <circle cx="10" cy="14" r="1" fill="#1B3C5D" />
-                            </svg>
-                            Mobile Number *
-                        </label>
-                        <input type="tel" id="mobile" name="mobile" required pattern="[0-9]{10,15}" title="Please enter a valid mobile number (10-15 digits)" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">
-                            <svg class="form-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <rect x="3" y="4" width="14" height="14" rx="2" fill="none" stroke="#1B3C5D"
-                                    stroke-width="2" />
-                                <path d="M 3 8 L 17 8" stroke="#1B3C5D" stroke-width="2" />
-                                <circle cx="7" cy="11" r="1" fill="#1B3C5D" />
-                                <circle cx="10" cy="11" r="1" fill="#1B3C5D" />
-                                <circle cx="13" cy="11" r="1" fill="#1B3C5D" />
-                                <circle cx="7" cy="14" r="1" fill="#1B3C5D" />
-                                <circle cx="10" cy="14" r="1" fill="#1B3C5D" />
-                                <circle cx="13" cy="14" r="1" fill="#1B3C5D" />
-                            </svg>
-                            Darshan Date *
-                        </label>
-                        <input type="date" id="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">
-                            <svg class="form-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <circle cx="10" cy="10" r="8" fill="none" stroke="#1B3C5D" stroke-width="2" />
-                                <path d="M 10 6 L 10 10 L 13 10" stroke="#1B3C5D" stroke-width="2" fill="none" />
-                            </svg>
-                            Preferred Time *
-                        </label>
-                        <select id="time" name="time" required>
-                            <option value="">Select Time</option>
-                            <!-- Time options will be populated dynamically from API -->
-                        <!-- </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="package">
-                            <svg class="form-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <rect x="3" y="3" width="14" height="14" rx="2" fill="none" stroke="#1B3C5D"
-                                    stroke-width="2" />
-                                <path d="M 7 7 L 13 7 M 7 10 L 13 10 M 7 13 L 13 13" stroke="#1B3C5D"
-                                    stroke-width="2" />
-                            </svg>
-                            Selected Package *
-                        </label>
-                        <select id="package" name="package" required>
-                            <option value="">Select a Package</option> -->
-                            <!-- Package options will be populated dynamically -->
-                        <!-- </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="guests">
-                            <svg class="form-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <circle cx="10" cy="6" r="3" fill="none" stroke="#1B3C5D" stroke-width="2" />
-                                <path d="M 3 18 C 3 14 6 11 10 11 C 14 11 17 14 17 18" fill="none" stroke="#1B3C5D"
-                                    stroke-width="2" />
-                                <circle cx="7" cy="8" r="2" fill="none" stroke="#1B3C5D" stroke-width="1" />
-                                <circle cx="13" cy="8" r="2" fill="none" stroke="#1B3C5D" stroke-width="1" />
-                            </svg>
-                            Number of Guests
-                        </label>
-                        <input type="number" id="guests" name="guests" min="1" max="50" value="1">
-                    </div>
-                    <div class="form-group booking-buttons">
-                        <button type="submit" class="submit-btn">
-                            <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <path
-                                    d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z"
-                                    fill="none" stroke="currentColor" stroke-width="2" />
-                                <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none" />
-                            </svg>
-                            Submit Booking
-                        </button>
-                        <button type="button" class="advance-payment-btn" id="advancePaymentButton">
-                            <svg class="payment-icon" width="20" height="20" viewBox="0 0 20 20">
-                                <path d="M 2 6 L 18 6 L 18 14 L 2 14 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                                <path d="M 6 10 L 8 8 L 11 11 L 14 9" stroke="currentColor" stroke-width="2" fill="none"/>
-                            </svg>
-                            Advance Payment
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div> -->
+     
     <!-- </section>  -->
 
     <!-- About Section -->
@@ -366,7 +257,7 @@
     <div id="successModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Booking Confirmed!</h2>
+                <h2 style="color: #FFFFFF">Booking Confirmed!</h2>
                 <span class="close" onclick="closeSuccessModal()">&times;</span>
             </div>
             <div class="modal-body">
@@ -378,13 +269,7 @@
                 </div>
                 <p>Your darshan booking has been successfully confirmed!</p>
                 <p>We will send you a confirmation message on WhatsApp shortly.</p>
-                <button class="whatsapp-btn" onclick="sendWhatsAppMessage()">
-                    <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
-                        <path d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                        <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none"/>
-                    </svg>
-                    Send WhatsApp Confirmation
-                </button>
+                
             </div>
         </div>
     </div>
@@ -420,11 +305,16 @@
         // Function to format current date as DD/MM/YYYY
         function getCurrentDateFormatted() {
             const now = new Date();
+            // If time is 9 PM or later, move to next day
+            if (now.getHours() >= 21) {
+                now.setDate(now.getDate() + 1);
+            }
             const day = String(now.getDate()).padStart(2, '0');
             const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-indexed
             const year = now.getFullYear();
             return `${day}/${month}/${year}`;
         }
+
         
         // Function to update the timings heading with current date
         function updateTimingsHeading() {
@@ -502,13 +392,15 @@
                         packageCard.innerHTML = `
                             <div class="package-header">
                                 <h3>${packageItem.name}</h3>
-                                <div class="package-price">₹${parseFloat(packageItem.price).toFixed(0)} <small>per person</small></div>
+                                <div class="package-price">
+                                    ${packageItem.price > 0 ? `₹${parseFloat(packageItem.price).toFixed(0)} <small>per person</small>` : ''}                                    
+                                </div>
                             </div>
                             <div class="package-content">
                                 ${formatDescriptionAsBulletPoints(packageItem.description)}
                             </div>
                             <div class="package-buttons">
-                                <button class="book-btn" onclick="selectPackage(${packageItem.id})">Book Now</button>
+                                <!-- <button class="book-btn" onclick="selectPackage(${packageItem.id})">Book Now</button> -->
                                 <a href="tel:+9193766 95545" class="call-btn">
                                     <svg class="call-icon" width="16" height="16" viewBox="0 0 16 16">
                                         <path d="M 3 6 C 3 2 6 1 9 2 C 12 3 14 5 13 8 C 12 11 10 12 7 11 C 4 10 2 8 3 6 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -567,15 +459,28 @@
                     // Display all timings
                     result.data.forEach(timing => {
                         // Extract just the time part (HH:MM) from the datetime string
-                        const timePart24 = timing.time.split(' ')[1].substring(0, 5);
-                        
-                        // Convert to 12-hour format
-                        const timePart12 = convertTo12HourFormat(timePart24);
+
+
+                        const start_time = timing.start_time
+                        ? new Date(`1970-01-01T${timing.start_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
+                        const end_time = timing.end_time
+                        ? new Date(`1970-01-01T${timing.end_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
                         
                         const timingSlot = document.createElement('div');
                         timingSlot.className = 'timing-slot';
                         timingSlot.innerHTML = `
-                            <span class="time">${timePart12}</span>
+                            <span class="time">${start_time} - ${end_time}</span>
                             <span class="description">${timing.title}</span>
                         `;
                         timingSlotsContainer.appendChild(timingSlot);
@@ -619,14 +524,25 @@
                     // Display all timings
                     result.data.forEach(timing => {
                         // Extract just the time part (HH:MM) from the datetime string
-                        const timePart24 = timing.time.split(' ')[1].substring(0, 5);
-                        
-                        // Convert to 12-hour format
-                        const timePart12 = convertTo12HourFormat(timePart24);
+                         const start_time = timing.start_time
+                        ? new Date(`1970-01-01T${timing.start_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
+                        const end_time = timing.end_time
+                        ? new Date(`1970-01-01T${timing.end_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
                         
                         const timingItem = document.createElement('li');
                         timingItem.innerHTML = `
-                            <span class="t-time">${timePart12}</span>
+                            <span class="t-time">${start_time} - ${end_time}</span>
                             <span class="t-label">${timing.title}</span>
                         `;
                         heroTimingsList.appendChild(timingItem);
@@ -659,15 +575,26 @@
                 if (result && result.data && result.data.length > 0) {
                     // Add timings to the select dropdown
                     result.data.forEach(timing => {
-                        // Extract just the time part (HH:MM) from the datetime string
-                        const timePart24 = timing.time.split(' ')[1].substring(0, 5);
-                        
-                        // Convert to 12-hour format
-                        const timePart12 = convertTo12HourFormat(timePart24);
-                        
+
+                        const start_time = timing.start_time
+                        ? new Date(`1970-01-01T${timing.start_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
+                        const end_time = timing.end_time
+                        ? new Date(`1970-01-01T${timing.end_time}`).toLocaleTimeString('en-US', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true,
+                            })
+                        : '--';
+
                         const option = document.createElement('option');
-                        option.value = timePart24;
-                        option.textContent = `${timePart12} - ${timing.title}`;
+                        option.value = `${start_time} - ${end_time}`;
+                        option.textContent = `${start_time} - ${end_time} - ${timing.title}`;
                         timeSelect.appendChild(option);
                     });
                 }
@@ -754,13 +681,6 @@
                     </div>
                     <p>Booking submitted successfully!</p>
                     <p>We will send you a confirmation message on WhatsApp shortly.</p>
-                    <button class="whatsapp-btn" onclick="sendWhatsAppMessage()">
-                        <svg class="whatsapp-icon" width="20" height="20" viewBox="0 0 20 20">
-                            <path d="M 10 2 C 5.6 2 2 5.6 2 10 C 2 12.4 3 14.6 4.6 16.2 L 2 18 L 3.8 15.4 C 5.4 17 7.6 18 10 18 C 14.4 18 18 14.4 18 10 C 18 5.6 14.4 2 10 2 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                            <path d="M 7 8 L 13 8 M 7 11 L 11 11" stroke="currentColor" stroke-width="2" fill="none"/>
-                        </svg>
-                        Send WhatsApp Confirmation
-                    </button>
                 `;
             }
             
@@ -894,4 +814,4 @@
     </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\shreenathji_darshan\resources\views/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\shreenathji latest project\shreenathji_darshan\resources\views/index.blade.php ENDPATH**/ ?>
