@@ -53,3 +53,4 @@ composer.lock
 /public/storage
 /vendor
 secrets/
+storage/framework/views/
