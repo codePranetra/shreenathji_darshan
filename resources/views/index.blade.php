@@ -521,7 +521,7 @@
                             </div>
                             <div class="package-buttons">
                                 <!-- <button class="book-btn" onclick="selectPackage(${packageItem.id})">Book Now</button> -->
-                                <a href="tel:+9193766 95545" class="call-btn">
+                                <a href="tel:+919782695545" class="call-btn">
                                     <svg class="call-icon" width="16" height="16" viewBox="0 0 16 16">
                                         <path d="M 3 6 C 3 2 6 1 9 2 C 12 3 14 5 13 8 C 12 11 10 12 7 11 C 4 10 2 8 3 6 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
                                         <path d="M 8 4 L 8 7 L 11 7" stroke="currentColor" stroke-width="1.5" fill="none"/>
