@@ -14,7 +14,7 @@
     --light-gold: #FFF8DC;
     --dark-blue: #0F2A3D;
     --light-pink: #F8E8E3;
-    --text-dark: #2C3E50;
+    --text-dark: #b5cfe9;
     --text-light: #7F8C8D;
     --shadow: 0 4px 20px rgba(27, 60, 93, 0.1);
     --border-radius: 12px;
@@ -150,8 +150,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), 
-                url('https://udaipurtourism.co.in/images/places-to-visit/headers/shrinathji-temple-udaipur-tourism-entry-fee-timings-holidays-reviews-header.jpg');
+    background: linear-gradient(135deg, rgba(32, 32, 32, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%), 
+                url('../images/timing section.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -205,14 +205,235 @@ body {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px 30px;
     border-radius: 15px;
-    backdrop-filter: blur(5px);
+    /* Removed glass effect */
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hero Timings Card */
+.hero-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.darshanTimingScroll{
+    background-image: url(../images/ScrollDesignImage-removebg-Enhanced.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 600px;
+    width: 920px;
+    
+}
+
+.darshan-title{
+    width: 640px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.title-left{
+    font-size:18px;
+    text-shadow:0 2px 4px rgba(0,0,0,0.4);
+}
+
+.title-date{
+    /* background-color: #1B3C5D; */
+    padding-top: 10px;
+    border-radius:15px;
+    font-size: 20px;
+    width: 220px;
+    color: #FADA5E;
+}
+
+.heading{
+    color: #4d0911;
+    text-align: left;
+}
+
+.subDarshanTiming {
+    margin-top: 23px;
+    width: 638px;
+    height: 460px;
+    background: #e8d3a3;
+    border: 3px solid #caa44f;
+    border-radius: 4px;
+    padding: 10px 10px;
+    box-shadow: 
+        inset 0 0 30px rgba(0,0,0,0.25),
+        0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* ROW CONTAINER */
+.pichwai-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+/* ROW */
+.pichwai-row {
+    display: flex;
+    align-items: center;
+    border-radius: 10px; /* 🔥 pill shape */
+    overflow: hidden;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    background-color: #630b16;
+    height: 40px;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}
+
+
+/* LEFT (TIME) */
+.pichwai-left {
+    flex: 1; /* 🔥 IMPORTANT ratio */
+    background: linear-gradient(135deg, #f8f1d6, #ead7a1);
+    /* padding: 18px 1px; */
+    height: 45px;
+    font-weight: 600;
+    color: #4d0911;
+    font-size: 16px;
+    border-radius: 10px;
+    background-image: url(../images/pichwai-left.jpg);
+    border: 1px solid #d4c097;
+    border-right: none;
+    z-index: 1;
+}
+/* DIVIDER (small shine line like design) */
+.pichwai-divider {
+    width: 3px;
+    background: linear-gradient(to bottom, #fff, #caa44f, #fff);
+}
+
+/* RIGHT SIDE (TITLE) */
+.pichwai-right {
+    flex: 0 0 50%;
+    display: flex;
+    background: linear-gradient(to right, #630b16, #8b001c);
+    color: #fff;
+    padding: 18px 26px;
+    align-items:center;
+    justify-content:flex-end;
+    gap:10px;
+    font-weight: 300;
+    /* font-size: 16px; */
+    border-radius: 10px;
+    /* background-image: url(../images/pichwai-right.png); */
+    opacity: 0.9;
+    position: relative;
+    margin-left: -20px; 
+    clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.darshan-icon{
+    height:25px;
+    width:25px;
+    object-fit:contain;
+    margin-right:8px;
+    filter: brightness(0) invert(1);
+    color: #FADA5E;
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+    .pichwai-row {
+        flex-direction: column;
+        border-radius: 12px;
+    }
+
+    .pichwai-left,
+    .pichwai-right {
+        flex: 1;
+        text-align: left;
+    }
+
+    .pichwai-divider {
+        display: none;
+    }
+}
+
+.hero-timings {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    padding: 16px;
+    backdrop-filter: blur(6px);
+    text-align: left;
+}
+
+.hero-timings-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+}
+
+.hero-timings-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+}
+
+.hero-timings-list li {
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.t-time {
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.t-label {
+    opacity: 0.95;
+}
+
+.hero-timings-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dashed rgba(255,255,255,0.6);
+}
+
+@media (max-width: 600px) {
+    .hero-timings {
+        padding: 12px;
+    }
+    .hero-timings-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 .cta-button {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(25px) saturate(200%);
-    -webkit-backdrop-filter: blur(25px) saturate(200%);
+    /* Removed glass effect */
     color: var(--white);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 20px 45px;
@@ -432,6 +653,75 @@ body {
     border-color: var(--gold);
 }
 
+/* Custom package background colors */
+.package-card.lal {
+    background: linear-gradient(135deg, #4CAF50, #8BC34A);
+    color: white;
+}
+
+.package-card.sharan {
+    background: linear-gradient(135deg, #FFEB3B, #FFC107);
+    color: #333;
+}
+
+.package-card.sankalp {
+    background: linear-gradient(135deg, #9C27B0, #673AB7);
+    color: white;
+}
+
+.package-card.lal .package-header h3,
+.package-card.lal .package-features li,
+.package-card.lal .price {
+    color: white;
+}
+
+.package-card.sharan .package-header h3,
+.package-card.sharan .package-features li {
+    color: #333;
+}
+
+.package-card.sharan .price {
+    color: #333;
+}
+
+.package-card.sankalp .package-header h3,
+.package-card.sankalp .package-features li,
+.package-card.sankalp .price {
+    color: white;
+}
+
+.package-card.lal .feature-icon path,
+.package-card.lal .feature-icon circle,
+.package-card.lal .feature-icon rect {
+    stroke: white;
+    fill: white;
+}
+
+.package-card.lal .feature-icon path:not([fill="none"]) {
+    fill: white;
+}
+
+.package-card.sharan .feature-icon path,
+.package-card.sharan .feature-icon circle,
+.package-card.sharan .feature-icon rect {
+    stroke: #333;
+}
+
+.package-card.sharan .feature-icon path:not([fill="none"]) {
+    fill: #333;
+}
+
+.package-card.sankalp .feature-icon path,
+.package-card.sankalp .feature-icon circle,
+.package-card.sankalp .feature-icon rect {
+    stroke: white;
+    fill: white;
+}
+
+.package-card.sankalp .feature-icon path:not([fill="none"]) {
+    fill: white;
+}
+
 .package-header {
     text-align: center;
     margin-bottom: 25px;
@@ -456,6 +746,8 @@ body {
     color: var(--text-light);
 }
 
+
+
 .package-features {
     list-style: none;
     margin-bottom: 25px;
@@ -477,10 +769,118 @@ body {
     vertical-align: middle;
 }
 
+/* Image-based laddu icon sizing */
+.laddu-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Generic food image icon */
+.food-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Ensure Font Awesome icons display properly in all packages */
+.package-card.lal .feature-icon.fas,
+.package-card.lal .feature-icon.fab,
+.package-card.lal .feature-icon.far {
+    color: white;
+}
+
+.package-card.sharan .feature-icon.fas,
+.package-card.sharan .feature-icon.fab,
+.package-card.sharan .feature-icon.far {
+    color: #333;
+}
+
+.package-card.sankalp .feature-icon.fas,
+.package-card.sankalp .feature-icon.fab,
+.package-card.sankalp .feature-icon.far {
+    color: white;
+}
+
+/* Fix for specific Font Awesome icons in the sharan package */
+.package-card.sharan .fa-cookie.feature-icon {
+    color: #333 !important;
+}
+
+/* Ensure proper alignment for all feature icons */
+.package-features li .feature-icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Additional rules to ensure Font Awesome icons are visible */
+.feature-icon.fas, .feature-icon.fab, .feature-icon.far {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Package Content Styles */
+.package-content {
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.package-content p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.package-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.package-content ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.package-content ul li:before {
+    content: "•";
+    color: var(--gold);
+    font-size: 1.2rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+/* Custom package content styles for different package types */
+.package-card.lal .package-content,
+.package-card.lal .package-content ul li {
+    color: white;
+}
+
+.package-card.sharan .package-content,
+.package-card.sharan .package-content ul li {
+    color: #333;
+}
+
+.package-card.sankalp .package-content,
+.package-card.sankalp .package-content ul li {
+    color: white;
+}
+
 .book-now-btn {
     width: 100%;
     background: rgba(0, 109, 119, 0.2);
-    backdrop-filter: blur(10px);
+    /* Removed glass effect */
     color: var(--white);
     border: 2px solid rgba(255, 255, 255, 0.3);
     padding: 12px;
@@ -520,11 +920,16 @@ body {
 }
 
 .book-btn {
-    width: 100%;
+    /* Same size as call button */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-height: 48px;
     background: var(--peacock-blue);
     color: #fff;
     border: 2px solid var(--peacock-blue);
-    padding: 12px 0;
+    padding: 14px 18px;
     border-radius: var(--border-radius);
     font-size: 1.05rem;
     font-weight: 600;
@@ -542,10 +947,195 @@ body {
     transform: translateY(-2px) scale(1.01);
 }
 
+/* Custom button styles for each package */
+.package-card.lal .book-btn {
+    background: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.package-card.lal .book-btn:hover, 
+.package-card.lal .book-btn:focus {
+    background: #fff;
+    color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.package-card.sharan .book-btn {
+    background: #FFEB3B;
+    border-color: #FFEB3B;
+    color: #333;
+}
+
+.package-card.sharan .book-btn:hover, 
+.package-card.sharan .book-btn:focus {
+    background: #fff;
+    color: #FFEB3B;
+    border-color: #FFEB3B;
+}
+
+.package-card.sankalp .book-btn {
+    background: #9C27B0;
+    border-color: #9C27B0;
+}
+
+.package-card.sankalp .book-btn:hover, 
+.package-card.sankalp .book-btn:focus {
+    background: #fff;
+    color: #9C27B0;
+    border-color: #9C27B0;
+}
+
+/* Package buttons container */
+.package-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    align-items: stretch;
+}
+
+/* Call button styles */
+.package-buttons .book-btn,
+.package-buttons .call-btn {
+    flex: 1 1 0;
+    height: 48px;
+    padding: 0 18px;
+    margin-top: 0;
+    border-radius: var(--border-radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 18px;
+    background: var(--peacock-blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(27, 60, 93, 0.25);
+    transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+    outline: none;
+    border: 2px solid var(--peacock-blue);
+    flex: 1;
+    min-height: 48px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.call-btn:hover, .call-btn:focus {
+    background: #fff;
+    color: var(--peacock-blue);
+    border-color: var(--dark-blue);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 10px 22px rgba(27, 60, 93, 0.28);
+}
+
+/* Sheen effect */
+.call-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.15) 60%, transparent 100%);
+    transform: skewX(-20deg);
+    transition: left 0.6s ease;
+}
+
+.call-btn:hover::before, .call-btn:focus::before {
+    left: 120%;
+}
+
+.call-btn:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow: 0 4px 12px rgba(27, 60, 93, 0.2);
+}
+
+/* Custom call button styles for each package */
+.package-card.lal .call-btn {
+    background: #4CAF50;
+    border-color: #4CAF50;
+}
+
+.package-card.lal .call-btn:hover, 
+.package-card.lal .call-btn:focus {
+    background: #fff;
+    color: #4CAF50;
+    border-color: #4CAF50;
+    box-shadow: 0 10px 22px rgba(76, 175, 80, 0.35);
+}
+
+.package-card.sharan .call-btn {
+    background: #FFEB3B;
+    border-color: #FFEB3B;
+    color: #333;
+}
+
+.package-card.sharan .call-btn:hover, 
+.package-card.sharan .call-btn:focus {
+    background: #fff;
+    color: #FFEB3B;
+    border-color: #FFEB3B;
+    box-shadow: 0 10px 22px rgba(255, 235, 59, 0.45);
+}
+
+.package-card.sankalp .call-btn {
+    background: #9C27B0;
+    border-color: #9C27B0;
+}
+
+.package-card.sankalp .call-btn:hover, 
+.package-card.sankalp .call-btn:focus {
+    background: #fff;
+    color: #9C27B0;
+    border-color: #9C27B0;
+    box-shadow: 0 10px 22px rgba(156, 39, 176, 0.35);
+}
+
+/* Call icon styles */
+.call-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.package-card.lal .call-icon,
+.package-card.sankalp .call-icon {
+    stroke: white;
+}
+
+.package-card.sharan .call-icon {
+    stroke: #333;
+}
+
+.package-card.lal .call-btn:hover .call-icon,
+.package-card.lal .call-btn:focus .call-icon,
+.package-card.sankalp .call-btn:hover .call-icon,
+.package-card.sankalp .call-btn:focus .call-icon {
+    stroke: var(--peacock-blue);
+}
+
+.package-card.sharan .call-btn:hover .call-icon,
+.package-card.sharan .call-btn:focus .call-icon {
+    stroke: #FFEB3B;
+}
+
 /* Timings Section */
 .timings {
     padding: 80px 0;
-    background: var(--ivory-white);
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('../images/timing background.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-dark);
 }
 
 .timings h2 {
@@ -576,10 +1166,10 @@ body {
 }
 
 .timing-slot {
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.95);
     padding: 20px;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    box-shadow: 0 4px 20px rgba(27, 60, 93, 0.3);
     border: 2px solid var(--gold);
     text-align: center;
     transition: var(--transition);
@@ -599,7 +1189,7 @@ body {
 }
 
 .timing-slot .description {
-    color: var(--text-light);
+    color: var(--text-dark);
     font-size: 0.9rem;
 }
 
@@ -660,7 +1250,7 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 109, 119, 0.1);
 }
 
-.submit-btn {
+.submit-btn, .advance-payment-btn, .scanner-btn {
     background: linear-gradient(45deg, var(--lotus-pink), var(--peacock-blue));
     color: var(--white);
     border: none;
@@ -674,11 +1264,18 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-top: 10px;
 }
 
-.submit-btn:hover {
+.submit-btn:hover, .advance-payment-btn:hover, .scanner-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(226, 149, 120, 0.3);
+}
+
+.booking-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* About Section */
@@ -807,7 +1404,8 @@ body {
 }
 
 .whatsapp-btn,
-.map-btn {
+.map-btn,
+.email-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -821,8 +1419,19 @@ body {
 }
 
 .whatsapp-btn:hover,
-.map-btn:hover {
+.map-btn:hover,
+.email-btn:hover {
     background: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+/* Specific styling for email button */
+.email-btn {
+    background:var(--peacock-blue);
+}
+
+.email-btn:hover {
+    background:  var(--dark-blue);
     transform: translateY(-2px);
 }
 
@@ -976,6 +1585,10 @@ body {
     padding: 30px;
     overflow-y: auto;
     flex: 1;
+}
+
+.modal-body.text-center {
+    text-align: center;
 }
 
 /* Admin Panel Styles */
