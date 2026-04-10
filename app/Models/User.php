@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email_verified_at',
         'role_id',
         'remember_token',
+        'device_tokens',
         'flag',
     ];
 

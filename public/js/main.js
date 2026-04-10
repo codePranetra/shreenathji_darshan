@@ -36,17 +36,6 @@ const packages = [
             { icon: "🙏", text: "Personal Aarti" },
             { icon: "🚗", text: "Parking Facility" }
         ]
-    },
-    {
-        id: 4,
-        name: "Royal Darshan",
-        price: 2500,
-        features: [
-            { icon: "💎", text: "Exclusive Entry" },
-            { icon: "⭐", text: "VIP Seating" },
-            { icon: "🎵", text: "Special Bhajan" },
-            { icon: "🏨", text: "Accommodation" }
-        ]
     }
 ];
 
@@ -89,12 +78,6 @@ function setupEventListeners() {
         });
     });
 
-    // Booking form submission
-    const bookingForm = document.getElementById('bookingForm');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', handleBookingSubmission);
-    }
-
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -130,7 +113,7 @@ function selectPackage(packageId) {
         const packageCards = document.querySelectorAll('.package-card');
         packageCards.forEach(card => card.classList.remove('selected'));
         
-        const selectedCard = document.querySelector(`[onclick="selectPackage(${packageId})"]`);
+        const selectedCard = document.querySelector(`[onclick="selectPackage(${packageId})"]`).closest('.package-card');
         if (selectedCard) {
             selectedCard.classList.add('selected');
         }
@@ -143,41 +126,6 @@ function scrollToSection(sectionId) {
     if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
     }
-}
-
-// Handle booking form submission
-function handleBookingSubmission(event) {
-    event.preventDefault();
-    
-    const formData = new FormData(event.target);
-    const bookingData = {
-        id: Date.now(),
-        name: formData.get('name'),
-        mobile: formData.get('mobile'),
-        date: formData.get('date'),
-        time: formData.get('time'),
-        package: formData.get('package'),
-        guests: parseInt(formData.get('guests')),
-        timestamp: new Date().toISOString()
-    };
-
-    // Validate package selection
-    if (!selectedPackage) {
-        alert('Please select a package first');
-        return;
-    }
-
-    // Add booking to array
-    bookings.push(bookingData);
-    saveBookings();
-
-    // Show success modal
-    showSuccessModal();
-
-    // Reset form
-    event.target.reset();
-    selectedPackage = null;
-    document.getElementById('package').value = '';
 }
 
 // Handle contact form submission
@@ -232,8 +180,17 @@ function closeSuccessModal() {
 function sendWhatsAppMessage() {
     const lastBooking = bookings[bookings.length - 1];
     if (lastBooking) {
-        const message = `Namaste! Your Shreenath Ji Darshan booking has been confirmed.\n\nDetails:\nName: ${lastBooking.name}\nDate: ${lastBooking.date}\nTime: ${lastBooking.time}\nPackage: ${lastBooking.package}\nGuests: ${lastBooking.guests}\n\nJai Shree Krishna! 🙏`;
-        const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+        const message = `Namaste! Your Shreenath Ji Darshan booking has been confirmed.
+
+Details:
+Name: ${lastBooking.name}
+Date: ${lastBooking.date}
+Time: ${lastBooking.time}
+Package: ${lastBooking.package}
+Guests: ${lastBooking.guests}
+
+Jai Shree Krishna! 🙏`;
+        const whatsappUrl = `https://wa.me/919782695545?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     }
 }
@@ -278,7 +235,7 @@ function setupInteractiveAnimations() {
     });
     
     // Add click effects to buttons
-    const buttons = document.querySelectorAll('.submit-btn, .book-btn');
+    const buttons = document.querySelectorAll('.submit-btn, .book-btn, .call-btn');
     buttons.forEach(button => {
         button.addEventListener('click', function() {
             this.style.transform = 'scale(0.95)';
@@ -293,4 +250,4 @@ function setupInteractiveAnimations() {
 window.scrollToSection = scrollToSection;
 window.selectPackage = selectPackage;
 window.sendWhatsAppMessage = sendWhatsAppMessage;
-window.closeSuccessModal = closeSuccessModal; 
+window.closeSuccessModal = closeSuccessModal;

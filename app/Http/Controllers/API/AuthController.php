@@ -164,4 +164,18 @@ class AuthController extends Controller
         return response()->json(['message' => 'Password has been reset successfully'], 200);
         
     }
+
+//logout
+    public function logout(Request $request)
+    {
+        $user = Auth::user()->token();
+        $user->revoke();
+        $response = array();
+        $response['data'] = [];
+        $response['message'] = 'User logged out successfully';  
+        $response['code'] = 200;
+
+        return response()->json($response, 200);
+    }
 }
+    

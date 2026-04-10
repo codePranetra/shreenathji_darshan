@@ -6,50 +6,100 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\PermissionController;
 use App\Http\Controllers\API\RoleController;
+use App\Http\Controllers\API\FeaturesController;
+use App\Http\Controllers\API\DarshanTimingController;
+use App\Http\Controllers\API\PackageController;
+use App\Http\Controllers\API\BookingController;
+use App\Http\Controllers\API\ServiceController;
 
+Route::get('/login', function () {
+    return response()->json(["message" => "Unauthenticated."]);
+})->name('login');
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-Route::get('/login',function() {
-    return response()->json(array("message" => "Unauthenticated."));
-})->name('login');  
 Route::post('/login', [AuthController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/reset-password', [AuthController::class, 'resetPassword']);
 
+// ================= PUBLIC GET ROUTES ================= //
 
+// Role
+Route::get('/role', [RoleController::class, 'index']);
+Route::get('/role/{id}', [RoleController::class, 'getById']);
+
+// ================= BOOKING ROUTES (PUBLIC) ================= //
+Route::post('/booking', [BookingController::class, 'store']);     // Create booking
+Route::get('/booking/{id}', [BookingController::class, 'show']);   // Get single booking
+
+// User
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/{id}', [UserController::class, 'getUserById']);
+
+// Features
+Route::get('/features', [FeaturesController::class, 'index']);
+Route::get('/features/{id}', [FeaturesController::class, 'getFeatureById']);
+
+// Package
+Route::get('/package', [PackageController::class, 'index']);
+Route::get('/package/{id}', [PackageController::class, 'getPackageById']);
+
+// Darshan Timing
+Route::get('/darshantiming', [DarshanTimingController::class, 'index']);
+Route::get('/darshantiming/{id}', [DarshanTimingController::class, 'getDarshanTimingById']);
+
+// Services (public)
+Route::get('/service', [ServiceController::class, 'index']);
+Route::get('/service/{id}', [ServiceController::class, 'show'])->where('id', '[0-9]+');
+
+// Permissions (read-only)
+Route::get('/permissions', [PermissionController::class, 'permissions']);
+Route::get('/role-has-permissions/{id}', [PermissionController::class, 'role_has_permissions']);
+Route::get('/user-has-permissions/{id}', [PermissionController::class, 'user_has_permissions']);
+Route::get('/permissions/distinct/name', [PermissionController::class, 'distinct_permissions']);
+
+
+// ================= PROTECTED ROUTES ================= //
 Route::middleware('auth:api')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 
-    // Route for Role
-    Route::get('/role', [RoleController::class, 'index']);
-    Route::get('/role/{id}', [RoleController::class, 'getById']);
+    // Role (create/update/delete)
     Route::post('/role', [RoleController::class, 'store']);
     Route::put('/role/{id}', [RoleController::class, 'update']);
     Route::delete('/role/{id}', [RoleController::class, 'destroy']);
 
-
-    Route::get('/user', [UserController::class, 'index']);
-    Route::get('/user/{id}', [UserController::class, 'getUserById']);
-    Route::Post('/user', [UserController::class, 'store']);
-    Route::Post('/user/{id}', [UserController::class, 'update']);
+    // User (create/update/delete)
+    Route::post('/user', [UserController::class, 'store']);
+    Route::post('/user/{id}', [UserController::class, 'update']);
+    Route::post('/user/device-token/{id}', [UserController::class, 'addDeviceToken']);
     Route::delete('/user/{id}', [UserController::class, 'destroy']);
 
-    // All Routes for Permissions
-    Route::get('/permissions', [PermissionController::class, 'permissions']);
+    // Features (create/update/delete)
+    Route::post('/features', [FeaturesController::class, 'store']);
+    Route::put('/features/{id}', [FeaturesController::class, 'update']);
+    Route::delete('/features/{id}', [FeaturesController::class, 'destroy']);
+
+    // Package (create/update/delete)
+    Route::post('/package', [PackageController::class, 'store']);
+    Route::put('/package/{id}', [PackageController::class, 'update']);
+    Route::delete('/package/{id}', [PackageController::class, 'destroy']);
+
+    // Darshan Timing (create/update/delete)
+    Route::post('/darshantiming', [DarshanTimingController::class, 'store']);
+    Route::put('/darshantiming/{id}', [DarshanTimingController::class, 'update']);
+    Route::delete('/darshantiming/{id}', [DarshanTimingController::class, 'destroy']);
+
+    // Services (admin)
+    Route::get('/service/manage', [ServiceController::class, 'manage']);
+    Route::post('/service', [ServiceController::class, 'store']);
+    Route::put('/service/{id}', [ServiceController::class, 'update'])->where('id', '[0-9]+');
+    Route::delete('/service/{id}', [ServiceController::class, 'destroy'])->where('id', '[0-9]+');
+
+    // Permissions (write)
     Route::post('/role-has-permissions', [PermissionController::class, 'store_role_has_permissions']);
-    Route::get('/role-has-permissions/{id}', [PermissionController::class, 'role_has_permissions']);
     Route::post('/user-has-permissions', [PermissionController::class, 'store_user_has_permissions']);
-    Route::get('/user-has-permissions/{id}', [PermissionController::class, 'user_has_permissions']);
-    Route::get('/user-has-permissions/{id}', [PermissionController::class, 'user_has_permissions']);
-    Route::get('/permissions/distinct/name', [PermissionController::class, 'distinct_permissions']);
+
+    // ================= BOOKING ROUTES (PROTECTED) ================= //
+    Route::put('/booking/{id}', [BookingController::class, 'update']);    // Update booking
+    Route::get('/booking', [BookingController::class, 'index']);     // Get all bookings
+    Route::delete('/booking/{id}', [BookingController::class, 'destroy']); // Delete booking (optional)
 });

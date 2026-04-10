@@ -9,6 +9,7 @@
 
         <meta name="description" content="Book your Shreenath Ji Darshan online. Nathdwara Darshan Booking, Shree Ji Darshan, Online Mandir Darshan with Pichwai art inspired packages.">
         <meta name="keywords" content="Shree Ji Darshan, Shreenath Ji Darshan, Nathdwara Darshan Booking, Online Mandir Darshan, Shreenath Ji Pichwai Booking">
+        <link rel="icon" type="image/x-icon" href="{{ asset('images/shrinathji-or-lord-krishna-as-pichwai-folk-painting-vector (1).jpg') }}">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
