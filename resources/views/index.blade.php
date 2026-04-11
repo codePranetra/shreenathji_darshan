@@ -18,7 +18,230 @@
 @section('css')
     <!-- Custom CSS (if needed for this page) -->
     <style>
+        .services-guide {
+            padding: 80px 0;
+            background: linear-gradient(180deg, #faf9f7 0%, var(--white) 100%);
+        }
 
+        .services-guide-lead {
+            text-align: center;
+            color: var(--peacock-blue);
+            opacity: 0.9;
+            margin: -36px auto 48px;
+            max-width: 36rem;
+            font-size: 1.05rem;
+        }
+
+        .services-category {
+            margin-bottom: 3rem;
+        }
+
+        .services-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .services-category-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(27, 60, 93, 0.12);
+        }
+
+        .services-category-head-main {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .services-category-head h3 {
+            margin: 0;
+            font-size: 1.35rem;
+            color: var(--peacock-blue);
+            font-family: 'Noto Serif Devanagari', 'Playfair Display', serif;
+        }
+
+        .services-view-all {
+            flex-shrink: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            text-align: right;
+            padding: 8px 4px 8px 12px;
+            font-size: 0.92rem;
+            color: var(--peacock-blue);
+            font-weight: 600;
+            line-height: 1.25;
+            font-family: 'Noto Serif Devanagari', 'Playfair Display', serif;
+        }
+
+        .services-view-all:hover {
+            color: #c45d8a;
+            text-decoration: underline;
+        }
+
+        .services-view-all:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        .services-view-all[hidden] {
+            display: none !important;
+        }
+
+        .services-view-all-sub {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 500;
+            opacity: 0.88;
+        }
+
+        .services-cat-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold), var(--lotus-pink));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 28px rgba(27, 60, 93, 0.15);
+            border-color: var(--gold);
+        }
+
+        .service-card-media {
+            aspect-ratio: 16 / 10;
+            background: #eef2f6;
+            overflow: hidden;
+        }
+
+        .service-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-card-body {
+            padding: 1rem 1.1rem 1.15rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card-title {
+            margin: 0 0 0.5rem;
+            font-size: 1.05rem;
+            color: var(--peacock-blue);
+            line-height: 1.35;
+            font-family: 'Noto Serif Devanagari', 'Playfair Display', serif;
+        }
+
+        .service-card-meta {
+            margin-bottom: 0.85rem;
+        }
+
+        .service-stars {
+            display: inline-flex;
+            gap: 3px;
+            font-size: 0.85rem;
+        }
+
+        .service-stars .fa-star {
+            color: #d0d5dd;
+        }
+
+        .service-stars .fa-star.is-on {
+            color: var(--gold);
+        }
+
+        .service-card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: auto;
+        }
+
+        .service-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.65rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid rgba(27, 60, 93, 0.2);
+            color: var(--peacock-blue);
+            background: #fff;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .service-btn:hover {
+            background: var(--peacock-blue);
+            color: #fff;
+            border-color: var(--peacock-blue);
+        }
+
+        .service-btn-call {
+            border-color: rgba(46, 125, 50, 0.35);
+            color: #2e7d32;
+        }
+
+        .service-btn-call:hover {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: #fff;
+        }
+
+        .services-loading,
+        .services-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            color: var(--peacock-blue);
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        .services-empty-en {
+            font-size: 0.9em;
+            opacity: 0.85;
+        }
     </style>
 @endsection
 
@@ -129,6 +352,64 @@
             <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#FFD700"
                 stroke-width="2" fill="none" />
             <circle cx="200" cy="30" r="8" fill="#FFD700" />
+        </svg>
+    </div>
+
+    <!-- Visitor services: hotels, restaurants, places (API-driven) -->
+    <section id="visitor-services" class="services-guide packages" aria-label="Nathdwara services">
+        <div class="container">
+            <h2>नाथद्वारा में सेवाएँ</h2>
+            <p class="services-guide-lead">Hotels, dining &amp; places — सीधे सूची से कॉल, वेबसाइट या नेविगेशन।</p>
+
+            <div class="services-category">
+                <div class="services-category-head">
+                    <div class="services-category-head-main">
+                        <span class="services-cat-icon" aria-hidden="true"><i class="fa-solid fa-bed"></i></span>
+                        <h3>होटल्स <span lang="en">/ Hotels</span></h3>
+                    </div>
+                    <button type="button" class="services-view-all" id="servicesViewAllHotel" hidden aria-expanded="false">
+                        <span class="services-view-all-text">सभी देखें</span>
+                        <span class="services-view-all-sub" lang="en">View all</span>
+                    </button>
+                </div>
+                <div class="services-grid" id="servicesGridHotel"></div>
+            </div>
+
+            <div class="services-category">
+                <div class="services-category-head">
+                    <div class="services-category-head-main">
+                        <span class="services-cat-icon" aria-hidden="true"><i class="fa-solid fa-utensils"></i></span>
+                        <h3>भोजनालय <span lang="en">/ Restaurants</span></h3>
+                    </div>
+                    <button type="button" class="services-view-all" id="servicesViewAllRestaurant" hidden aria-expanded="false">
+                        <span class="services-view-all-text">सभी देखें</span>
+                        <span class="services-view-all-sub" lang="en">View all</span>
+                    </button>
+                </div>
+                <div class="services-grid" id="servicesGridRestaurant"></div>
+            </div>
+
+            <div class="services-category">
+                <div class="services-category-head">
+                    <div class="services-category-head-main">
+                        <span class="services-cat-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+                        <h3>दर्शनीय स्थल <span lang="en">/ Places</span></h3>
+                    </div>
+                    <button type="button" class="services-view-all" id="servicesViewAllPlace" hidden aria-expanded="false">
+                        <span class="services-view-all-text">सभी देखें</span>
+                        <span class="services-view-all-sub" lang="en">View all</span>
+                    </button>
+                </div>
+                <div class="services-grid" id="servicesGridPlace"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider">
+        <svg width="100%" height="60" viewBox="0 0 400 60">
+            <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#E37CA6"
+                stroke-width="2" fill="none" />
+            <circle cx="200" cy="30" r="8" fill="#E37CA6" />
         </svg>
     </div>
 
@@ -551,6 +832,184 @@
             }
         }
         
+        const SERVICE_IMAGE_FALLBACK = @json(asset('images/shrinathji-or-lord-krishna-as-pichwai-folk-painting-vector (1).jpg'));
+
+        function escapeHtml(text) {
+            if (text == null) {
+                return '';
+            }
+            const div = document.createElement('div');
+            div.textContent = String(text);
+            return div.innerHTML;
+        }
+
+        function safeHttpUrl(url) {
+            if (!url || typeof url !== 'string') {
+                return '';
+            }
+            const t = url.trim();
+            return /^https?:\/\//i.test(t) ? t : '';
+        }
+
+        function serviceThumbSrc(item) {
+            if (item.image_url) {
+                return item.image_url;
+            }
+            if (item.image) {
+                return '/uploads/services/' + String(item.image).split('/').map(encodeURIComponent).join('/');
+            }
+            return SERVICE_IMAGE_FALLBACK;
+        }
+
+        function starsHtml(rating) {
+            const n = Math.min(5, Math.max(0, Math.round(parseFloat(rating) || 0)));
+            let html = '<span class="service-stars" aria-label="' + n + ' out of 5">';
+            for (let i = 1; i <= 5; i++) {
+                html += '<i class="fa-solid fa-star' + (i <= n ? ' is-on' : '') + '" aria-hidden="true"></i>';
+            }
+            html += '</span>';
+            return html;
+        }
+
+        function telHref(mobile) {
+            if (!mobile) {
+                return '#';
+            }
+            const digits = String(mobile).replace(/\D/g, '');
+            return digits ? 'tel:' + digits : '#';
+        }
+
+        const SERVICE_PREVIEW_LIMIT = 3;
+
+        function createServiceCardElement(item) {
+            const card = document.createElement('article');
+            card.className = 'service-card';
+            const name = escapeHtml(item.name || '—');
+            const imgSrc = escapeHtml(serviceThumbSrc(item));
+            const website = safeHttpUrl(item.website_url);
+            const map = safeHttpUrl(item.google_map_link);
+            const tel = telHref(item.mobile_number);
+            const hasTel = item.mobile_number && tel !== '#';
+            const actions = [];
+            if (hasTel) {
+                actions.push('<a class="service-btn service-btn-call" href="' + tel + '"><i class="fa-solid fa-phone" aria-hidden="true"></i> कॉल / Call</a>');
+            }
+            if (website) {
+                actions.push('<a class="service-btn service-btn-web" href="' + escapeHtml(website) + '" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i> Website</a>');
+            }
+            if (map) {
+                actions.push('<a class="service-btn service-btn-map" href="' + escapeHtml(map) + '" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-arrow" aria-hidden="true"></i> Navigate</a>');
+            }
+            card.innerHTML =
+                '<div class="service-card-media">' +
+                '<img src="' + imgSrc + '" alt="" loading="lazy" width="400" height="250">' +
+                '</div>' +
+                '<div class="service-card-body">' +
+                '<h4 class="service-card-title">' + name + '</h4>' +
+                '<div class="service-card-meta">' + starsHtml(item.rating) + '</div>' +
+                (actions.length ? '<div class="service-card-actions">' + actions.join('') + '</div>' : '') +
+                '</div>';
+            return card;
+        }
+
+        function renderServicesIntoGrid(gridEl, items, viewAllBtn) {
+            if (!gridEl) {
+                return;
+            }
+            const list = Array.isArray(items) ? items : [];
+            const expanded = !!gridEl._expanded;
+            const visible = expanded ? list : list.slice(0, SERVICE_PREVIEW_LIMIT);
+            gridEl.innerHTML = '';
+            const fragment = document.createDocumentFragment();
+            visible.forEach(function (item) {
+                fragment.appendChild(createServiceCardElement(item));
+            });
+            gridEl.appendChild(fragment);
+            if (viewAllBtn) {
+                if (list.length <= SERVICE_PREVIEW_LIMIT) {
+                    viewAllBtn.hidden = true;
+                } else {
+                    viewAllBtn.hidden = false;
+                    viewAllBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                    const textEl = viewAllBtn.querySelector('.services-view-all-text');
+                    const subEl = viewAllBtn.querySelector('.services-view-all-sub');
+                    if (textEl && subEl) {
+                        if (expanded) {
+                            textEl.textContent = 'कम देखें';
+                            subEl.textContent = 'Show less';
+                        } else {
+                            textEl.textContent = 'सभी देखें';
+                            subEl.textContent = 'View all';
+                        }
+                    }
+                }
+            }
+        }
+
+        function initServiceViewAllToggles() {
+            const pairs = [
+                ['servicesGridHotel', 'servicesViewAllHotel'],
+                ['servicesGridRestaurant', 'servicesViewAllRestaurant'],
+                ['servicesGridPlace', 'servicesViewAllPlace'],
+            ];
+            pairs.forEach(function (ids) {
+                const gridEl = document.getElementById(ids[0]);
+                const viewAllBtn = document.getElementById(ids[1]);
+                if (!gridEl || !viewAllBtn || viewAllBtn.dataset.bound === '1') {
+                    return;
+                }
+                viewAllBtn.dataset.bound = '1';
+                viewAllBtn.addEventListener('click', function () {
+                    gridEl._expanded = !gridEl._expanded;
+                    renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn);
+                    if (gridEl._expanded) {
+                        gridEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            });
+        }
+
+        async function fetchServiceCategory(category, gridEl, viewAllBtn) {
+            if (!gridEl) {
+                return;
+            }
+            if (viewAllBtn) {
+                viewAllBtn.hidden = true;
+            }
+            gridEl._items = [];
+            gridEl._expanded = false;
+            gridEl.innerHTML = '<p class="services-loading">Loading…</p>';
+            try {
+                const response = await fetch('/api/service?category=' + encodeURIComponent(category));
+                const result = await response.json();
+                if (!response.ok) {
+                    const msg = (result && result.message) ? result.message : 'Could not load listings.';
+                    gridEl.innerHTML = '<p class="services-empty">' + escapeHtml(Array.isArray(msg) ? msg.join(' ') : String(msg)) + '</p>';
+                    return;
+                }
+                const items = (result && result.data) ? result.data : [];
+                if (!items.length) {
+                    gridEl.innerHTML = '<p class="services-empty">जल्द ही जोड़ा जाएगा <span class="services-empty-en">/ Coming soon</span></p>';
+                    return;
+                }
+                gridEl._items = items;
+                gridEl._expanded = false;
+                renderServicesIntoGrid(gridEl, items, viewAllBtn);
+            } catch (err) {
+                console.error('Error fetching services:', err);
+                gridEl.innerHTML = '<p class="services-empty">Failed to load. Please try again later.</p>';
+            }
+        }
+
+        function loadVisitorServices() {
+            initServiceViewAllToggles();
+            return Promise.all([
+                fetchServiceCategory('hotel', document.getElementById('servicesGridHotel'), document.getElementById('servicesViewAllHotel')),
+                fetchServiceCategory('restaurant', document.getElementById('servicesGridRestaurant'), document.getElementById('servicesViewAllRestaurant')),
+                fetchServiceCategory('tourist_place', document.getElementById('servicesGridPlace'), document.getElementById('servicesViewAllPlace')),
+            ]);
+        }
+
         // Function to fetch darshan timings from API
         async function fetchDarshanTimings() {
             try {
@@ -907,6 +1366,7 @@
             fetchDarshanTimings();
             fetchHeroTimings();
             fetchPreferredTimeOptions();
+            loadVisitorServices();
             
             // Add event listener to the booking form
             const bookingForm = document.getElementById('bookingForm');

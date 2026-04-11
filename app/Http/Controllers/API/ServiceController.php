@@ -7,6 +7,7 @@ use App\Models\Service;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -26,8 +27,52 @@ class ServiceController extends Controller
             'website_url' => ['nullable', 'string', 'url'],
             'google_map_link' => ['nullable', 'string', 'url'],
             'is_active' => ['nullable', 'integer', Rule::in([0, 1])],
-            'image' => ['nullable', 'file'],
+            'image' => ['nullable', 'file', 'image', 'max:10240'],
         ];
+    }
+
+    /**
+     * Merge parsed POST fields and uploaded files for multipart validation.
+     * (Laravel's all() already merges files when PHP parsed the body correctly.)
+     */
+    protected function multipartInputForValidation(Request $request): array
+    {
+        return array_merge($request->request->all(), $request->allFiles());
+    }
+
+    /**
+     * When the client sends a body but PHP/Laravel did not populate input/files,
+     * explain the usual causes (Ionic/Angular setting Content-Type without boundary, PHP limits).
+     */
+    protected function unparsedMultipartHint(Request $request): ?string
+    {
+        $contentType = (string) $request->header('Content-Type', '');
+        $length = (int) $request->header('Content-Length', 0);
+
+        if (stripos($contentType, 'multipart/form-data') !== false
+            && stripos($contentType, 'boundary=') === false) {
+            return 'Content-Type is multipart/form-data but has no boundary. '
+                . 'In Angular/Ionic HttpClient, do not set Content-Type for FormData; '
+                . 'let the browser set multipart/form-data with the boundary automatically.';
+        }
+
+        if ($contentType === '' && $length > 0 && empty($request->request->all()) && ! $request->allFiles()) {
+            return 'Missing Content-Type while a body was sent; fields were not parsed. '
+                . 'Send multipart/form-data (with boundary) for this endpoint.';
+        }
+
+        if ($length > 0 && empty($request->request->all()) && ! $request->allFiles()) {
+            if (stripos($contentType, 'application/json') !== false) {
+                return 'Content-Type is application/json. File uploads must use multipart/form-data.';
+            }
+
+            return 'Request has a Content-Length but no parsed fields or files. '
+                . 'Typical fixes: (1) remove manual multipart Content-Type on the client, '
+                . '(2) increase PHP post_max_size and upload_max_filesize above the request size, '
+                . '(3) ensure you POST as multipart/form-data with a valid boundary.';
+        }
+
+        return null;
     }
 
     protected function serviceValidationMessages(): array
@@ -70,7 +115,8 @@ class ServiceController extends Controller
         }
         $this->ensureUploadsDirectory();
         $file = $request->file('image');
-        $filename = time() . '_' . $file->getClientOriginalName();
+        $safeBase = preg_replace('/[^A-Za-z0-9._-]/', '_', basename($file->getClientOriginalName()));
+        $filename = time() . '_' . $safeBase;
         $file->move(public_path('uploads/services/'), $filename);
 
         return $filename;
@@ -79,6 +125,17 @@ class ServiceController extends Controller
     public function index(Request $request)
     {
         try {
+            if ($request->filled('category')) {
+                $category = (string) $request->query('category');
+                if (! in_array($category, self::CATEGORY_SLUGS, true)) {
+                    return response()->json([
+                        'data' => [],
+                        'message' => 'Invalid category. Allowed values: hotel, restaurant, tourist_place.',
+                        'code' => 400,
+                    ], 400);
+                }
+            }
+
             $query = Service::where('is_active', 1)->where('is_deleted', 0);
 
             if ($request->filled('category')) {
@@ -160,8 +217,34 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         try {
+            if (config('app.debug') && $request->boolean('_dump_multipart')) {
+                dd([
+                    'request_bag' => $request->request->all(),
+                    'files' => $request->allFiles(),
+                    'file_image' => $request->file('image'),
+                    'content_type' => $request->header('Content-Type'),
+                    'content_length' => $request->header('Content-Length'),
+                ]);
+            }
+
+            if ($hint = $this->unparsedMultipartHint($request)) {
+                Log::warning('service.store.multipart_unparsed', [
+                    'hint' => $hint,
+                    'content_type' => $request->header('Content-Type'),
+                    'content_length' => $request->header('Content-Length'),
+                ]);
+
+                return response()->json([
+                    'data' => [],
+                    'message' => $hint,
+                    'code' => 422,
+                ], 422);
+            }
+
+            $payload = $this->multipartInputForValidation($request);
+
             $validator = Validator::make(
-                $request->all(),
+                $payload,
                 $this->serviceValidationRules(),
                 $this->serviceValidationMessages()
             );
@@ -170,21 +253,24 @@ class ServiceController extends Controller
                 return $this->validationErrorResponse($validator);
             }
 
-            $image = $this->storeUploadedImage($request);
+            $validated = $validator->validated();
+            $imageFilename = $this->storeUploadedImage($request);
 
             $service = Service::create([
-                'image' => $image,
-                'name' => $request->input('name'),
-                'category' => $request->input('category'),
-                'rating' => $request->input('rating'),
-                'mobile_number' => $request->input('mobile_number'),
-                'website_url' => $request->input('website_url'),
-                'google_map_link' => $request->input('google_map_link'),
-                'is_active' => $request->has('is_active') ? (int) $request->input('is_active') : 1,
+                'image' => $imageFilename,
+                'name' => $validated['name'] ?? null,
+                'category' => $validated['category'] ?? null,
+                'rating' => $validated['rating'] ?? null,
+                'mobile_number' => $validated['mobile_number'] ?? null,
+                'website_url' => $validated['website_url'] ?? null,
+                'google_map_link' => $validated['google_map_link'] ?? null,
+                'is_active' => array_key_exists('is_active', $validated)
+                    ? (int) $validated['is_active']
+                    : 1,
             ]);
 
             return response()->json([
-                'data' => $service,
+                'data' => $service->fresh(),
                 'message' => 'Service created successfully',
                 'code' => 201,
             ], 201);
@@ -200,8 +286,33 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            if (config('app.debug') && $request->boolean('_dump_multipart')) {
+                dd([
+                    'request_bag' => $request->request->all(),
+                    'files' => $request->allFiles(),
+                    'file_image' => $request->file('image'),
+                    'content_type' => $request->header('Content-Type'),
+                ]);
+            }
+
+            if ($hint = $this->unparsedMultipartHint($request)) {
+                Log::warning('service.update.multipart_unparsed', [
+                    'hint' => $hint,
+                    'service_id' => $id,
+                    'content_type' => $request->header('Content-Type'),
+                ]);
+
+                return response()->json([
+                    'data' => [],
+                    'message' => $hint,
+                    'code' => 422,
+                ], 422);
+            }
+
+            $payload = $this->multipartInputForValidation($request);
+
             $validator = Validator::make(
-                $request->all(),
+                $payload,
                 $this->serviceValidationRules(true),
                 $this->serviceValidationMessages()
             );
@@ -220,26 +331,28 @@ class ServiceController extends Controller
                 ], 404);
             }
 
-            if ($request->exists('name')) {
-                $service->name = $request->input('name');
+            $validated = $validator->validated();
+
+            if (array_key_exists('name', $validated)) {
+                $service->name = $validated['name'];
             }
-            if ($request->exists('category')) {
-                $service->category = $request->input('category');
+            if (array_key_exists('category', $validated)) {
+                $service->category = $validated['category'];
             }
-            if ($request->exists('rating')) {
-                $service->rating = $request->input('rating');
+            if (array_key_exists('rating', $validated)) {
+                $service->rating = $validated['rating'];
             }
-            if ($request->exists('mobile_number')) {
-                $service->mobile_number = $request->input('mobile_number');
+            if (array_key_exists('mobile_number', $validated)) {
+                $service->mobile_number = $validated['mobile_number'];
             }
-            if ($request->exists('website_url')) {
-                $service->website_url = $request->input('website_url');
+            if (array_key_exists('website_url', $validated)) {
+                $service->website_url = $validated['website_url'];
             }
-            if ($request->exists('google_map_link')) {
-                $service->google_map_link = $request->input('google_map_link');
+            if (array_key_exists('google_map_link', $validated)) {
+                $service->google_map_link = $validated['google_map_link'];
             }
-            if ($request->exists('is_active')) {
-                $service->is_active = (int) $request->input('is_active');
+            if (array_key_exists('is_active', $validated)) {
+                $service->is_active = (int) $validated['is_active'];
             }
 
             if ($request->hasFile('image')) {
@@ -249,7 +362,7 @@ class ServiceController extends Controller
             $service->save();
 
             return response()->json([
-                'data' => $service,
+                'data' => $service->fresh(),
                 'message' => 'Service updated successfully',
                 'code' => 200,
             ], 200);

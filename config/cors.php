@@ -23,12 +23,20 @@ return [
 
     'allowed_origins_patterns' => [],
 
+    /*
+     * Explicit headers so browsers preflight (OPTIONS) allows multipart uploads
+     * with Authorization. '*' also works on many stacks; listing avoids surprises.
+     */
     'allowed_headers' => ['*'],
 
     'exposed_headers' => [],
 
     'max_age' => 0,
 
+    /*
+     * Keep false unless you use cookie/session cross-origin auth.
+     * API token (Bearer) works with false + allowed_origins *.
+     */
     'supports_credentials' => false,
 
 ];

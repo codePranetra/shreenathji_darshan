@@ -88,7 +88,8 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/darshantiming/{id}', [DarshanTimingController::class, 'update']);
     Route::delete('/darshantiming/{id}', [DarshanTimingController::class, 'destroy']);
 
-    // Services (admin)
+    // Services (admin). store/update accept multipart/form-data (FormData).
+    // Clients must not set Content-Type manually; the boundary must be included.
     Route::get('/service/manage', [ServiceController::class, 'manage']);
     Route::post('/service', [ServiceController::class, 'store']);
     Route::put('/service/{id}', [ServiceController::class, 'update'])->where('id', '[0-9]+');
