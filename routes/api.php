@@ -11,6 +11,7 @@ use App\Http\Controllers\API\DarshanTimingController;
 use App\Http\Controllers\API\PackageController;
 use App\Http\Controllers\API\BookingController;
 use App\Http\Controllers\API\ServiceController;
+use App\Http\Controllers\API\Service2Controller;
 
 Route::get('/login', function () {
     return response()->json(["message" => "Unauthenticated."]);
@@ -49,6 +50,8 @@ Route::get('/darshantiming/{id}', [DarshanTimingController::class, 'getDarshanTi
 // Services (public)
 Route::get('/service', [ServiceController::class, 'index']);
 Route::get('/service/{id}', [ServiceController::class, 'show'])->where('id', '[0-9]+');
+Route::get('/service_2', [Service2Controller::class, 'index']);
+Route::get('/service_2/{id}', [Service2Controller::class, 'show'])->where('id', '[0-9]+');
 
 // Permissions (read-only)
 Route::get('/permissions', [PermissionController::class, 'permissions']);
@@ -94,6 +97,13 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/service', [ServiceController::class, 'store']);
     Route::put('/service/{id}', [ServiceController::class, 'update'])->where('id', '[0-9]+');
     Route::delete('/service/{id}', [ServiceController::class, 'destroy'])->where('id', '[0-9]+');
+
+    // Service 2 (admin). store/update accept multipart/form-data (FormData).
+    // Clients must not set Content-Type manually; the boundary must be included.
+    Route::get('/service_2/manage', [Service2Controller::class, 'manage']);
+    Route::post('/service_2', [Service2Controller::class, 'store']);
+    Route::put('/service_2/{id}', [Service2Controller::class, 'update'])->where('id', '[0-9]+');
+    Route::delete('/service_2/{id}', [Service2Controller::class, 'destroy'])->where('id', '[0-9]+');
 
     // Permissions (write)
     Route::post('/role-has-permissions', [PermissionController::class, 'store_role_has_permissions']);

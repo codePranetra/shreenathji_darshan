@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\Service2;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
-class ServiceController extends Controller
+class Service2Controller extends Controller
 {
-    public const CATEGORY_SLUGS = ['hotel', 'restaurant', 'tourist_place'];
+    public const CATEGORY_SLUGS = ['taxi', 'hospital', 'guide'];
 
     protected function serviceValidationRules(bool $isUpdate = false): array
     {
@@ -22,6 +22,7 @@ class ServiceController extends Controller
         return [
             'name' => $isUpdate ? ['sometimes', 'nullable', 'string'] : ['required', 'string'],
             'category' => $isUpdate ? ['sometimes', 'nullable', 'string', $categoryRule] : ['required', 'string', $categoryRule],
+            'language' => ['nullable', 'string'],
             'rating' => ['nullable', 'numeric', 'between:0,5'],
             'mobile_number' => ['nullable', 'string'],
             'website_url' => ['nullable', 'string', 'url'],
@@ -31,19 +32,11 @@ class ServiceController extends Controller
         ];
     }
 
-    /**
-     * Merge parsed POST fields and uploaded files for multipart validation.
-     * (Laravel's all() already merges files when PHP parsed the body correctly.)
-     */
     protected function multipartInputForValidation(Request $request): array
     {
         return array_merge($request->request->all(), $request->allFiles());
     }
 
-    /**
-     * When the client sends a body but PHP/Laravel did not populate input/files,
-     * explain the usual causes (Ionic/Angular setting Content-Type without boundary, PHP limits).
-     */
     protected function unparsedMultipartHint(Request $request): ?string
     {
         $contentType = (string) $request->header('Content-Type', '');
@@ -80,7 +73,7 @@ class ServiceController extends Controller
         return [
             'name.required' => 'Name is required.',
             'category.required' => 'Category is required.',
-            'category.in' => 'Category must be one of: hotel, restaurant, tourist_place.',
+            'category.in' => 'Category must be one of: taxi, hospital, guide.',
             'rating.between' => 'Rating must be between 0 and 5.',
             'website_url.url' => 'Website URL must be a valid URL.',
             'google_map_link.url' => 'Google map link must be a valid URL.',
@@ -104,7 +97,7 @@ class ServiceController extends Controller
 
     protected function ensureUploadsDirectory(): void
     {
-        $path = public_path('uploads/services');
+        $path = public_path('uploads/service_2');
         if (! File::isDirectory($path)) {
             File::makeDirectory($path, 0755, true);
         }
@@ -119,7 +112,7 @@ class ServiceController extends Controller
         $file = $request->file('image');
         $safeBase = preg_replace('/[^A-Za-z0-9._-]/', '_', basename($file->getClientOriginalName()));
         $filename = time() . '_' . $safeBase;
-        $file->move(public_path('uploads/services/'), $filename);
+        $file->move(public_path('uploads/service_2/'), $filename);
 
         return $filename;
     }
@@ -132,13 +125,13 @@ class ServiceController extends Controller
                 if (! in_array($category, self::CATEGORY_SLUGS, true)) {
                     return response()->json([
                         'data' => [],
-                        'message' => 'Invalid category. Allowed values: hotel, restaurant, tourist_place.',
+                        'message' => 'Invalid category. Allowed values: taxi, hospital, guide.',
                         'code' => 400,
                     ], 400);
                 }
             }
 
-            $query = Service::where('is_active', 1)->where('is_deleted', 0);
+            $query = Service2::where('is_active', 1)->where('is_deleted', 0);
 
             if ($request->filled('category')) {
                 $query->where('category', $request->query('category'));
@@ -148,7 +141,7 @@ class ServiceController extends Controller
 
             $response = [];
             $response['data'] = $services;
-            $response['message'] = 'Services fetched successfully';
+            $response['message'] = 'Service 2 fetched successfully';
             $response['code'] = 200;
 
             return response()->json($response, 200);
@@ -164,7 +157,7 @@ class ServiceController extends Controller
     public function show($id)
     {
         try {
-            $service = Service::where('is_active', 1)
+            $service = Service2::where('is_active', 1)
                 ->where('is_deleted', 0)
                 ->where('id', $id)
                 ->first();
@@ -172,14 +165,14 @@ class ServiceController extends Controller
             if (! $service) {
                 return response()->json([
                     'data' => [],
-                    'message' => 'Service not found',
+                    'message' => 'Service 2 not found',
                     'code' => 404,
                 ], 404);
             }
 
             return response()->json([
                 'data' => $service,
-                'message' => 'Service fetched successfully',
+                'message' => 'Service 2 fetched successfully',
                 'code' => 200,
             ], 200);
         } catch (Exception $e) {
@@ -194,7 +187,7 @@ class ServiceController extends Controller
     public function manage(Request $request)
     {
         try {
-            $query = Service::where('is_deleted', 0);
+            $query = Service2::where('is_deleted', 0);
 
             if ($request->filled('category')) {
                 $query->where('category', $request->query('category'));
@@ -204,7 +197,7 @@ class ServiceController extends Controller
 
             return response()->json([
                 'data' => $services,
-                'message' => 'Services fetched successfully',
+                'message' => 'Service 2 fetched successfully',
                 'code' => 200,
             ], 200);
         } catch (Exception $e) {
@@ -230,7 +223,7 @@ class ServiceController extends Controller
             }
 
             if ($hint = $this->unparsedMultipartHint($request)) {
-                Log::warning('service.store.multipart_unparsed', [
+                Log::warning('service2.store.multipart_unparsed', [
                     'hint' => $hint,
                     'content_type' => $request->header('Content-Type'),
                     'content_length' => $request->header('Content-Length'),
@@ -258,10 +251,11 @@ class ServiceController extends Controller
             $validated = $validator->validated();
             $imageFilename = $this->storeUploadedImage($request);
 
-            $service = Service::create([
+            $service = Service2::create([
                 'image' => $imageFilename,
                 'name' => $validated['name'] ?? null,
                 'category' => $validated['category'] ?? null,
+                'language' => $validated['language'] ?? null,
                 'rating' => $validated['rating'] ?? null,
                 'mobile_number' => $validated['mobile_number'] ?? null,
                 'website_url' => $validated['website_url'] ?? null,
@@ -273,7 +267,7 @@ class ServiceController extends Controller
 
             return response()->json([
                 'data' => $service->fresh(),
-                'message' => 'Service created successfully',
+                'message' => 'Service 2 created successfully',
                 'code' => 201,
             ], 201);
         } catch (Exception $e) {
@@ -298,7 +292,7 @@ class ServiceController extends Controller
             }
 
             if ($hint = $this->unparsedMultipartHint($request)) {
-                Log::warning('service.update.multipart_unparsed', [
+                Log::warning('service2.update.multipart_unparsed', [
                     'hint' => $hint,
                     'service_id' => $id,
                     'content_type' => $request->header('Content-Type'),
@@ -323,12 +317,12 @@ class ServiceController extends Controller
                 return $this->validationErrorResponse($validator);
             }
 
-            $service = Service::where('id', $id)->where('is_deleted', 0)->first();
+            $service = Service2::where('id', $id)->where('is_deleted', 0)->first();
 
             if (! $service) {
                 return response()->json([
                     'data' => [],
-                    'message' => 'Service not found',
+                    'message' => 'Service 2 not found',
                     'code' => 404,
                 ], 404);
             }
@@ -340,6 +334,9 @@ class ServiceController extends Controller
             }
             if (array_key_exists('category', $validated)) {
                 $service->category = $validated['category'];
+            }
+            if (array_key_exists('language', $validated)) {
+                $service->language = $validated['language'];
             }
             if (array_key_exists('rating', $validated)) {
                 $service->rating = $validated['rating'];
@@ -365,7 +362,7 @@ class ServiceController extends Controller
 
             return response()->json([
                 'data' => $service->fresh(),
-                'message' => 'Service updated successfully',
+                'message' => 'Service 2 updated successfully',
                 'code' => 200,
             ], 200);
         } catch (Exception $e) {
@@ -380,12 +377,12 @@ class ServiceController extends Controller
     public function destroy($id)
     {
         try {
-            $service = Service::where('id', $id)->where('is_deleted', 0)->first();
+            $service = Service2::where('id', $id)->where('is_deleted', 0)->first();
 
             if (! $service) {
                 return response()->json([
                     'data' => [],
-                    'message' => 'Service not found',
+                    'message' => 'Service 2 not found',
                     'code' => 404,
                 ], 404);
             }
@@ -396,7 +393,7 @@ class ServiceController extends Controller
 
             return response()->json([
                 'data' => $service,
-                'message' => 'Service deleted successfully.',
+                'message' => 'Service 2 deleted successfully.',
                 'code' => 200,
             ], 200);
         } catch (Exception $e) {
