@@ -37,6 +37,35 @@ class Service2Controller extends Controller
         return array_merge($request->request->all(), $request->allFiles());
     }
 
+    protected function normalizedServicePayload(Request $request): array
+    {
+        $payload = $this->multipartInputForValidation($request);
+
+        if (! array_key_exists('name', $payload)) {
+            $payload['name'] = $payload['service_name']
+                ?? $payload['title']
+                ?? null;
+        }
+
+        if (! array_key_exists('mobile_number', $payload)) {
+            $payload['mobile_number'] = $payload['mobile']
+                ?? $payload['phone']
+                ?? null;
+        }
+
+        if (! array_key_exists('google_map_link', $payload)) {
+            $payload['google_map_link'] = $payload['map_link']
+                ?? $payload['googleMapLink']
+                ?? null;
+        }
+
+        if (! array_key_exists('language', $payload)) {
+            $payload['language'] = $payload['lang'] ?? null;
+        }
+
+        return $payload;
+    }
+
     protected function unparsedMultipartHint(Request $request): ?string
     {
         $contentType = (string) $request->header('Content-Type', '');
@@ -236,7 +265,7 @@ class Service2Controller extends Controller
                 ], 422);
             }
 
-            $payload = $this->multipartInputForValidation($request);
+            $payload = $this->normalizedServicePayload($request);
 
             $validator = Validator::make(
                 $payload,
@@ -305,7 +334,7 @@ class Service2Controller extends Controller
                 ], 422);
             }
 
-            $payload = $this->multipartInputForValidation($request);
+            $payload = $this->normalizedServicePayload($request);
 
             $validator = Validator::make(
                 $payload,

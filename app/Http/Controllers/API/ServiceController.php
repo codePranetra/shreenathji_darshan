@@ -40,6 +40,31 @@ class ServiceController extends Controller
         return array_merge($request->request->all(), $request->allFiles());
     }
 
+    protected function normalizedServicePayload(Request $request): array
+    {
+        $payload = $this->multipartInputForValidation($request);
+
+        if (! array_key_exists('name', $payload)) {
+            $payload['name'] = $payload['service_name']
+                ?? $payload['title']
+                ?? null;
+        }
+
+        if (! array_key_exists('mobile_number', $payload)) {
+            $payload['mobile_number'] = $payload['mobile']
+                ?? $payload['phone']
+                ?? null;
+        }
+
+        if (! array_key_exists('google_map_link', $payload)) {
+            $payload['google_map_link'] = $payload['map_link']
+                ?? $payload['googleMapLink']
+                ?? null;
+        }
+
+        return $payload;
+    }
+
     /**
      * When the client sends a body but PHP/Laravel did not populate input/files,
      * explain the usual causes (Ionic/Angular setting Content-Type without boundary, PHP limits).
@@ -243,7 +268,7 @@ class ServiceController extends Controller
                 ], 422);
             }
 
-            $payload = $this->multipartInputForValidation($request);
+            $payload = $this->normalizedServicePayload($request);
 
             $validator = Validator::make(
                 $payload,
@@ -311,7 +336,7 @@ class ServiceController extends Controller
                 ], 422);
             }
 
-            $payload = $this->multipartInputForValidation($request);
+            $payload = $this->normalizedServicePayload($request);
 
             $validator = Validator::make(
                 $payload,
