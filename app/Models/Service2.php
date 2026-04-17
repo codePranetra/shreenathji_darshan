@@ -36,11 +36,11 @@ class Service2 extends Model
     protected function imageUrl(): Attribute
     {
         return Attribute::get(function (): ?string {
-            if ($this->image === null || $this->image === '') {
+            if (empty($this->image)) {
                 return null;
             }
 
-            return asset('uploads/service_2/' . ltrim($this->image, '/'));
+            return asset('storage/service_2/' . $this->image);
         });
     }
 }
