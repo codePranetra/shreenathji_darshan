@@ -6,6 +6,7 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#visitor-services" class="nav-link">Services</a></li>                
                 <li><a href="#packages" class="nav-link">Packages</a></li>
                 <li><a href="#timings" class="nav-link">Timings</a></li>
                  <li><a href="#booking" class="nav-link">Book Now</a></li>
