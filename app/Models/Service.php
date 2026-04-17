@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
 class Service extends Model
 {
     use HasFactory;
@@ -33,11 +32,11 @@ class Service extends Model
     protected function imageUrl(): Attribute
     {
         return Attribute::get(function (): ?string {
-            if ($this->image === null || $this->image === '') {
+            if (empty($this->image)) {
                 return null;
             }
 
-            return asset('uploads/services/' . ltrim($this->image, '/'));
+            return asset('storage/services/' . $this->image);
         });
     }
 }
