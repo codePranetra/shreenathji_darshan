@@ -1379,12 +1379,12 @@
                 const iconMap = {
                     "मंगला दर्शन": "sun-svgrepo-com.svg",
                     "श्रृंगार दर्शन": "crown-svgrepo-com.svg",
-                    "ग्वाल": "cow-silhouette-svgrepo-com.svg",
-                    "राजभोग": "sunrise-2-svgrepo-com.svg",
-                    "उत्थापन": "om-solid-svgrepo-com.svg",
-                    "भोग": "diya-lamp.svg",
-                    "आरती": "diwali-diya-oil-lamp-flat-icon.jpg",
-                    "शयन": "sunrise-2-svgrepo-com.svg"
+                    "ग्वाल दर्शन": "cow-silhouette-svgrepo-com.svg",
+                    "राजभोग दर्शन": "sunrise-2-svgrepo-com.svg",
+                    "उत्थापन दर्शन": "om-solid-svgrepo-com.svg",
+                    "भोग दर्शन": "diya-lamp.svg",
+                    "आरती दर्शन": "diwali-diya-oil-lamp-flat-icon.jpg",
+                    "शयन दर्शन": "sunrise-2-svgrepo-com.svg"
                 };
 
                 data.forEach(timing => {
