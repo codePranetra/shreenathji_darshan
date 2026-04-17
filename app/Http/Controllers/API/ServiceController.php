@@ -266,6 +266,51 @@ class ServiceController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $service = Service::where('id', $id)->where('is_deleted', 0)->first();
+
+            if (! $service) {
+                return response()->json([
+                    'data' => [],
+                    'message' => 'Service not found',
+                    'code' => 404,
+                ], 404);
+            }
+
+            if (! empty($service->image)) {
+                Storage::disk('public')->delete('services/' . $service->image);
+            }
+
+            $service->is_deleted = 1;
+            $service->save();
+
+            DB::commit();
+
+            return response()->json([
+                'data' => $service,
+                'message' => 'Service deleted successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            Log::error('service.destroy.failed', [
+                'service_id' => $id,
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
     protected function serviceValidationMessages(): array
     {
         return [
