@@ -17,6 +17,37 @@ class ServiceController extends Controller
 {
     public const CATEGORY_SLUGS = ['hotel', 'restaurant', 'tourist_place'];
 
+    public function index(Request $request)
+    {
+        try {
+            $query = Service::where('is_active', 1)->where('is_deleted', 0);
+
+            $category = $request->query('category');
+            if (!empty($category)) {
+                $query->where('category', $category);
+            }
+
+            $services = $query->orderBy('id', 'desc')->get();
+
+            return response()->json([
+                'data' => $services,
+                'message' => 'Services fetched successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            Log::error('service.index.failed', [
+                'category' => $request->query('category'),
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
     public function manage()
     {
         try {
