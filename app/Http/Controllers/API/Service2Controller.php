@@ -15,7 +15,7 @@ use Illuminate\Validation\Rule;
 
 class Service2Controller extends Controller
 {
-    public const CATEGORY_SLUGS = ['taxi', 'hospital', 'guide'];
+    public const CATEGORY_SLUGS = ['taxi', 'hospital', 'guide','Police Station'];
 
     public function index(Request $request)
     {

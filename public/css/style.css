@@ -1263,7 +1263,25 @@ body {
     transform: scale(1.1) rotate(5deg);
 }
 
+.cta-button--call {
+    background: #16a34a;
+    color: #ffffff;
+    border-color: #15803d;
+    text-shadow: none;
+}
 
+.cta-button--call:hover {
+    background: #22c55e;
+    border-color: #166534;
+    color: #ffffff;
+}
+
+.cta-button--call::after {
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.05) 50%,
+            rgba(255, 255, 255, 0.12) 100%);
+}
 
 @keyframes rotate {
     from {
