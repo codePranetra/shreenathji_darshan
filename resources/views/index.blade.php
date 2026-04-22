@@ -42,7 +42,7 @@
                                         पूछड़ी के लोटा की हूप हूप प्यारे</p> -->
                 <a class="cta-button" href="tel:+919782695545" aria-label="Call +91 9782695545">Call Now</a>
             </div>
-            <p style="">For Any Help Please Call</p>
+            <p class="hero-help-text">For Any Help Please Call</p>
             <!-- <div class="hero-visual">
                                                                                                                                         <div class="hero-timings">
                                                                                                                                             <div class="hero-timings-header">
@@ -160,7 +160,7 @@
             </div>
 
 
-            <div class="services-category">
+            <div class="services-category services-category-hotel">
                 <!-- HEADER -->
                 <div class="services-category-head">
                     <div class="services-category-head-main">
@@ -180,7 +180,7 @@
                 <div class="services-grid" id="servicesGridHotel"></div>
             </div>
 
-            <div class="services-category">
+            <div class="services-category services-category-restaurant">
 
                 <!-- HEADER -->
                 <div class="services-category-head">
@@ -203,7 +203,7 @@
                 <div class="services-grid" id="servicesGridRestaurant"></div>
             </div>
 
-            <div class="services-category">
+            <div class="services-category services-category-place">
 
                 <!-- HEADER -->
                 <div class="services-category-head">
@@ -225,11 +225,11 @@
             </div>
 
             <!-- TAXI -->
-            <div class="services-category">
+            <div class="services-category services-category-taxi">
                 <div class="services-category-head">
                     <div class="services-category-head-main">
                         <div class="custom-section-header">
-                            <img src="/images/taxi-head.png" alt="टैक्सी">
+                            <img src="/images/taxi-image.png" alt="टैक्सी">
                         </div>
                     </div>
                 </div>
@@ -244,11 +244,11 @@
             </div>
 
             <!-- HOSPITAL -->
-            <div class="services-category">
+            <div class="services-category services-category-hospital">
                 <div class="services-category-head">
                     <div class="services-category-head-main">
                         <div class="custom-section-header">
-                            <img src="/images/hospital-head-removebg-preview.png" alt="अस्पताल">
+                            <img src="/images/emergency.png" alt="अस्पताल">
                         </div>
                     </div>
                 </div>
@@ -263,7 +263,7 @@
             </div>
 
             <!-- TOURIST GUIDE -->
-            <div class="services-category">
+            <div class="services-category services-category-guide">
                 <div class="services-category-head">
                     <div class="services-category-head-main">
                         <div class="custom-section-header">
@@ -642,7 +642,8 @@
 
                     card.innerHTML = `
                 <div class="hero-img-wrap">
-                    <img src="${serviceThumbSrc(item)}" alt="${item.name}">
+                    <img src="${serviceThumbSrc(item)}" alt="${item.name}" loading="lazy"
+                        onerror="this.onerror=null;this.src='${SERVICE_IMAGE_FALLBACK}';">
                 </div>
 
                 <div class="hero-service-title">${item.name}</div>
@@ -672,9 +673,11 @@
                             return (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0);
                         });
 
-                        const top3 = sorted.slice(0, 3);
+                        const isMobileClient = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                        const heroPreviewLimit = isMobileClient ? 4 : 3;
+                        const topHeroServices = sorted.slice(0, heroPreviewLimit);
 
-                        renderHeroServices(top3);
+                        renderHeroServices(topHeroServices);
                     }
                 } catch (e) {
                     console.error('Hero hotels error', e);
@@ -880,6 +883,14 @@
             }
 
             const SERVICE_PREVIEW_LIMIT = 3;
+            const MOBILE_SERVICE_PREVIEW_LIMIT = 4;
+
+            function getEffectiveServicePreviewLimit(previewLimit = SERVICE_PREVIEW_LIMIT) {
+                if (window.matchMedia('(max-width: 600px)').matches) {
+                    return MOBILE_SERVICE_PREVIEW_LIMIT;
+                }
+                return previewLimit;
+            }
 
             function createServiceCardElement(item, showRating = true) {
                 const card = document.createElement('article');
@@ -1010,13 +1021,14 @@
                 return card;
             }
 
-            function renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer) {
+            function renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer, previewLimit = SERVICE_PREVIEW_LIMIT) {
                 if (!gridEl) {
                     return;
                 }
                 const list = Array.isArray(items) ? items : [];
                 const expanded = !!gridEl._expanded;
-                const visible = expanded ? list : list.slice(0, SERVICE_PREVIEW_LIMIT);
+                const effectivePreviewLimit = getEffectiveServicePreviewLimit(previewLimit);
+                const visible = expanded ? list : list.slice(0, effectivePreviewLimit);
                 gridEl.innerHTML = '';
                 const fragment = document.createDocumentFragment();
                 visible.forEach(function (item) {
@@ -1024,7 +1036,7 @@
                 });
                 gridEl.appendChild(fragment);
                 if (viewAllBtn) {
-                    if (list.length <= SERVICE_PREVIEW_LIMIT) {
+                    if (list.length <= effectivePreviewLimit) {
                         viewAllBtn.hidden = false;
                         viewAllBtn.disabled = true;
                         viewAllBtn.classList.add('is-disabled');
@@ -1066,20 +1078,21 @@
                     viewAllBtn.dataset.bound = '1';
                     viewAllBtn.addEventListener('click', function () {
                         gridEl._expanded = !gridEl._expanded;
-                        renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer);
+                        renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer, gridEl._previewLimit);
                         if (gridEl._expanded) {
-                            renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer);
+                            renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer, gridEl._previewLimit);
                         }
                     });
                 });
             }
 
-            async function fetchServiceCategory(category, gridEl, viewAllBtn, api = '/api/service', cardRenderer = createServiceCardElement) {
+            async function fetchServiceCategory(category, gridEl, viewAllBtn, api = '/api/service', cardRenderer = createServiceCardElement, previewLimit = SERVICE_PREVIEW_LIMIT) {
                 if (!gridEl) {
                     return;
                 }
 
                 gridEl._renderer = cardRenderer;
+                gridEl._previewLimit = previewLimit;
 
                 if (viewAllBtn) {
                     viewAllBtn.hidden = true;
@@ -1122,7 +1135,7 @@
                     }
                     gridEl._items = items;
                     gridEl._expanded = false;
-                    renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer);
+                    renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer, previewLimit);
                 } catch (err) {
                     console.error('Error fetching services:', err);
                     gridEl.innerHTML = '<p class="services-empty">Failed to load. Please try again later.</p>';
