@@ -23,7 +23,7 @@
 
 body {
     font-family: 'Playfair Display', 'Noto Serif Devanagari', serif;
-    line-height: 1.6;
+    line-height: 1;
     color: var(--text-dark);
     background: linear-gradient(135deg, var(--ivory-white) 0%, var(--light-pink) 100%);
     min-height: 100vh;
@@ -250,10 +250,10 @@ body {
 .hero-services-grid {
     display: flex;
     justify-content: flex-start;
-    margin-top: 16px;
+    margin-top: 10px;
     flex-wrap: wrap;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 5px;
 }
 
 @media (max-width: 1024px) {
@@ -385,7 +385,7 @@ body {
     background-image: url(../images/darshanScrollDesignImageUpscaledddddd.png);
     background-repeat: no-repeat;
     background-position: center top;
-    background-size: 100% 100%;
+    background-size: 96% 98%;
 
     display: flex;
     flex-direction: column;

@@ -36,17 +36,13 @@
         </div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Shree ji Darshan</h1>
+                <!-- <h1>Shree ji Darshan</h1> -->
                 <!-- <p>बोल श्री गिरिराज धरण की जय,
                                         बोल श्री राधे ,
                                         पूछड़ी के लोटा की हूप हूप प्यारे</p> -->
-                <a class="cta-button" href="tel:+919782695545" aria-label="Call +91 9782695545">
-                    <svg class="cta-icon" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                        <path d="M 4 3 C 3.5 3 3 3.5 3 4 L 3 6 C 3 6.5 3.5 7 4 7 L 6 7 C 6.5 7 7 6.5 7 6 L 7 5 C 8.5 5.5 10 6.5 11.2 7.8 C 12.5 9 13.5 10.5 14 12 L 13 12 C 12.5 12 12 12.5 12 13 L 12 15 C 12 15.5 12.5 16 13 16 L 15 16 C 15.5 16 16 15.5 16 15 L 16 13 C 16 8 11 3 6 3 Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
-                    </svg>
-                    For Any Help Please Call
-                </a>
+                <a class="cta-button" href="tel:+919782695545" aria-label="Call +91 9782695545">Call Now</a>
             </div>
+            <p style="">For Any Help Please Call</p>
             <!-- <div class="hero-visual">
                                                                                                                                         <div class="hero-timings">
                                                                                                                                             <div class="hero-timings-header">
@@ -445,9 +441,9 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="images/shrinathji-or-lord-krishna-as-pichwai-folk-painting-vector (1).jpg"
+                        <img src="images/about us by client.jpeg"
                             alt="Shrinathji Pichwai Art"
-                            style="max-width:60%;height:auto;display:block;margin:0 auto 18px auto;border-radius:16px;box-shadow:0 4px 24px rgba(27,60,93,0.08);">
+                            style="max-width:80%;height:auto;display:block;margin:0 auto 18px auto;border-radius:16px;box-shadow:0 4px 24px rgba(27,60,93,0.08);">
 
                     </div>
                 </div>
