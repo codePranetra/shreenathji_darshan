@@ -20,3 +20,6 @@ use App\Http\Controllers\FrontpageController;
 
 Route::get('/', [FrontpageController::class, 'index']);
 
+Route::view('/description-disclaimer', 'description-disclaimer')->name('description.disclaimer');
+Route::view('/terms-of-use', 'terms-of-use')->name('terms.use');
+

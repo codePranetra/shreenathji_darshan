@@ -36,40 +36,35 @@
         </div>
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Shree ji Darshan</h1>
-                <p>बोल श्री गिरिराज धरण की जय,
-                    बोल श्री राधे ,
-                    पूछड़ी के लोटा की हूप हूप प्यारे</p>
-                <button class="cta-button" onclick="scrollToSection('packages')">
-                    <svg class="cta-icon" width="20" height="20" viewBox="0 0 20 20">
-                        <path d="M 10 2 L 10 18 M 2 10 L 18 10" stroke="currentColor" stroke-width="2" />
-                    </svg>
-                    Seva Packages
-                </button>
+                <!-- <h1>Shree ji Darshan</h1> -->
+                <!-- <p>बोल श्री गिरिराज धरण की जय,
+                                        बोल श्री राधे ,
+                                        पूछड़ी के लोटा की हूप हूप प्यारे</p> -->
+                <a class="cta-button" href="tel:+919782695545" aria-label="Call +91 9782695545">Call Now</a>
             </div>
+            <p class="hero-help-text">For Any Help Please Call</p>
             <!-- <div class="hero-visual">
-                                                                                                                <div class="hero-timings">
-                                                                                                                    <div class="hero-timings-header">
-                                                                                                                        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                                                                                                                            <circle cx="10" cy="10" r="8" fill="none" stroke="#1B3C5D" stroke-width="2" />
-                                                                                                                            <path d="M 10 6 L 10 10 L 13 10" stroke="#E37CA6" stroke-width="2" fill="none" />
-                                                                                                                        </svg>
-                                                                                                                        <span id="heroTimingsDate">आज के दर्शन समय</span>
-                                                                                                                    </div>
-                                                                                                                    <ul class="hero-timings-list" id="heroTimingsList">
-                                                                                                                        {{-- <li><span class="t-time">06:00 AM</span><span class="t-label">मंगला दर्शन</span></li>
-                                                                                                                        <li><span class="t-time">07:30 AM</span><span class="t-label">श्रृंगार दर्शन</span></li>
-                                                                                                                        <li><span class="t-time">09:15 AM</span><span class="t-label">ग्वाल दर्शन</span></li>
-                                                                                                                        <li><span class="t-time">11:15 AM</span><span class="t-label">राजभोग दर्शन</span></li>
-                                                                                                                        <li><span class="t-time">03:45 PM</span><span class="t-label">उत्थापन दर्शन</span></li>
-                                                                                                                        <li><span class="t-time">04:45 PM</span><span class="t-label">भोग दर्शन</span></li>
-                                                                                                                        <li><span class="t-time">05:15 PM</span><span class="t-label">आरती</span></li>
-                                                                                                                        <li><span class="t-time">-</span><span class="t-label">शयन दर्शन नहीं खुलेंगे</span></li> --}}
-                                                                                                                    </ul>
-                                                                                                                    <a href="#timings" class="hero-timings-link">Full schedule</a>
-                                                                                                                </div>
-                                                                                                            </div> -->
-
+                                                                                                                                        <div class="hero-timings">
+                                                                                                                                            <div class="hero-timings-header">
+                                                                                                                                                <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                                                                                                                                                    <circle cx="10" cy="10" r="8" fill="none" stroke="#1B3C5D" stroke-width="2" />
+                                                                                                                                                    <path d="M 10 6 L 10 10 L 13 10" stroke="#E37CA6" stroke-width="2" fill="none" />
+                                                                                                                                                </svg>
+                                                                                                                                                <span id="heroTimingsDate">आज के दर्शन समय</span>
+                                                                                                                                            </div>
+                                                                                                                                            <ul class="hero-timings-list" id="heroTimingsList">
+                                                                                                                                                {{-- <li><span class="t-time">06:00 AM</span><span class="t-label">मंगला दर्शन</span></li>
+                                                                                                                                                <li><span class="t-time">07:30 AM</span><span class="t-label">श्रृंगार दर्शन</span></li>
+                                                                                                                                                <li><span class="t-time">09:15 AM</span><span class="t-label">ग्वाल दर्शन</span></li>
+                                                                                                                                                <li><span class="t-time">11:15 AM</span><span class="t-label">राजभोग दर्शन</span></li>
+                                                                                                                                                <li><span class="t-time">03:45 PM</span><span class="t-label">उत्थापन दर्शन</span></li>
+                                                                                                                                                <li><span class="t-time">04:45 PM</span><span class="t-label">भोग दर्शन</span></li>
+                                                                                                                                                <li><span class="t-time">05:15 PM</span><span class="t-label">आरती</span></li>
+                                                                                                                                                <li><span class="t-time">-</span><span class="t-label">शयन दर्शन नहीं खुलेंगे</span></li> --}}
+                                                                                                                                            </ul>
+                                                                                                                                            <a href="#timings" class="hero-timings-link">Full schedule</a>
+                                                                                                                                        </div>
+                                                                                                                                    </div> -->
 
             <div class="darshan-header">
                 <div class="darshan-scale-wrapper">
@@ -93,40 +88,51 @@
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="hero-services">
+                <h3 class="hero-services-heading">
+                    Devotee Recommended Places to Stay & Eat
+                </h3>
+                <h4>
+                    श्रद्धालुओं के लिए अनुशंसित ठहरने और भोजन के स्थान
+                </h4>
 
+                <div id="heroServicesGrid" class="hero-services-grid">
+                    <!-- JS will inject cards -->
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 
     <!-- Pichwai Section Divider -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
         <svg width="100%" height="60" viewBox="0 0 400 60">
             <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#FFD700"
                 stroke-width="2" fill="none" />
             <circle cx="200" cy="30" r="8" fill="#FFD700" />
         </svg>
-    </div>
+    </div> -->
 
-    <!-- Packages Section -->
+    <!-- Packages Section
     <section id="packages" class="packages">
         <div class="container">
             <h2>वैष्णवसेवायां सदा तत्परः</h2>
             <div class="packages-grid" id="packagesGrid">
                 <!-- Packages will be populated dynamically -->
-                <div class="package-card">
+                <!-- <div class="package-card">
                     <div class="package-header">
                         <h3>Loading...</h3>
                     </div>
                     <div class="package-content">
                         <p>Please wait</p>
-                    </div>
-                </div>
-            </div>
+                    </div> -->
+                <!-- </div> -->
+            <!-- </div>
         </div>
-    </section>
+    </section> --> -->
 
     <!-- Pichwai Section Divider -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
         <svg width="100%" height="60" viewBox="0 0 400 60">
             <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#E37CA6"
                 stroke-width="2" fill="none" />
@@ -134,37 +140,14 @@
         </svg>
     </div>
 
-    <!-- Darshan Timing Section -->
-    <section id="timings" class="timings">
-        <div class="container">
-            <h2 id="timingsHeading">Darshan Timings</h2>
-            <div class="timing-content">
-                <div class="timing-icon">
-                    <svg width="80" height="80" viewBox="0 0 80 80">
-                        <circle cx="40" cy="40" r="35" fill="none" stroke="#1B3C5D" stroke-width="3" />
-                        <path d="M 40 20 L 40 40 L 55 40" stroke="#FFD700" stroke-width="3" fill="none" />
-                        <circle cx="40" cy="40" r="3" fill="#FFD700" />
-                    </svg>
-                </div>
-                <div class="timing-slots" id="timingSlots">
-                    <!-- Timing slots will be populated dynamically -->
-                    <div class="timing-slot">
-                        <span class="time">Loading...</span>
-                        <span class="description">Please wait</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Pichwai Section Divider -->
-    <div class="section-divider">
+    <!-- <div class="section-divider">
         <svg width="100%" height="60" viewBox="0 0 400 60">
             <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#FFD700"
                 stroke-width="2" fill="none" />
             <circle cx="200" cy="30" r="8" fill="#FFD700" />
         </svg>
-    </div>
+    </div> --> -->
 
     <!-- Visitor services: hotels, restaurants, places (API-driven) -->
     <section id="visitor-services" class="services-guide packages" aria-label="Nathdwara services">
@@ -177,7 +160,7 @@
             </div>
 
 
-            <div class="services-category">
+            <div class="services-category services-category-hotel">
                 <!-- HEADER -->
                 <div class="services-category-head">
                     <div class="services-category-head-main">
@@ -197,7 +180,7 @@
                 <div class="services-grid" id="servicesGridHotel"></div>
             </div>
 
-            <div class="services-category">
+            <div class="services-category services-category-restaurant">
 
                 <!-- HEADER -->
                 <div class="services-category-head">
@@ -220,7 +203,7 @@
                 <div class="services-grid" id="servicesGridRestaurant"></div>
             </div>
 
-            <div class="services-category">
+            <div class="services-category services-category-place">
 
                 <!-- HEADER -->
                 <div class="services-category-head">
@@ -242,11 +225,11 @@
             </div>
 
             <!-- TAXI -->
-            <div class="services-category">
+            <div class="services-category services-category-taxi">
                 <div class="services-category-head">
                     <div class="services-category-head-main">
                         <div class="custom-section-header">
-                            <img src="/images/taxi-head.png" alt="टैक्सी">
+                            <img src="/images/taxi-image.png" alt="टैक्सी">
                         </div>
                     </div>
                 </div>
@@ -261,11 +244,11 @@
             </div>
 
             <!-- HOSPITAL -->
-            <div class="services-category">
+            <div class="services-category services-category-hospital">
                 <div class="services-category-head">
                     <div class="services-category-head-main">
                         <div class="custom-section-header">
-                            <img src="/images/hospital-head-removebg-preview.png" alt="अस्पताल">
+                            <img src="/images/emergency.png" alt="अस्पताल">
                         </div>
                     </div>
                 </div>
@@ -280,7 +263,7 @@
             </div>
 
             <!-- TOURIST GUIDE -->
-            <div class="services-category">
+            <div class="services-category services-category-guide">
                 <div class="services-category-head">
                     <div class="services-category-head-main">
                         <div class="custom-section-header">
@@ -458,9 +441,9 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="images/shrinathji-or-lord-krishna-as-pichwai-folk-painting-vector (1).jpg"
+                        <img src="images/about us by client.jpeg"
                             alt="Shrinathji Pichwai Art"
-                            style="max-width:60%;height:auto;display:block;margin:0 auto 18px auto;border-radius:16px;box-shadow:0 4px 24px rgba(27,60,93,0.08);">
+                            style="max-width:80%;height:auto;display:block;margin:0 auto 18px auto;border-radius:16px;box-shadow:0 4px 24px rgba(27,60,93,0.08);">
 
                     </div>
                 </div>
@@ -647,6 +630,59 @@
                 heroDateSpan.textContent = `आज के दर्शन समय (${currentDate})`;
             }
 
+            function renderHeroServices(data) {
+                const container = document.getElementById('heroServicesGrid');
+                if (!container) return;
+
+                container.innerHTML = '';
+
+                data.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'hero-service-card';
+
+                    card.innerHTML = `
+                <div class="hero-img-wrap">
+                    <img src="${serviceThumbSrc(item)}" alt="${item.name}" loading="lazy"
+                        onerror="this.onerror=null;this.src='${SERVICE_IMAGE_FALLBACK}';">
+                </div>
+
+                <div class="hero-service-title">${item.name}</div>
+
+                <div class="hero-service-rating">
+                    ${starsHtml(item.rating || 0)}
+                </div>
+                <div class="hero-service-btn-div">
+                    <a href="#visitor-services" class="hero-service-btn">
+                        Details
+                    </a>
+                </div>
+            `;
+
+                    container.appendChild(card);
+                });
+            }
+
+            async function loadHeroHotels() {
+                try {
+                    const res = await fetch('/api/service?category=hotel');
+                    const result = await res.json();
+
+                    if (result?.data?.length) {
+
+                        const sorted = result.data.sort((a, b) => {
+                            return (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0);
+                        });
+
+                        const isMobileClient = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                        const heroPreviewLimit = isMobileClient ? 4 : 3;
+                        const topHeroServices = sorted.slice(0, heroPreviewLimit);
+
+                        renderHeroServices(topHeroServices);
+                    }
+                } catch (e) {
+                    console.error('Hero hotels error', e);
+                }
+            }
             // Function to format description with bullet points
             function formatDescriptionAsBulletPoints(description) {
                 if (!description) return '';
@@ -703,59 +739,83 @@
                     // Check if we have packages data
                     if (result && result.data && result.data.length > 0) {
                         // Display all packages
-                        result.data.forEach(packageItem => {
+                        // result.data.forEach(packageItem => {
+                        //     const packageCard = document.createElement('div');
+                        //     packageCard.className = 'package-card';
+                        //     packageCard.innerHTML = `
+                        //                                                                                                         <div class="package-header">
+                        //                                                                                                             <h3>${packageItem.name}</h3>
+                        //                                                                                                             <div class="package-price">
+                        //                                                                                                                 ${packageItem.price > 0 ? `₹${parseFloat(packageItem.price).toFixed(0)} <small>per person</small>` : ''}                                    
+                        //                                                                                                             </div>
+                        //                                                                                                         </div>
+                        //                                                                                                         <div class="package-content">
+                        //                                                                                                             ${formatDescriptionAsBulletPoints(packageItem.description)}
+                        //                                                                                                         </div>
+                        //                                                                                                         <div class="package-buttons">
+                        //                                                                                                             <!-- <button class="book-btn" onclick="selectPackage(${packageItem.id})">Book Now</button> -->
+                        //                                                                                                             <a href="tel:+919782695545" class="call-btn">
+                        //                                                                                                                 <svg class="call-icon" width="16" height="16" viewBox="0 0 16 16">
+                        //                                                                                                                     <path d="M 3 6 C 3 2 6 1 9 2 C 12 3 14 5 13 8 C 12 11 10 12 7 11 C 4 10 2 8 3 6 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        //                                                                                                                     <path d="M 8 4 L 8 7 L 11 7" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        //                                                                                                                 </svg>
+                        //                                                                                                                 Call Now
+                        //                                                                                                             </a>
+                        //                                                                                                         </div>
+                        //                                                                                                     `;
+                        //     packagesGrid.appendChild(packageCard);
+                        // });
+
+                        const firstPackage = result.data[0];
+
+                        if (firstPackage) {
                             const packageCard = document.createElement('div');
                             packageCard.className = 'package-card';
                             packageCard.innerHTML = `
-                                                                                                                                <div class="package-header">
-                                                                                                                                    <h3>${packageItem.name}</h3>
-                                                                                                                                    <div class="package-price">
-                                                                                                                                        ${packageItem.price > 0 ? `₹${parseFloat(packageItem.price).toFixed(0)} <small>per person</small>` : ''}                                    
-                                                                                                                                    </div>
-                                                                                                                                </div>
-                                                                                                                                <div class="package-content">
-                                                                                                                                    ${formatDescriptionAsBulletPoints(packageItem.description)}
-                                                                                                                                </div>
-                                                                                                                                <div class="package-buttons">
-                                                                                                                                    <!-- <button class="book-btn" onclick="selectPackage(${packageItem.id})">Book Now</button> -->
-                                                                                                                                    <a href="tel:+919782695545" class="call-btn">
-                                                                                                                                        <svg class="call-icon" width="16" height="16" viewBox="0 0 16 16">
-                                                                                                                                            <path d="M 3 6 C 3 2 6 1 9 2 C 12 3 14 5 13 8 C 12 11 10 12 7 11 C 4 10 2 8 3 6 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                                                                                                                                            <path d="M 8 4 L 8 7 L 11 7" stroke="currentColor" stroke-width="1.5" fill="none"/>
-                                                                                                                                        </svg>
-                                                                                                                                        Call Now
-                                                                                                                                    </a>
-                                                                                                                                </div>
-                                                                                                                            `;
+                                <div class="package-header">
+                                    <h3>${firstPackage.name}</h3>
+                                    <div class="package-price">
+                                        ${firstPackage.price > 0 ? `₹${parseFloat(firstPackage.price).toFixed(0)} <small>per person</small>` : ''}                                    
+                                    </div>
+                                </div>
+                                <div class="package-content">
+                                    ${formatDescriptionAsBulletPoints(firstPackage.description)}
+                                </div>
+                                <div class="package-buttons">
+                                    <a href="tel:+919782695545" class="call-btn">
+                                        Call Now
+                                    </a>
+                                </div>
+                            `;
                             packagesGrid.appendChild(packageCard);
-                        });
+                        }
                     } else {
                         // Show no packages message
                         packagesGrid.innerHTML = `
-                                                                                                                            <div class="package-card">
-                                                                                                                                <div class="package-header">
-                                                                                                                                    <h3>No Packages Available</h3>
-                                                                                                                                </div>
-                                                                                                                                <div class="package-content">
-                                                                                                                                    <p>Please check back later</p>
-                                                                                                                                </div>
-                                                                                                                            </div>
-                                                                                                                        `;
+                                                                                                                                                    <div class="package-card">
+                                                                                                                                                        <div class="package-header">
+                                                                                                                                                            <h3>No Packages Available</h3>
+                                                                                                                                                        </div>
+                                                                                                                                                        <div class="package-content">
+                                                                                                                                                            <p>Please check back later</p>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                `;
                     }
                 } catch (error) {
                     console.error('Error fetching packages:', error);
                     // Show error message
                     const packagesGrid = document.getElementById('packagesGrid');
                     packagesGrid.innerHTML = `
-                                                                                                                        <div class="package-card">
-                                                                                                                            <div class="package-header">
-                                                                                                                                <h3>Error Loading Packages</h3>
-                                                                                                                            </div>
-                                                                                                                            <div class="package-content">
-                                                                                                                                <p>Failed to load packages. Please try again later.</p>
-                                                                                                                            </div>
-                                                                                                                        </div>
-                                                                                                                    `;
+                                                                                                                                                <div class="package-card">
+                                                                                                                                                    <div class="package-header">
+                                                                                                                                                        <h3>Error Loading Packages</h3>
+                                                                                                                                                    </div>
+                                                                                                                                                    <div class="package-content">
+                                                                                                                                                        <p>Failed to load packages. Please try again later.</p>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            `;
                 }
             }
 
@@ -823,6 +883,14 @@
             }
 
             const SERVICE_PREVIEW_LIMIT = 3;
+            const MOBILE_SERVICE_PREVIEW_LIMIT = 4;
+
+            function getEffectiveServicePreviewLimit(previewLimit = SERVICE_PREVIEW_LIMIT) {
+                if (window.matchMedia('(max-width: 600px)').matches) {
+                    return MOBILE_SERVICE_PREVIEW_LIMIT;
+                }
+                return previewLimit;
+            }
 
             function createServiceCardElement(item, showRating = true) {
                 const card = document.createElement('article');
@@ -864,20 +932,20 @@
                 const tel = telHref(item.mobile_number);
 
                 card.innerHTML = `
-                                                            <div class="service-card-media">
-                                                                <img src="${imgSrc}" alt="${name}" loading="lazy">
-                                                            </div>
+                                                                                    <div class="service-card-media">
+                                                                                        <img src="${imgSrc}" alt="${name}" loading="lazy">
+                                                                                    </div>
 
-                                                            <div class="service-card-body">
-                                                                <h4 class="service-card-title">${name}</h4>
+                                                                                    <div class="service-card-body">
+                                                                                        <h4 class="service-card-title">${name}</h4>
 
-                                                                <div class="service-card-actions">
-                                                                    <a href="${tel}" class="service-btn taxi-book-btn">
-                                                                        बुक करें
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        `;
+                                                                                        <div class="service-card-actions">
+                                                                                            <a href="${tel}" class="service-btn taxi-book-btn">
+                                                                                                बुक करें
+                                                                                            </a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                `;
 
                 return card;
             }
@@ -893,35 +961,35 @@
                 const map = safeHttpUrl(item.google_map_link);
 
                 card.innerHTML = `
-                                                <div class="hospital-left">
-                                                    <div class="imageHospital">
-                                                        <img src="${imgSrc}" alt="${name}">
-                                                    </div>
-                                                    <!-- MAP IMAGE -->
-                                                    <div class="map-thumb">
-                                                        <img src="/images/mapImage.jfif" alt="map">
+                                                                        <div class="hospital-left">
+                                                                            <div class="imageHospital">
+                                                                                <img src="${imgSrc}" alt="${name}">
+                                                                            </div>
+                                                                            <!-- MAP IMAGE -->
+                                                                            <div class="map-thumb">
+                                                                                <img src="/images/mapImage.jfif" alt="map">
 
-                                                        ${map ? `
-                                                        <a href="${map}" target="_blank" class="map-overlay">
-                                                            <i class="fa-solid fa-location-dot"></i>
-                                                        </a>
-                                                    ` : ''}
-                                                </div>
-                                                </div>
+                                                                                ${map ? `
+                                                                                <a href="${map}" target="_blank" class="map-overlay">
+                                                                                    <i class="fa-solid fa-location-dot"></i>
+                                                                                </a>
+                                                                            ` : ''}
+                                                                        </div>
+                                                                        </div>
 
-                                                <div class="hospital-center">
-                                                    <div class="hospital-center-text">
-                                                    <h4>${name}</h4>
-                                                    ${item.mobile_number ? `<p>Emergency: ${escapeHtml(item.mobile_number)}</p>` : ''}
-                                                    </div>
-                                                <div class="hospital-right">
-                                                    <a href="${tel}" class="call-btn-hospital">
-                                                    <i class="fa-solid fa-phone" aria-hidden="true">
-                                                    </i> कॉल करें</a>
-                                                    </a>
-                                                </div>
-                                                </div>
-                                            `;
+                                                                        <div class="hospital-center">
+                                                                            <div class="hospital-center-text">
+                                                                            <h4>${name}</h4>
+                                                                            ${item.mobile_number ? `<p>Emergency: ${escapeHtml(item.mobile_number)}</p>` : ''}
+                                                                            </div>
+                                                                        <div class="hospital-right">
+                                                                            <a href="${tel}" class="call-btn-hospital">
+                                                                            <i class="fa-solid fa-phone" aria-hidden="true">
+                                                                            </i> कॉल करें</a>
+                                                                            </a>
+                                                                        </div>
+                                                                        </div>
+                                                                    `;
                 return card;
             }
 
@@ -935,31 +1003,32 @@
                 const languages = escapeHtml(item.language || 'Hindi');
 
                 card.innerHTML = `
-                                                    <div class="guide-photo">
-                                                        <img src="${imgSrc}" alt="${name}">
-                                                    </div>
+                                                                            <div class="guide-photo">
+                                                                                <img src="${imgSrc}" alt="${name}">
+                                                                            </div>
 
-                                                    <div class="guide-body">
-                                                        <h4 class="guide-name" style="color: white;">${name}</h4>
-                                                        <p class="guide-lang">${languages}</p>
-                                                        <div class="guide-call">
-                                                        <a href="${tel}" class="call-btn-hospital">
-                                                    <i class="fa-solid fa-phone" aria-hidden="true">
-                                                    </i> कॉल करें</a>
-                                                        </div>
-                                                    </div>
-                                                `;
+                                                                            <div class="guide-body">
+                                                                                <h4 class="guide-name" style="color: white;">${name}</h4>
+                                                                                <p class="guide-lang">${languages}</p>
+                                                                                <div class="guide-call">
+                                                                                <a href="${tel}" class="call-btn-hospital">
+                                                                            <i class="fa-solid fa-phone" aria-hidden="true">
+                                                                            </i> कॉल करें</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        `;
 
                 return card;
             }
 
-            function renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer) {
+            function renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer, previewLimit = SERVICE_PREVIEW_LIMIT) {
                 if (!gridEl) {
                     return;
                 }
                 const list = Array.isArray(items) ? items : [];
                 const expanded = !!gridEl._expanded;
-                const visible = expanded ? list : list.slice(0, SERVICE_PREVIEW_LIMIT);
+                const effectivePreviewLimit = getEffectiveServicePreviewLimit(previewLimit);
+                const visible = expanded ? list : list.slice(0, effectivePreviewLimit);
                 gridEl.innerHTML = '';
                 const fragment = document.createDocumentFragment();
                 visible.forEach(function (item) {
@@ -967,7 +1036,7 @@
                 });
                 gridEl.appendChild(fragment);
                 if (viewAllBtn) {
-                    if (list.length <= SERVICE_PREVIEW_LIMIT) {
+                    if (list.length <= effectivePreviewLimit) {
                         viewAllBtn.hidden = false;
                         viewAllBtn.disabled = true;
                         viewAllBtn.classList.add('is-disabled');
@@ -1009,20 +1078,21 @@
                     viewAllBtn.dataset.bound = '1';
                     viewAllBtn.addEventListener('click', function () {
                         gridEl._expanded = !gridEl._expanded;
-                        renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer);
+                        renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer, gridEl._previewLimit);
                         if (gridEl._expanded) {
-                            renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer);
+                            renderServicesIntoGrid(gridEl, gridEl._items, viewAllBtn, gridEl._renderer, gridEl._previewLimit);
                         }
                     });
                 });
             }
 
-            async function fetchServiceCategory(category, gridEl, viewAllBtn, api = '/api/service', cardRenderer = createServiceCardElement) {
+            async function fetchServiceCategory(category, gridEl, viewAllBtn, api = '/api/service', cardRenderer = createServiceCardElement, previewLimit = SERVICE_PREVIEW_LIMIT) {
                 if (!gridEl) {
                     return;
                 }
 
                 gridEl._renderer = cardRenderer;
+                gridEl._previewLimit = previewLimit;
 
                 if (viewAllBtn) {
                     viewAllBtn.hidden = true;
@@ -1065,7 +1135,7 @@
                     }
                     gridEl._items = items;
                     gridEl._expanded = false;
-                    renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer);
+                    renderServicesIntoGrid(gridEl, items, viewAllBtn, cardRenderer, previewLimit);
                 } catch (err) {
                     console.error('Error fetching services:', err);
                     gridEl.innerHTML = '<p class="services-empty">Failed to load. Please try again later.</p>';
@@ -1073,31 +1143,31 @@
             }
 
             function createTouristPlaceCard(item) {
-    const card = document.createElement('article');
-    card.className = 'service-card place-card';
+                const card = document.createElement('article');
+                card.className = 'service-card place-card';
 
-    const name = escapeHtml(item.name || '—');
-    const imgSrc = escapeHtml(serviceThumbSrc(item));
-    const map = safeHttpUrl(item.google_map_link);
+                const name = escapeHtml(item.name || '—');
+                const imgSrc = escapeHtml(serviceThumbSrc(item));
+                const map = safeHttpUrl(item.google_map_link);
 
-    card.innerHTML = `
-        <div class="service-card-media">
-            <img src="${imgSrc}" alt="${name}" loading="lazy">
-            
-            ${map ? `
-                <a href="${map}" target="_blank" class="map-icon-btn">
-                    <i class="fa-solid fa-location-dot"></i>
-                </a>
-            ` : ''}
-        </div>
+                card.innerHTML = `
+                                <div class="service-card-media">
+                                    <img src="${imgSrc}" alt="${name}" loading="lazy">
 
-        <div class="service-card-body">
-            <h4 class="service-card-title">${name}</h4>
-        </div>
-    `;
+                                    ${map ? `
+                                        <a href="${map}" target="_blank" class="map-icon-btn">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                        </a>
+                                    ` : ''}
+                                </div>
 
-    return card;
-}
+                                <div class="service-card-body">
+                                    <h4 class="service-card-title">${name}</h4>
+                                </div>
+                            `;
+
+                return card;
+            }
 
             function loadVisitorServices() {
                 initServiceViewAllToggles();
@@ -1186,31 +1256,31 @@
                             const timingSlot = document.createElement('div');
                             timingSlot.className = 'pichwai-row';
                             timingSlot.innerHTML = `
-                                                                                                                                <div class="pichwai-left"><h2>${start_time} - ${end_time}</h2></div>
-                                                                                                                                    <div class="pichwai-divider"></div>
-                                                                                                                                    <div class="pichwai-right"><h2>${timing.title}</h2></div>
-                                                                                                                            `;
+                                                                                                                                                        <div class="pichwai-left"><h2>${start_time} - ${end_time}</h2></div>
+                                                                                                                                                            <div class="pichwai-divider"></div>
+                                                                                                                                                            <div class="pichwai-right"><h2>${timing.title}</h2></div>
+                                                                                                                                                    `;
                             timingSlotsContainer.appendChild(timingSlot);
                         });
                     } else {
                         // Show no timings message
                         timingSlotsContainer.innerHTML = `
-                                                                                                                            <div class="pichwai-row">
-                                                                                                                                <div class="pichwai-left">-</div>
-                                                                                                                                <div class="pichwai-right">No timings available</div>
-                                                                                                                            </div>
-                                                                                                                        `;
+                                                                                                                                                    <div class="pichwai-row">
+                                                                                                                                                        <div class="pichwai-left">-</div>
+                                                                                                                                                        <div class="pichwai-right">No timings available</div>
+                                                                                                                                                    </div>
+                                                                                                                                                `;
                     }
                 } catch (error) {
                     console.error('Error fetching darshan timings:', error);
                     // Show error message
                     const timingSlotsContainer = document.getElementById('timingSlots');
                     timingSlotsContainer.innerHTML = `
-                                                                                                                        <div class="pichwai-row">
-                                                                                                                            <div class="pichwai-left">Error</div>
-                                                                                                                            <div class="pichwai-right">Failed to load timings</div>
-                                                                                                                        </div>
-                                                                                                                    `;
+                                                                                                                                                <div class="pichwai-row">
+                                                                                                                                                    <div class="pichwai-left">Error</div>
+                                                                                                                                                    <div class="pichwai-right">Failed to load timings</div>
+                                                                                                                                                </div>
+                                                                                                                                            `;
                 }
             }
 
@@ -1295,12 +1365,12 @@
                 const iconMap = {
                     "मंगला दर्शन": "sun-svgrepo-com.svg",
                     "श्रृंगार दर्शन": "crown-svgrepo-com.svg",
-                    "ग्वाल": "cow-silhouette-svgrepo-com.svg",
-                    "राजभोग": "sunrise-2-svgrepo-com.svg",
-                    "उत्थापन": "om-solid-svgrepo-com.svg",
-                    "भोग": "diya-lamp.svg",
-                    "आरती": "diwali-diya-oil-lamp-flat-icon.jpg",
-                    "शयन": "sunrise-2-svgrepo-com.svg"
+                    "ग्वाल दर्शन": "cow-silhouette-svgrepo-com.svg",
+                    "राजभोग दर्शन": "sunrise-2-svgrepo-com.svg",
+                    "उत्थापन दर्शन": "om-solid-svgrepo-com.svg",
+                    "भोग दर्शन": "diya-lamp.svg",
+                    "आरती दर्शन": "diwali-diya-oil-lamp-flat-icon.jpg",
+                    "शयन दर्शन": "sunrise-2-svgrepo-com.svg"
                 };
 
                 data.forEach(timing => {
@@ -1316,17 +1386,17 @@
                     row.className = 'pichwai-row';
 
                     row.innerHTML = `
-                                                                                                                    <div class="pichwai-left">
-                                                                                                                        <h2>${start} - ${end}</h2>
-                                                                                                                    </div>
+                                                                                                                                            <div class="pichwai-left">
+                                                                                                                                                <h2>${start} - ${end}</h2>
+                                                                                                                                            </div>
 
-                                                                                                                    <div class="pichwai-divider"></div>
+                                                                                                                                            <div class="pichwai-divider"></div>
 
-                                                                                                                    <div class="pichwai-right">
-                                                                                                                        <img src="/icons/${icon}" class="darshan-icon">
-                                                                                                                        <h2>${timing.title || 'N/A'} (${status.label})</h2>
-                                                                                                                    </div>
-                                                                                                                `;
+                                                                                                                                            <div class="pichwai-right">
+                                                                                                                                                <img src="/icons/${icon}" class="darshan-icon">
+                                                                                                                                                <h2>${timing.title || 'N/A'} (${status.label})</h2>
+                                                                                                                                            </div>
+                                                                                                                                        `;
 
                     container.appendChild(row);
                 });
@@ -1354,9 +1424,9 @@
                     const div = document.createElement('div');
                     div.className = 'timing-slot';
                     div.innerHTML = `
-                                                                                                                                    <span class="time">${start} - ${end}</span>
-                                                                                                                                    <span class="description">${timing.title || 'N/A'}</span>
-                                                                                                                                `;
+                                                                                                                                                            <span class="time">${start} - ${end}</span>
+                                                                                                                                                            <span class="description">${timing.title || 'N/A'}</span>
+                                                                                                                                                        `;
 
                     container.appendChild(div);
                 });
@@ -1420,16 +1490,16 @@
 
                             const timingItem = document.createElement('li');
                             timingItem.innerHTML = `
-                                                                                                                                <span class="t-time">${start_time} - ${end_time}</span>
-                                                                                                                                <span class="t-label">${timing.title}</span>
-                                                                                                                            `;
+                                                                                                                                                        <span class="t-time">${start_time} - ${end_time}</span>
+                                                                                                                                                        <span class="t-label">${timing.title}</span>
+                                                                                                                                                    `;
                             heroTimingsList.appendChild(timingItem);
                         });
                     } else {
                         // Show no timings message
                         heroTimingsList.innerHTML = `
-                                                                                                                            <li><span class="t-time">-</span><span class="t-label">No timings available</span></li>
-                                                                                                                        `;
+                                                                                                                                                    <li><span class="t-time">-</span><span class="t-label">No timings available</span></li>
+                                                                                                                                                `;
                     }
                 } catch (error) {
                     console.error('Error fetching hero darshan timings:', error);
@@ -1551,15 +1621,15 @@
                 const modalBody = successModal.querySelector('.modal-body');
                 if (modalBody) {
                     modalBody.innerHTML = `
-                                                                                                                        <div class="success-icon">
-                                                                                                                            <svg width="60" height="60" viewBox="0 0 60 60">
-                                                                                                                                <circle cx="30" cy="30" r="25" fill="none" stroke="#4CAF50" stroke-width="3"/>
-                                                                                                                                <path d="M 20 30 L 27 37 L 40 24" stroke="#4CAF50" stroke-width="3" fill="none"/>
-                                                                                                                            </svg>
-                                                                                                                        </div>
-                                                                                                                        <p>Booking submitted successfully!</p>
-                                                                                                                        <p>We will send you a confirmation message on WhatsApp shortly.</p>
-                                                                                                                    `;
+                                                                                                                                                <div class="success-icon">
+                                                                                                                                                    <svg width="60" height="60" viewBox="0 0 60 60">
+                                                                                                                                                        <circle cx="30" cy="30" r="25" fill="none" stroke="#4CAF50" stroke-width="3"/>
+                                                                                                                                                        <path d="M 20 30 L 27 37 L 40 24" stroke="#4CAF50" stroke-width="3" fill="none"/>
+                                                                                                                                                    </svg>
+                                                                                                                                                </div>
+                                                                                                                                                <p>Booking submitted successfully!</p>
+                                                                                                                                                <p>We will send you a confirmation message on WhatsApp shortly.</p>
+                                                                                                                                            `;
                 }
 
                 // Show the modal
@@ -1669,18 +1739,18 @@
 
             // Fetch all data when page loads
             document.addEventListener('DOMContentLoaded', function () {
-                updateTimingsHeading();
+                // updateTimingsHeading();
                 // updateHeroTimingsDate();
                 fetchPackages();
                 fetchPackagesForBooking();
-                fetchDarshanTimings();
+                // fetchDarshanTimings();
                 // fetchHeroTimings();
                 renderScrollTimings();
-                renderMainTimings();
+                // renderMainTimings();
                 fetchPreferredTimeOptions();
                 loadVisitorServices();
                 updateDarshanHeaderDate();
-
+                loadHeroHotels();
                 // auto refresh every minute
                 setInterval(() => {
                     renderScrollTimings();

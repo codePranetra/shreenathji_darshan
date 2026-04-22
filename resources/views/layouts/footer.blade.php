@@ -9,9 +9,11 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#packages">Packages</a></li>
-                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="{{ url('/#home') }}">Home</a></li>
+                        <li><a href="{{ route('description.disclaimer') }}">Disclaimer</a></li>
+                        <li><a href="{{ route('terms.use') }}">Terms of Use</a></li>
+                        <!-- <li><a href="#packages">Packages</a></li>
+                        <li><a href="#booking">Book Now</a></li> -->
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>

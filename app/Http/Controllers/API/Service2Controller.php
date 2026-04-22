@@ -15,7 +15,38 @@ use Illuminate\Validation\Rule;
 
 class Service2Controller extends Controller
 {
-    public const CATEGORY_SLUGS = ['taxi', 'hospital', 'guide'];
+    public const CATEGORY_SLUGS = ['taxi', 'hospital', 'guide','Police Station'];
+
+    public function index(Request $request)
+    {
+        try {
+            $query = Service2::where('is_active', 1)->where('is_deleted', 0);
+
+            $category = $request->query('category');
+            if (!empty($category)) {
+                $query->where('category', $category);
+            }
+
+            $services = $query->orderBy('id', 'desc')->get();
+
+            return response()->json([
+                'data' => $services,
+                'message' => 'Service 2 list fetched successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            Log::error('service2.index.failed', [
+                'category' => $request->query('category'),
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
 
     public function manage()
     {
@@ -229,6 +260,51 @@ class Service2Controller extends Controller
             Log::error('service2.update.failed', [
                 'service_id' => $id,
                 'error' => $e->getMessage()
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
+    public function destroy($id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $service = Service2::where('id', $id)->where('is_deleted', 0)->first();
+
+            if (! $service) {
+                return response()->json([
+                    'data' => [],
+                    'message' => 'Service 2 not found',
+                    'code' => 404,
+                ], 404);
+            }
+
+            if (! empty($service->image)) {
+                Storage::disk('public')->delete('service_2/' . $service->image);
+            }
+
+            $service->is_deleted = 1;
+            $service->save();
+
+            DB::commit();
+
+            return response()->json([
+                'data' => $service,
+                'message' => 'Service 2 deleted successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            Log::error('service2.destroy.failed', [
+                'service_id' => $id,
+                'error' => $e->getMessage(),
             ]);
 
             return response()->json([
