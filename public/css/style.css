@@ -593,7 +593,7 @@ body {
 
 .heading {
     color: #4d0911;
-    
+
     text-align: left;
 }
 
@@ -638,7 +638,7 @@ body {
 
 /* LEFT (TIME) */
 .pichwai-left {
-    flex: 0 0 45%;  
+    flex: 0 0 45%;
     /* flex: 1; */
     display: flex;
     background: linear-gradient(135deg, #f8f1d6, #ead7a1);
@@ -743,7 +743,7 @@ body {
     }
 
     .title-left {
-        padding-left: 3px;
+        padding-left: 0px;
         font-size: 10px;
         position: relative;
         top: 0;
@@ -751,20 +751,21 @@ body {
 
     .title-date {
         width: auto;
-        font-size: 11px;
+        font-size: 12px;
         top: 0;
         margin-top: 6px;
         transform: none;
         align-self: center;
+        font-weight: bolder;
     }
 
-    .pichwai-row{
+    .pichwai-row {
         max-height: 40px;
         border-radius: 5px;
     }
 
     .pichwai-left {
-        font-size: 7px;
+        font-size: 8px;
         justify-content: center;
         padding: 0px;
         border-radius: 5px;
@@ -775,7 +776,7 @@ body {
     }
 
     .pichwai-right {
-        font-size: 8px;
+        font-size: 10px;
         padding: 5px 5px;
         border-radius: 5px;
     }
@@ -793,6 +794,32 @@ body {
     }
 }
 
+
+#visitor-services {
+    /* position: relative;
+    background-image: url('/images/servicesSectionBackgroundImage2.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+
+    /* min-height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.4)),
+        url('/images/servicesSectionBackgroundImage1.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px;
+}
+#visitor-services .container {
+    position: relative;
+    z-index: 2;
+}
 .visitor-guide-heading h2 {
     /* text-shadow: 0 2px 6px rgba(0,0,0,0.5);   */
     font-size: 2.4rem;
@@ -1144,8 +1171,8 @@ body {
 
 .service-stars {
     display: inline-flex;
-    gap: 3px;
-    font-size: 0.85rem;
+    gap: 2px;
+    font-size: 0.70rem;
 }
 
 .service-stars .fa-star {
@@ -1187,7 +1214,7 @@ body {
     grid-column: 1 / -1;
     text-align: center;
     padding: 1.5rem 1rem;
-    color: var(--peacock-blue);
+    color: var(--white);
     opacity: 0.85;
     font-size: 0.95rem;
 }
@@ -1672,7 +1699,7 @@ body {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 50px;
-    color: var(--peacock-blue);
+    color: var(--white);
     position: relative;
 }
 
@@ -2544,7 +2571,7 @@ body {
     margin-bottom: 30px;
 }
 
-.footer-section h4{
+.footer-section h4 {
     margin-bottom: 10px;
 }
 
