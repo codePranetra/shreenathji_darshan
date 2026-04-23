@@ -40,9 +40,7 @@
                 <!-- <p>बोल श्री गिरिराज धरण की जय,
                                         बोल श्री राधे ,
                                         पूछड़ी के लोटा की हूप हूप प्यारे</p> -->
-                <a class="cta-button" href="tel:+919782695545" aria-label="Call +91 9782695545">Call Now</a>
             </div>
-            <p class="hero-help-text">For Any Help Please Call</p>
             <!-- <div class="hero-visual">
                                                                                                                                         <div class="hero-timings">
                                                                                                                                             <div class="hero-timings-header">
@@ -100,6 +98,8 @@
                     <!-- JS will inject cards -->
                 </div>
             </div>
+            <a class="cta-button" href="tel:+919782695545" aria-label="Call +91 9782695545"></a>
+            <p class="hero-help-text">For Any Help Please Call</p>
         </div>
         </div>
     </section>
@@ -673,8 +673,7 @@
                             return (parseFloat(b.rating) || 0) - (parseFloat(a.rating) || 0);
                         });
 
-                        const isMobileClient = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                        const heroPreviewLimit = isMobileClient ? 4 : 3;
+                        const heroPreviewLimit = 3;
                         const topHeroServices = sorted.slice(0, heroPreviewLimit);
 
                         renderHeroServices(topHeroServices);
@@ -905,9 +904,9 @@
                 if (hasTel) {
                     actions.push('<a class="service-btn service-btn-call" href="' + tel + '"><i class="fa-solid fa-phone" aria-hidden="true"></i> कॉल करें</a>');
                 }
-                if (website) {
-                    actions.push('<a class="service-btn service-btn-web" href="' + escapeHtml(website) + '" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i> Website</a>');
-                }
+                // if (website) {
+                //     actions.push('<a class="service-btn service-btn-web" href="' + escapeHtml(website) + '" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-globe" aria-hidden="true"></i> Website</a>');
+                // }
                 if (map) {
                     actions.push('<a class="service-btn service-btn-map" href="' + escapeHtml(map) + '" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-location-arrow" aria-hidden="true"></i> Navigate</a>');
                 }
@@ -1103,7 +1102,14 @@
 
 
                 try {
-                    const response = await fetch(`${api}?category=${encodeURIComponent(category)}`);
+                    const categories = Array.isArray(category) ? category : [category];
+                    const query = new URLSearchParams();
+                    categories
+                        .map(value => String(value || '').trim())
+                        .filter(Boolean)
+                        .forEach(value => query.append('category[]', value));
+
+                    const response = await fetch(`${api}?${query.toString()}`);
                     const result = await response.json();
 
                     if (!response.ok) {
@@ -1202,7 +1208,7 @@
                         createTaxiCardElement
                     ),
 
-                    fetchServiceCategory('hospital',
+                    fetchServiceCategory(['hospital', 'police station'],
                         document.getElementById('servicesGridHospital'),
                         document.getElementById('servicesViewAllHospital'),
                         '/api/service_2',
@@ -1751,11 +1757,6 @@
                 loadVisitorServices();
                 updateDarshanHeaderDate();
                 loadHeroHotels();
-                // auto refresh every minute
-                setInterval(() => {
-                    renderScrollTimings();
-                }, 60000);
-
                 // Add event listener to the booking form
                 const bookingForm = document.getElementById('bookingForm');
                 if (bookingForm) {
