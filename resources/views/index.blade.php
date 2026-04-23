@@ -1393,7 +1393,6 @@
                                                                                                                                                         <div class="pichwai-divider"></div>
 
                                                                                                                                                         <div class="pichwai-right">
-                                                                                                                                                            <img src="/icons/${icon}" class="darshan-icon">
                                                                                                                                                             <h2>${timing.title || 'N/A'} (${status.label})</h2>
                                                                                                                                                         </div>
                                                                                                                                                     `;
