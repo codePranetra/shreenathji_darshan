@@ -51,6 +51,7 @@ Route::get('/darshantiming/{id}', [DarshanTimingController::class, 'getDarshanTi
 Route::get('/service', [ServiceController::class, 'index']);
 Route::get('/service/{id}', [ServiceController::class, 'show'])->where('id', '[0-9]+');
 Route::get('/service_2', [Service2Controller::class, 'index']);
+Route::get('/service_2/police-station', [Service2Controller::class, 'policeStation']);
 Route::get('/service_2/{id}', [Service2Controller::class, 'show'])->where('id', '[0-9]+');
 
 // Permissions (read-only)
