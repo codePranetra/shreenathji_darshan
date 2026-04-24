@@ -38,31 +38,31 @@
             <div class="hero-text">
                 <!-- <h1>Shree ji Darshan</h1> -->
                 <!-- <p>बोल श्री गिरिराज धरण की जय,
-                                        बोल श्री राधे ,
-                                        पूछड़ी के लोटा की हूप हूप प्यारे</p> -->
+                                                    बोल श्री राधे ,
+                                                    पूछड़ी के लोटा की हूप हूप प्यारे</p> -->
             </div>
             <!-- <div class="hero-visual">
-                                                                                                                                        <div class="hero-timings">
-                                                                                                                                            <div class="hero-timings-header">
-                                                                                                                                                <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-                                                                                                                                                    <circle cx="10" cy="10" r="8" fill="none" stroke="#1B3C5D" stroke-width="2" />
-                                                                                                                                                    <path d="M 10 6 L 10 10 L 13 10" stroke="#E37CA6" stroke-width="2" fill="none" />
-                                                                                                                                                </svg>
-                                                                                                                                                <span id="heroTimingsDate">आज के दर्शन समय</span>
-                                                                                                                                            </div>
-                                                                                                                                            <ul class="hero-timings-list" id="heroTimingsList">
-                                                                                                                                                {{-- <li><span class="t-time">06:00 AM</span><span class="t-label">मंगला दर्शन</span></li>
-                                                                                                                                                <li><span class="t-time">07:30 AM</span><span class="t-label">श्रृंगार दर्शन</span></li>
-                                                                                                                                                <li><span class="t-time">09:15 AM</span><span class="t-label">ग्वाल दर्शन</span></li>
-                                                                                                                                                <li><span class="t-time">11:15 AM</span><span class="t-label">राजभोग दर्शन</span></li>
-                                                                                                                                                <li><span class="t-time">03:45 PM</span><span class="t-label">उत्थापन दर्शन</span></li>
-                                                                                                                                                <li><span class="t-time">04:45 PM</span><span class="t-label">भोग दर्शन</span></li>
-                                                                                                                                                <li><span class="t-time">05:15 PM</span><span class="t-label">आरती</span></li>
-                                                                                                                                                <li><span class="t-time">-</span><span class="t-label">शयन दर्शन नहीं खुलेंगे</span></li> --}}
-                                                                                                                                            </ul>
-                                                                                                                                            <a href="#timings" class="hero-timings-link">Full schedule</a>
-                                                                                                                                        </div>
-                                                                                                                                    </div> -->
+                                                                                                                                                    <div class="hero-timings">
+                                                                                                                                                        <div class="hero-timings-header">
+                                                                                                                                                            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                                                                                                                                                                <circle cx="10" cy="10" r="8" fill="none" stroke="#1B3C5D" stroke-width="2" />
+                                                                                                                                                                <path d="M 10 6 L 10 10 L 13 10" stroke="#E37CA6" stroke-width="2" fill="none" />
+                                                                                                                                                            </svg>
+                                                                                                                                                            <span id="heroTimingsDate">आज के दर्शन समय</span>
+                                                                                                                                                        </div>
+                                                                                                                                                        <ul class="hero-timings-list" id="heroTimingsList">
+                                                                                                                                                            {{-- <li><span class="t-time">06:00 AM</span><span class="t-label">मंगला दर्शन</span></li>
+                                                                                                                                                            <li><span class="t-time">07:30 AM</span><span class="t-label">श्रृंगार दर्शन</span></li>
+                                                                                                                                                            <li><span class="t-time">09:15 AM</span><span class="t-label">ग्वाल दर्शन</span></li>
+                                                                                                                                                            <li><span class="t-time">11:15 AM</span><span class="t-label">राजभोग दर्शन</span></li>
+                                                                                                                                                            <li><span class="t-time">03:45 PM</span><span class="t-label">उत्थापन दर्शन</span></li>
+                                                                                                                                                            <li><span class="t-time">04:45 PM</span><span class="t-label">भोग दर्शन</span></li>
+                                                                                                                                                            <li><span class="t-time">05:15 PM</span><span class="t-label">आरती</span></li>
+                                                                                                                                                            <li><span class="t-time">-</span><span class="t-label">शयन दर्शन नहीं खुलेंगे</span></li> --}}
+                                                                                                                                                        </ul>
+                                                                                                                                                        <a href="#timings" class="hero-timings-link">Full schedule</a>
+                                                                                                                                                    </div>
+                                                                                                                                                </div> -->
 
             <div class="darshan-header">
                 <div class="darshan-scale-wrapper">
@@ -101,53 +101,48 @@
             <a class="cta-button" href="tel:+919782695545" aria-label="Call +91 9782695545"></a>
             <p class="hero-help-text">For Any Help Please Call</p>
         </div>
-        </div>
     </section>
 
     <!-- Pichwai Section Divider -->
-    <!-- <div class="section-divider">
+    <!--
+    <div class="section-divider">
         <svg width="100%" height="60" viewBox="0 0 400 60">
-            <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#FFD700"
-                stroke-width="2" fill="none" />
+            <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30"
+                  stroke="#FFD700" stroke-width="2" fill="none" />
             <circle cx="200" cy="30" r="8" fill="#FFD700" />
         </svg>
-    </div> -->
+    </div>
+    -->
 
-    <!-- Packages Section
+    <!-- Packages Section -->
+    <!--
     <section id="packages" class="packages">
         <div class="container">
             <h2>वैष्णवसेवायां सदा तत्परः</h2>
+
             <div class="packages-grid" id="packagesGrid">
-                <!-- Packages will be populated dynamically -->
-                <!-- <div class="package-card">
+
+                <div class="package-card">
                     <div class="package-header">
                         <h3>Loading...</h3>
                     </div>
                     <div class="package-content">
                         <p>Please wait</p>
-                    </div> -->
-                <!-- </div> -->
-            <!-- </div>
-        </div>
-    </section> --> -->
+                    </div>
+                </div>
 
-    <!-- Pichwai Section Divider -->
-    <!-- <div class="section-divider">
+            </div>
+        </div>
+    </section>
+    -->
+
+    <div class="section-divider">
         <svg width="100%" height="60" viewBox="0 0 400 60">
             <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#E37CA6"
                 stroke-width="2" fill="none" />
             <circle cx="200" cy="30" r="8" fill="#E37CA6" />
         </svg>
     </div>
-
-    <!-- Pichwai Section Divider -->
-    <!-- <div class="section-divider">
-        <svg width="100%" height="60" viewBox="0 0 400 60">
-            <path d="M 0 30 Q 50 10 100 30 Q 150 50 200 30 Q 250 10 300 30 Q 350 50 400 30" stroke="#FFD700"
-                stroke-width="2" fill="none" />
-            <circle cx="200" cy="30" r="8" fill="#FFD700" />
-        </svg>
-    </div> --> -->
 
     <!-- Visitor services: hotels, restaurants, places (API-driven) -->
     <section id="visitor-services" class="services-guide packages" aria-label="Nathdwara services">
@@ -441,8 +436,7 @@
                         </div>
                     </div>
                     <div class="about-image">
-                        <img src="images/about us by client.jpeg"
-                            alt="Shrinathji Pichwai Art"
+                        <img src="images/about us by client.jpeg" alt="Shrinathji Pichwai Art"
                             style="max-width:80%;height:auto;display:block;margin:0 auto 18px auto;border-radius:16px;box-shadow:0 4px 24px rgba(27,60,93,0.08);">
 
                     </div>
@@ -641,22 +635,22 @@
                     card.className = 'hero-service-card';
 
                     card.innerHTML = `
-                <div class="hero-img-wrap">
-                    <img src="${serviceThumbSrc(item)}" alt="${item.name}" loading="lazy"
-                        onerror="this.onerror=null;this.src='${SERVICE_IMAGE_FALLBACK}';">
-                </div>
+                            <div class="hero-img-wrap">
+                                <img src="${serviceThumbSrc(item)}" alt="${item.name}" loading="lazy"
+                                    onerror="this.onerror=null;this.src='${SERVICE_IMAGE_FALLBACK}';">
+                            </div>
 
-                <div class="hero-service-title">${item.name}</div>
+                            <div class="hero-service-title">${item.name}</div>
 
-                <div class="hero-service-rating">
-                    ${starsHtml(item.rating || 0)}
-                </div>
-                <div class="hero-service-btn-div">
-                    <a href="#visitor-services" class="hero-service-btn">
-                        Details
-                    </a>
-                </div>
-            `;
+                            <div class="hero-service-rating">
+                                ${starsHtml(item.rating || 0)}
+                            </div>
+                            <div class="hero-service-btn-div">
+                                <a href="#visitor-services" class="hero-service-btn">
+                                    Details
+                                </a>
+                            </div>
+                        `;
 
                     container.appendChild(card);
                 });
@@ -771,50 +765,50 @@
                             const packageCard = document.createElement('div');
                             packageCard.className = 'package-card';
                             packageCard.innerHTML = `
-                                <div class="package-header">
-                                    <h3>${firstPackage.name}</h3>
-                                    <div class="package-price">
-                                        ${firstPackage.price > 0 ? `₹${parseFloat(firstPackage.price).toFixed(0)} <small>per person</small>` : ''}                                    
-                                    </div>
-                                </div>
-                                <div class="package-content">
-                                    ${formatDescriptionAsBulletPoints(firstPackage.description)}
-                                </div>
-                                <div class="package-buttons">
-                                    <a href="tel:+919782695545" class="call-btn">
-                                        Call Now
-                                    </a>
-                                </div>
-                            `;
+                                            <div class="package-header">
+                                                <h3>${firstPackage.name}</h3>
+                                                <div class="package-price">
+                                                    ${firstPackage.price > 0 ? `₹${parseFloat(firstPackage.price).toFixed(0)} <small>per person</small>` : ''}                                    
+                                                </div>
+                                            </div>
+                                            <div class="package-content">
+                                                ${formatDescriptionAsBulletPoints(firstPackage.description)}
+                                            </div>
+                                            <div class="package-buttons">
+                                                <a href="tel:+919782695545" class="call-btn">
+                                                    Call Now
+                                                </a>
+                                            </div>
+                                        `;
                             packagesGrid.appendChild(packageCard);
                         }
                     } else {
                         // Show no packages message
                         packagesGrid.innerHTML = `
-                                                                                                                                                    <div class="package-card">
-                                                                                                                                                        <div class="package-header">
-                                                                                                                                                            <h3>No Packages Available</h3>
-                                                                                                                                                        </div>
-                                                                                                                                                        <div class="package-content">
-                                                                                                                                                            <p>Please check back later</p>
-                                                                                                                                                        </div>
-                                                                                                                                                    </div>
-                                                                                                                                                `;
+                                                                                                                                                                <div class="package-card">
+                                                                                                                                                                    <div class="package-header">
+                                                                                                                                                                        <h3>No Packages Available</h3>
+                                                                                                                                                                    </div>
+                                                                                                                                                                    <div class="package-content">
+                                                                                                                                                                        <p>Please check back later</p>
+                                                                                                                                                                    </div>
+                                                                                                                                                                </div>
+                                                                                                                                                            `;
                     }
                 } catch (error) {
                     console.error('Error fetching packages:', error);
                     // Show error message
                     const packagesGrid = document.getElementById('packagesGrid');
                     packagesGrid.innerHTML = `
-                                                                                                                                                <div class="package-card">
-                                                                                                                                                    <div class="package-header">
-                                                                                                                                                        <h3>Error Loading Packages</h3>
-                                                                                                                                                    </div>
-                                                                                                                                                    <div class="package-content">
-                                                                                                                                                        <p>Failed to load packages. Please try again later.</p>
-                                                                                                                                                    </div>
-                                                                                                                                                </div>
-                                                                                                                                            `;
+                                                                                                                                                            <div class="package-card">
+                                                                                                                                                                <div class="package-header">
+                                                                                                                                                                    <h3>Error Loading Packages</h3>
+                                                                                                                                                                </div>
+                                                                                                                                                                <div class="package-content">
+                                                                                                                                                                    <p>Failed to load packages. Please try again later.</p>
+                                                                                                                                                                </div>
+                                                                                                                                                            </div>
+                                                                                                                                                        `;
                 }
             }
 
@@ -931,20 +925,20 @@
                 const tel = telHref(item.mobile_number);
 
                 card.innerHTML = `
-                                                                                    <div class="service-card-media">
-                                                                                        <img src="${imgSrc}" alt="${name}" loading="lazy">
-                                                                                    </div>
+                                                                                                <div class="service-card-media">
+                                                                                                    <img src="${imgSrc}" alt="${name}" loading="lazy">
+                                                                                                </div>
 
-                                                                                    <div class="service-card-body">
-                                                                                        <h4 class="service-card-title">${name}</h4>
+                                                                                                <div class="service-card-body">
+                                                                                                    <h4 class="service-card-title">${name}</h4>
 
-                                                                                        <div class="service-card-actions">
-                                                                                            <a href="${tel}" class="service-btn taxi-book-btn">
-                                                                                                बुक करें
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                `;
+                                                                                                    <div class="service-card-actions">
+                                                                                                        <a href="${tel}" class="service-btn taxi-book-btn">
+                                                                                                            बुक करें
+                                                                                                        </a>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            `;
 
                 return card;
             }
@@ -960,35 +954,35 @@
                 const map = safeHttpUrl(item.google_map_link);
 
                 card.innerHTML = `
-                                                                        <div class="hospital-left">
-                                                                            <div class="imageHospital">
-                                                                                <img src="${imgSrc}" alt="${name}">
-                                                                            </div>
-                                                                            <!-- MAP IMAGE -->
-                                                                            <div class="map-thumb">
-                                                                                <img src="/images/mapImage.jfif" alt="map">
+                                                                                    <div class="hospital-left">
+                                                                                        <div class="imageHospital">
+                                                                                            <img src="${imgSrc}" alt="${name}">
+                                                                                        </div>
+                                                                                        <!-- MAP IMAGE -->
+                                                                                        <div class="map-thumb">
+                                                                                            <img src="/images/mapImage.jfif" alt="map">
 
-                                                                                ${map ? `
-                                                                                <a href="${map}" target="_blank" class="map-overlay">
-                                                                                    <i class="fa-solid fa-location-dot"></i>
-                                                                                </a>
-                                                                            ` : ''}
-                                                                        </div>
-                                                                        </div>
+                                                                                            ${map ? `
+                                                                                            <a href="${map}" target="_blank" class="map-overlay">
+                                                                                                <i class="fa-solid fa-location-dot"></i>
+                                                                                            </a>
+                                                                                        ` : ''}
+                                                                                    </div>
+                                                                                    </div>
 
-                                                                        <div class="hospital-center">
-                                                                            <div class="hospital-center-text">
-                                                                            <h4>${name}</h4>
-                                                                            ${item.mobile_number ? `<p>Emergency: ${escapeHtml(item.mobile_number)}</p>` : ''}
-                                                                            </div>
-                                                                        <div class="hospital-right">
-                                                                            <a href="${tel}" class="call-btn-hospital">
-                                                                            <i class="fa-solid fa-phone" aria-hidden="true">
-                                                                            </i> कॉल करें</a>
-                                                                            </a>
-                                                                        </div>
-                                                                        </div>
-                                                                    `;
+                                                                                    <div class="hospital-center">
+                                                                                        <div class="hospital-center-text">
+                                                                                        <h4>${name}</h4>
+                                                                                        ${item.mobile_number ? `<p>Emergency: ${escapeHtml(item.mobile_number)}</p>` : ''}
+                                                                                        </div>
+                                                                                    <div class="hospital-right">
+                                                                                        <a href="${tel}" class="call-btn-hospital">
+                                                                                        <i class="fa-solid fa-phone" aria-hidden="true">
+                                                                                        </i> कॉल करें</a>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                    </div>
+                                                                                `;
                 return card;
             }
 
@@ -1002,20 +996,20 @@
                 const languages = escapeHtml(item.language || 'Hindi');
 
                 card.innerHTML = `
-                                                                            <div class="guide-photo">
-                                                                                <img src="${imgSrc}" alt="${name}">
-                                                                            </div>
+                                                                                        <div class="guide-photo">
+                                                                                            <img src="${imgSrc}" alt="${name}">
+                                                                                        </div>
 
-                                                                            <div class="guide-body">
-                                                                                <h4 class="guide-name" style="color: white;">${name}</h4>
-                                                                                <p class="guide-lang">${languages}</p>
-                                                                                <div class="guide-call">
-                                                                                <a href="${tel}" class="call-btn-hospital">
-                                                                            <i class="fa-solid fa-phone" aria-hidden="true">
-                                                                            </i> कॉल करें</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        `;
+                                                                                        <div class="guide-body">
+                                                                                            <h4 class="guide-name" style="color: white;">${name}</h4>
+                                                                                            <p class="guide-lang">${languages}</p>
+                                                                                            <div class="guide-call">
+                                                                                            <a href="${tel}" class="call-btn-hospital">
+                                                                                        <i class="fa-solid fa-phone" aria-hidden="true">
+                                                                                        </i> कॉल करें</a>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    `;
 
                 return card;
             }
@@ -1157,20 +1151,20 @@
                 const map = safeHttpUrl(item.google_map_link);
 
                 card.innerHTML = `
-                                <div class="service-card-media">
-                                    <img src="${imgSrc}" alt="${name}" loading="lazy">
+                                            <div class="service-card-media">
+                                                <img src="${imgSrc}" alt="${name}" loading="lazy">
 
-                                    ${map ? `
-                                        <a href="${map}" target="_blank" class="map-icon-btn">
-                                            <i class="fa-solid fa-location-dot"></i>
-                                        </a>
-                                    ` : ''}
-                                </div>
+                                                ${map ? `
+                                                    <a href="${map}" target="_blank" class="map-icon-btn">
+                                                        <i class="fa-solid fa-location-dot"></i>
+                                                    </a>
+                                                ` : ''}
+                                            </div>
 
-                                <div class="service-card-body">
-                                    <h4 class="service-card-title">${name}</h4>
-                                </div>
-                            `;
+                                            <div class="service-card-body">
+                                                <h4 class="service-card-title">${name}</h4>
+                                            </div>
+                                        `;
 
                 return card;
             }
@@ -1262,31 +1256,31 @@
                             const timingSlot = document.createElement('div');
                             timingSlot.className = 'pichwai-row';
                             timingSlot.innerHTML = `
-                                                                                                                                                        <div class="pichwai-left"><h2>${start_time} - ${end_time}</h2></div>
-                                                                                                                                                            <div class="pichwai-divider"></div>
-                                                                                                                                                            <div class="pichwai-right"><h2>${timing.title}</h2></div>
-                                                                                                                                                    `;
+                                                                                                                                                                    <div class="pichwai-left"><h2>${start_time} - ${end_time}</h2></div>
+                                                                                                                                                                        <div class="pichwai-divider"></div>
+                                                                                                                                                                        <div class="pichwai-right"><h2>${timing.title}</h2></div>
+                                                                                                                                                                `;
                             timingSlotsContainer.appendChild(timingSlot);
                         });
                     } else {
                         // Show no timings message
                         timingSlotsContainer.innerHTML = `
-                                                                                                                                                    <div class="pichwai-row">
-                                                                                                                                                        <div class="pichwai-left">-</div>
-                                                                                                                                                        <div class="pichwai-right">No timings available</div>
-                                                                                                                                                    </div>
-                                                                                                                                                `;
+                                                                                                                                                                <div class="pichwai-row">
+                                                                                                                                                                    <div class="pichwai-left">-</div>
+                                                                                                                                                                    <div class="pichwai-right">No timings available</div>
+                                                                                                                                                                </div>
+                                                                                                                                                            `;
                     }
                 } catch (error) {
                     console.error('Error fetching darshan timings:', error);
                     // Show error message
                     const timingSlotsContainer = document.getElementById('timingSlots');
                     timingSlotsContainer.innerHTML = `
-                                                                                                                                                <div class="pichwai-row">
-                                                                                                                                                    <div class="pichwai-left">Error</div>
-                                                                                                                                                    <div class="pichwai-right">Failed to load timings</div>
-                                                                                                                                                </div>
-                                                                                                                                            `;
+                                                                                                                                                            <div class="pichwai-row">
+                                                                                                                                                                <div class="pichwai-left">Error</div>
+                                                                                                                                                                <div class="pichwai-right">Failed to load timings</div>
+                                                                                                                                                            </div>
+                                                                                                                                                        `;
                 }
             }
 
@@ -1392,17 +1386,16 @@
                     row.className = 'pichwai-row';
 
                     row.innerHTML = `
-                                                                                                                                            <div class="pichwai-left">
-                                                                                                                                                <h2>${start} - ${end}</h2>
-                                                                                                                                            </div>
+                                                                                                                                                        <div class="pichwai-left">
+                                                                                                                                                            <h2>${start} - ${end}</h2>
+                                                                                                                                                        </div>
 
-                                                                                                                                            <div class="pichwai-divider"></div>
+                                                                                                                                                        <div class="pichwai-divider"></div>
 
-                                                                                                                                            <div class="pichwai-right">
-                                                                                                                                                <img src="/icons/${icon}" class="darshan-icon">
-                                                                                                                                                <h2>${timing.title || 'N/A'} (${status.label})</h2>
-                                                                                                                                            </div>
-                                                                                                                                        `;
+                                                                                                                                                        <div class="pichwai-right">
+                                                                                                                                                            <h2>${timing.title || 'N/A'} (${status.label})</h2>
+                                                                                                                                                        </div>
+                                                                                                                                                    `;
 
                     container.appendChild(row);
                 });
@@ -1430,9 +1423,9 @@
                     const div = document.createElement('div');
                     div.className = 'timing-slot';
                     div.innerHTML = `
-                                                                                                                                                            <span class="time">${start} - ${end}</span>
-                                                                                                                                                            <span class="description">${timing.title || 'N/A'}</span>
-                                                                                                                                                        `;
+                                                                                                                                                                        <span class="time">${start} - ${end}</span>
+                                                                                                                                                                        <span class="description">${timing.title || 'N/A'}</span>
+                                                                                                                                                                    `;
 
                     container.appendChild(div);
                 });
@@ -1496,16 +1489,16 @@
 
                             const timingItem = document.createElement('li');
                             timingItem.innerHTML = `
-                                                                                                                                                        <span class="t-time">${start_time} - ${end_time}</span>
-                                                                                                                                                        <span class="t-label">${timing.title}</span>
-                                                                                                                                                    `;
+                                                                                                                                                                    <span class="t-time">${start_time} - ${end_time}</span>
+                                                                                                                                                                    <span class="t-label">${timing.title}</span>
+                                                                                                                                                                `;
                             heroTimingsList.appendChild(timingItem);
                         });
                     } else {
                         // Show no timings message
                         heroTimingsList.innerHTML = `
-                                                                                                                                                    <li><span class="t-time">-</span><span class="t-label">No timings available</span></li>
-                                                                                                                                                `;
+                                                                                                                                                                <li><span class="t-time">-</span><span class="t-label">No timings available</span></li>
+                                                                                                                                                            `;
                     }
                 } catch (error) {
                     console.error('Error fetching hero darshan timings:', error);
@@ -1627,15 +1620,15 @@
                 const modalBody = successModal.querySelector('.modal-body');
                 if (modalBody) {
                     modalBody.innerHTML = `
-                                                                                                                                                <div class="success-icon">
-                                                                                                                                                    <svg width="60" height="60" viewBox="0 0 60 60">
-                                                                                                                                                        <circle cx="30" cy="30" r="25" fill="none" stroke="#4CAF50" stroke-width="3"/>
-                                                                                                                                                        <path d="M 20 30 L 27 37 L 40 24" stroke="#4CAF50" stroke-width="3" fill="none"/>
-                                                                                                                                                    </svg>
-                                                                                                                                                </div>
-                                                                                                                                                <p>Booking submitted successfully!</p>
-                                                                                                                                                <p>We will send you a confirmation message on WhatsApp shortly.</p>
-                                                                                                                                            `;
+                                                                                                                                                            <div class="success-icon">
+                                                                                                                                                                <svg width="60" height="60" viewBox="0 0 60 60">
+                                                                                                                                                                    <circle cx="30" cy="30" r="25" fill="none" stroke="#4CAF50" stroke-width="3"/>
+                                                                                                                                                                    <path d="M 20 30 L 27 37 L 40 24" stroke="#4CAF50" stroke-width="3" fill="none"/>
+                                                                                                                                                                </svg>
+                                                                                                                                                            </div>
+                                                                                                                                                            <p>Booking submitted successfully!</p>
+                                                                                                                                                            <p>We will send you a confirmation message on WhatsApp shortly.</p>
+                                                                                                                                                        `;
                 }
 
                 // Show the modal
