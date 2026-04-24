@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('darshan_timings', function (Blueprint $table) {
+            $table->time('start_time')->nullable()->change();
+            $table->time('end_time')->nullable()->change();
+            $table->string('title')->nullable()->change();
+            $table->enum('type', ['morning', 'afternoon', 'evening'])->nullable()->change();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('darshan_timings', function (Blueprint $table) {
+            $table->time('start_time')->nullable(false)->change();
+            $table->time('end_time')->nullable(false)->change();
+            $table->string('title')->nullable(false)->change();
+            $table->enum('type', ['morning', 'afternoon', 'evening'])->nullable(false)->default('morning')->change();
+        });
+    }
+};
