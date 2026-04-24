@@ -34,18 +34,14 @@ class DarshanTimingController extends Controller
         public function store(Request $request){
             try {
                 $request->validate([
-                    'start_time' => 'required|date_format:H:i:s',
-                    'end_time' => 'required|date_format:H:i:s',
-                    'title' => 'required|string',
-                    'type' => 'required|in:morning,afternoon,evening',
+                    'start_time' => 'nullable|date_format:H:i:s',
+                    'end_time' => 'nullable|date_format:H:i:s',
+                    'title' => 'nullable|string',
+                    'type' => 'nullable|in:morning,afternoon,evening',
                 ], [
-                    'start_time.required' => 'Start time is required',
                     'start_time.date_format' => 'Start time must be a valid time',
-                    'end_time.required' => 'End time is required',
                     'end_time.date_format' => 'End time must be a valid time',
-                    'title.required' => 'Title is required',
                     'title.string' => 'Title must be a string',
-                    'type.required' => 'Type is required',
                     'type.in' => 'Type must be one of the following: morning, afternoon, evening',
                 ]);
 
@@ -92,19 +88,15 @@ class DarshanTimingController extends Controller
                 $validator = Validator::make(
                     $request->all(),
                     [
-                        'start_time' => 'required|date_format:H:i:s',
-                        'end_time' => 'required|date_format:H:i:s',
-                        'title' => 'required|string',
-                        'type' => 'required|in:morning,afternoon,evening',
+                        'start_time' => 'nullable|date_format:H:i:s',
+                        'end_time' => 'nullable|date_format:H:i:s',
+                        'title' => 'nullable|string',
+                        'type' => 'nullable|in:morning,afternoon,evening',
                     ],
                     [
-                        'start_time.required' => 'Start time is required',
                         'start_time.date_format' => 'Start time must be a valid time',
-                        'end_time.required' => 'End time is required',
                         'end_time.date_format' => 'End time must be a valid time',
-                        'title.required' => 'Title is required',
                         'title.string' => 'Title must be a string',
-                        'type.required' => 'Type is required',
                         'type.in' => 'Type must be one of the following: morning, afternoon, evening',
                     ]
                 );
