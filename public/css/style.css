@@ -758,7 +758,9 @@ body {
         margin-top: 6px;
         transform: none;
         align-self: center;
-        font-weight: bolder;
+        font-weight: bolder;  
+        /* comment font-weight to make it fit if not fiting */
+        /* font-size: 9px */
     }
 
     .pichwai-row {
@@ -772,6 +774,7 @@ body {
         padding: 0px;
         border-radius: 5px;
         font-weight: 700;
+        /* reduce font-size 8px to make it fit in one line */
     }
 
     .pichwai-divider {
@@ -779,9 +782,10 @@ body {
     }
 
     .pichwai-right {
-        font-size: 10px;
+        font-size: 12px;
         padding: 5px 5px;
         border-radius: 5px;
+        /* reduce font-size 8px to make it fit in one line */
     }
 
     .darshan-icon {
