@@ -1,0 +1,367 @@
+<?php
+
+namespace App\Http\Controllers\API;
+
+use App\Http\Controllers\Controller;
+use App\Models\Service2;
+use Exception;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+
+class Service2Controller extends Controller
+{
+    public const CATEGORY_SLUGS = ['taxi', 'hospital', 'guide', 'Police Station', 'police station',"other"];
+
+    public function index(Request $request)
+    {
+        try {
+            $query = Service2::where('is_active', 1)->where('is_deleted', 0);
+
+            $categoryInput = $request->query('category');
+            if (! empty($categoryInput)) {
+                $categories = is_array($categoryInput)
+                    ? $categoryInput
+                    : explode(',', (string) $categoryInput);
+
+                $categories = collect($categories)
+                    ->map(fn ($value) => Str::lower(trim((string) $value)))
+                    ->filter()
+                    ->values()
+                    ->all();
+
+                if (! empty($categories)) {
+                    $placeholders = implode(',', array_fill(0, count($categories), '?'));
+                    $query->whereRaw("LOWER(category) IN ($placeholders)", $categories);
+                }
+            }
+
+            $services = $query->orderBy('id', 'desc')->get();
+
+            return response()->json([
+                'data' => $services,
+                'message' => 'Service 2 list fetched successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            Log::error('service2.index.failed', [
+                'category' => $request->query('category'),
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
+    public function policeStation()
+    {
+        try {
+            $services = Service2::where('is_active', 1)
+                ->where('is_deleted', 0)
+                ->whereRaw('LOWER(category) = ?', ['police station'])
+                ->orderBy('id', 'desc')
+                ->get();
+
+            return response()->json([
+                'data' => $services,
+                'message' => 'Police station list fetched successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            Log::error('service2.police_station.failed', [
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
+    public function manage()
+    {
+        try {
+            $services = Service2::where('is_deleted', 0)->orderBy('id', 'desc')->get();
+
+            return response()->json([
+                'data' => $services,
+                'message' => 'Service 2 list fetched successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            Log::error('service2.manage.failed', [
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
+    protected function serviceValidationRules(bool $isUpdate = false): array
+    {
+        $categoryRule = Rule::in(self::CATEGORY_SLUGS);
+
+        return [
+            'name' => $isUpdate ? ['sometimes', 'nullable', 'string'] : ['required', 'string'],
+            'category' => $isUpdate ? ['sometimes', 'nullable', 'string', $categoryRule] : ['required', 'string', $categoryRule],
+            'language' => ['nullable', 'string'],
+            'rating' => ['nullable', 'numeric', 'between:0,5'],
+            'mobile_number' => ['nullable', 'string'],
+            'website_url' => ['nullable', 'string', 'url'],
+            'google_map_link' => ['nullable', 'string', 'url'],
+            'is_active' => ['nullable', 'integer', Rule::in([0, 1])],
+            'image' => ['nullable', 'file', 'image', 'max:10240'],
+        ];
+    }
+
+    protected function multipartInputForValidation(Request $request): array
+    {
+        return array_merge($request->request->all(), $request->allFiles());
+    }
+
+    protected function normalizedServicePayload(Request $request): array
+    {
+        $payload = $this->multipartInputForValidation($request);
+
+        $payload['name'] = $payload['name'] ?? $payload['service_name'] ?? $payload['title'] ?? null;
+        $payload['mobile_number'] = $payload['mobile_number'] ?? $payload['mobile'] ?? $payload['phone'] ?? null;
+        $payload['google_map_link'] = $payload['google_map_link'] ?? $payload['map_link'] ?? $payload['googleMapLink'] ?? null;
+        $payload['language'] = $payload['language'] ?? $payload['lang'] ?? null;
+
+        return $payload;
+    }
+
+    protected function validationErrorResponse($validator)
+    {
+        return response()->json([
+            'data' => [],
+            'message' => $validator->errors()->all(),
+            'code' => 400,
+        ], 400);
+    }
+
+    /**
+     * Centralized storage (same as ServiceController)
+     */
+    protected function storeUploadedImage(Request $request): ?string
+    {
+        if (! $request->hasFile('image')) {
+            return null;
+        }
+
+        $file = $request->file('image');
+
+        $fileName = (string) Str::uuid();
+        $extension = $file->extension();
+
+        $finalName = $fileName . '.' . $extension;
+
+        $stored = Storage::disk('public')->putFileAs('service_2', $file, $finalName);
+
+        if (! $stored) {
+            throw new Exception('File upload failed');
+        }
+
+        return $finalName;
+    }
+
+    public function store(Request $request)
+    {
+        DB::beginTransaction();
+
+        try {
+            $payload = $this->normalizedServicePayload($request);
+
+            $validator = Validator::make(
+                $payload,
+                $this->serviceValidationRules(),
+                $this->serviceValidationMessages()
+            );
+
+            if ($validator->fails()) {
+                return $this->validationErrorResponse($validator);
+            }
+
+            $validated = $validator->validated();
+
+            $imageFilename = $this->storeUploadedImage($request);
+
+            $service = Service2::create([
+                'image' => $imageFilename,
+                'name' => $validated['name'] ?? null,
+                'category' => $validated['category'] ?? null,
+                'language' => $validated['language'] ?? null,
+                'rating' => $validated['rating'] ?? null,
+                'mobile_number' => $validated['mobile_number'] ?? null,
+                'website_url' => $validated['website_url'] ?? null,
+                'google_map_link' => $validated['google_map_link'] ?? null,
+                'is_active' => array_key_exists('is_active', $validated)
+                    ? (int) $validated['is_active']
+                    : 1,
+            ]);
+
+            DB::commit();
+
+            return response()->json([
+                'data' => $service->fresh(),
+                'message' => 'Service 2 created successfully',
+                'code' => 201,
+            ], 201);
+
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            Log::error('service2.store.failed', [
+                'error' => $e->getMessage()
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $payload = $this->normalizedServicePayload($request);
+
+            $validator = Validator::make(
+                $payload,
+                $this->serviceValidationRules(true),
+                $this->serviceValidationMessages()
+            );
+
+            if ($validator->fails()) {
+                return $this->validationErrorResponse($validator);
+            }
+
+            $service = Service2::where('id', $id)->where('is_deleted', 0)->first();
+
+            if (! $service) {
+                return response()->json([
+                    'data' => [],
+                    'message' => 'Service 2 not found',
+                    'code' => 404,
+                ], 404);
+            }
+
+            $validated = $validator->validated();
+
+            foreach ($validated as $key => $value) {
+                $service->$key = $value;
+            }
+
+            if ($request->hasFile('image')) {
+
+                // 1. Store new image
+                $newImage = $this->storeUploadedImage($request);
+
+                // 2. Delete old
+                if ($service->image) {
+                    Storage::disk('public')->delete('service_2/' . $service->image);
+                }
+
+                // 3. Assign
+                $service->image = $newImage;
+            }
+
+            $service->save();
+
+            DB::commit();
+
+            return response()->json([
+                'data' => $service->fresh(),
+                'message' => 'Service 2 updated successfully',
+                'code' => 200,
+            ], 200);
+
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            Log::error('service2.update.failed', [
+                'service_id' => $id,
+                'error' => $e->getMessage()
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
+    public function destroy($id)
+    {
+        DB::beginTransaction();
+
+        try {
+            $service = Service2::where('id', $id)->where('is_deleted', 0)->first();
+
+            if (! $service) {
+                return response()->json([
+                    'data' => [],
+                    'message' => 'Service 2 not found',
+                    'code' => 404,
+                ], 404);
+            }
+
+            if (! empty($service->image)) {
+                Storage::disk('public')->delete('service_2/' . $service->image);
+            }
+
+            $service->is_deleted = 1;
+            $service->save();
+
+            DB::commit();
+
+            return response()->json([
+                'data' => $service,
+                'message' => 'Service 2 deleted successfully',
+                'code' => 200,
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+
+            Log::error('service2.destroy.failed', [
+                'service_id' => $id,
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'data' => [],
+                'message' => 'Something went wrong',
+                'code' => 500,
+            ], 500);
+        }
+    }
+
+    protected function serviceValidationMessages(): array
+    {
+        return [
+            'name.required' => 'Name is required.',
+            'category.required' => 'Category is required.',
+            'category.in' => 'Invalid category.',
+            'rating.between' => 'Rating must be between 0 and 5.',
+        ];
+    }
+}
