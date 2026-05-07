@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>Shreenath Ji Darshan</title>
+        <title>Shreenathji Darshan,Booking Portal Nathdwara</title>
         
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +30,15 @@
         <style>
 
         </style>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGSR4TRM74"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+   gtag('js', new Date());
+
+  gtag('config', 'G-RGSR4TRM74');
+</script>
     </head>
     <body>
         <!-- Navigation -->
