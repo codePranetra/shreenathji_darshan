@@ -30,6 +30,9 @@
         <style>
 
         </style>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8097277234924832"
+            crossorigin="anonymous">
+        </script>
     </head>
     <body>
         <!-- Navigation -->
