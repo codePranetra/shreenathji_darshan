@@ -30,15 +30,22 @@
         <style>
 
         </style>
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8097277234924832"
+            crossorigin="anonymous">
+        </script>
+        
+        
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-RGSR4TRM74"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-   gtag('js', new Date());
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-  gtag('config', 'G-RGSR4TRM74');
-</script>
+          gtag('config', 'G-RGSR4TRM74');
+        </script>
+
     </head>
     <body>
         <!-- Navigation -->
