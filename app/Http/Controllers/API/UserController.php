@@ -177,6 +177,60 @@ class UserController extends Controller
         }  
     }
 
+    public function addDeviceToken(Request $request, $id) {
+        try {
+            $validator = Validator::make(
+                $request->all(),
+                [
+                    'device_token' => ['required', 'string'],
+                ],
+                [
+                    'device_token.required' => "Device token is required",
+                ]
+            );
+
+            if ($validator->fails()) {
+                $response = array();
+                $errors = collect(); // Initialize an empty collection for errors
+                if ($validator->errors()->any()) {
+                    foreach ($validator->errors()->all() as $error) { // Use all() to get all error messages
+                        $errors->push($error); // Push each error into the collection
+                    }
+                }
+                $response['data'] = [];
+                $response['message'] = $errors;  
+                $response['code'] = 400;
+
+                return response()->json($response, 400);
+            }
+
+            $user = User::findOrFail($id);
+            $deviceTokens = $user->device_tokens ? json_decode($user->device_tokens, true) : [];
+
+            if (!in_array($request->device_token, $deviceTokens)) {
+                $deviceTokens[] = $request->device_token;
+
+                if (count($deviceTokens) > 5) {
+                    array_shift($deviceTokens); // Remove the oldest token if more than 5
+                }
+                $user->device_tokens = json_encode($deviceTokens);
+                $user->save();
+            }
+
+            $response = array();
+            $response['data'] = $user;
+            $response['message'] = 'Device token added successfully';  
+            $response['code'] = 200;
+            return response()->json($response, 200);
+        } catch (Exception $e) {
+            $response = array();
+            $response['data'] = [];
+            $response['message'] = $e->getMessage();  
+            $response['code'] = 500;
+            return response()->json($response, 500);
+        }  
+    }
+
 
     public function destroy($id){
         try {

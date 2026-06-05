@@ -37,4 +37,8 @@ return [
         'base_url' => env('UPS_BASE_URL', 'https://wwwcie.ups.com'),
     ],
 
+    'firebase' => [
+        'credentials' => storage_path('app/firebase/serviceAccount.json'),
+    ],
+
 ];

@@ -9,13 +9,15 @@
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#packages">Packages</a></li>
-                        <li><a href="#booking">Book Now</a></li>
+                        <li><a href="{{ url('/#home') }}">Home</a></li>
+                        <li><a href="{{ route('description.disclaimer') }}">Disclaimer</a></li>
+                        <li><a href="{{ route('terms.use') }}">Terms of Use</a></li>
+                        <!-- <li><a href="#packages">Packages</a></li>
+                        <li><a href="#booking">Book Now</a></li> -->
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <!-- <div class="footer-section">
                     <h4>Connect With Us</h4>
                     <div class="social-links">
                         <a href="https://facebook.com/" class="social-link" target="_blank" aria-label="Facebook">
@@ -28,7 +30,7 @@
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Shreenath Ji Darshan Booking. All rights reserved.</p>
